@@ -11,8 +11,8 @@ Este proyecto tiene como objetivo diseñar, planificar y simular jardines person
 - HTML5 / CSS3
 - JavaScript
 - Python
-- Flask o Django (opcional según backend)
-- SQLite / MySQL
+- Vue.js / Bootstrap
+- SQLite / MariaDB
 - Git y GitHub
 
 
