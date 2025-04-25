@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FLORGAERFRA - Recomendaciones</title>
+  <style>
+    :root {
+      --color-light-green: #cce3cc;
+      --color-cream: #fefbea;
+      --color-brown: #7F5539;
+      --color-pale-ivory: #fefcf4;
+      --color-gray: #6C757D;
+      --color-mint: #e4f1da;
+      --color-off-white: #fffcf5;
+      --color-light-brown: #a88a74;
+      --color-white: #ffffff;
+      --color-light-gray: #d6d9dd;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--color-off-white);
+      margin: 0;
+      padding: 0;
+      color: var(--color-brown);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: var(--color-light-green);
+      padding: 15px 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 1.6em;
+      color: var(--color-brown);
+      margin: 0;
+      text-align: center;
+    }
+
+    nav {
+      position: absolute;
+      right: 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--color-brown);
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 30px;
+      width: 100%;
+      max-width: 700px;
+      background-color: var(--color-white);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      color: var(--color-light-brown);
+    }
+
+    h3 {
+      color: var(--color-brown);
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 20px;
+    }
+
+    .options button {
+      padding: 8px 12px;
+      border: 2px solid var(--color-light-green);
+      background-color: var(--color-pale-ivory);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      color: var(--color-brown);
+    }
+
+    .options button:hover {
+      background-color: var(--color-mint);
+    }
+
+    .submit-button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: var(--color-light-green);
+      color: var(--color-brown);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-button:hover {
+      background-color: var(--color-light-gray);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Img/logo imagen.png FLORGAERFRA</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Recomendaciones</a>
+      <a href="#">Mi Cuenta</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Cuéntanos sobre tu jardín</h2>
+
+    <h3>¿Qué tipo de clima tiene?</h3>
+    <div class="options">
+      <button>Tropical cálido</button>
+      <button>Templado</button>
+      <button>Frío</button>
+      <button>Desértico</button>
+    </div>
+
+    <h3>¿Qué tipo de suelo tiene?</h3>
+    <div class="options">
+      <button>Arenoso</button>
+      <button>Arcilloso</button>
+      <button>Fértil</button>
+      <button>No sé</button>
+    </div>
+
+    <h3>¿Cuánta luz solar recibe tu jardín?</h3>
+    <div class="options">
+      <button>Sol pleno</button>
+      <button>Semi-sombra</button>
+      <button>Sombra</button>
+    </div>
+
+    <h3>¿Con qué frecuencia puedes regar?</h3>
+    <div class="options">
+      <button>Diariamente</button>
+      <button>Moderado</button>
+      <button>Poca frecuencia</button>
+    </div>
+
+    <h3>¿Qué tipo de plantas te interesan?</h3>
+    <div class="options">
+      <button>Ornamentales</button>
+      <button>Medicinales</button>
+      <button>Frutales</button>
+      <button>Suculentas</button>
+    </div>
+
+    <button class="submit-button">Ver recomendaciones</button>
+  </div>
+
+</body>
+</html>
