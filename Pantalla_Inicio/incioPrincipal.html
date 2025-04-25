@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Florgaerra</title>
+  <link rel="stylesheet" href="inicioPrincipal.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">🌱 FLORGAERRA</div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Recomendaciones</a>
+      <a href="#">Mi cuenta</a>
+      <span class="icon">👤</span>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Recomendación de especies para tu jardín</h1>
+    <p>Basado en tu ubicación<br>
+    Te recomendamos especies para clima tropical cálido.<br>
+    ¿Deseas ajustar los filtros manualmente?</p>
+    
+    <div class="toggle-buttons">
+      <button>SÍ</button>
+      <button>NO</button>
+    </div>
+
+    <form>
+      <label for="suelo">Tipo de suelo</label>
+      <input type="text" id="suelo" placeholder="Arenoso" />
+
+      <label for="agua">Disponibilidad de agua</label>
+      <input type="text" id="agua" placeholder="Moderada" />
+
+      <label for="luz">Exposición a la luz</label>
+      <input type="text" id="luz" placeholder="Sol pleno" />
+
+      <label for="espacio">Tamaño del espacio</label>
+      <select id="espacio">
+        <option value="mediano">Mediano (5-20m²)</option>
+        >
+      </select>
+
+      <label for="proposito">Propósito (opcional)</label>
+      <input type="text" id="proposito" placeholder="Decorativas, Comestibles, Aromáticas..." />
+    </form>
+  </main>
+</body>
+</html>
