@@ -1,0 +1,111 @@
+:root {
+    --color-light-green: #A3B18A;
+    --color-cream: #F6EEC9;
+    --color-brown: #7F5539;
+    --color-pale-ivory: #FAF3E0;
+    --color-gray: #6C757D;
+    --color-mint: #D4E2C3;
+    --color-off-white: #FAF8EF;
+    --color-light-brown: #A57D5D;
+    --color-white: #FFFCF5;
+    --color-light-gray: #A0A7B0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--color-pale-ivory);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: var(--color-white);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--color-brown);
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.button-row button {
+    width: 48%;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--color-mint);
+    border-radius: 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: var(--color-off-white);
+    color: var(--color-gray);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-light-green);
+}
+
+button {
+    padding: 12px;
+    background-color: var(--color-light-green);
+    color: var(--color-white);
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: var(--color-brown);
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.forgot-password a {
+    color: var(--color-light-brown);
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
