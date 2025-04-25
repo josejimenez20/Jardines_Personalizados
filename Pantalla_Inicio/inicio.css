@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  .logo {
+    font-weight: bold;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fffcfc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-icon {
+    font-size: 50px;
+    margin: 40px 0;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  .btn {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #555;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+  }
