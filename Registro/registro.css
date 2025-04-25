@@ -1,0 +1,106 @@
+:root {
+    --color-light-green: #A3B18A;
+    --color-cream: #F6EEC9;
+    --color-brown: #7F5539;
+    --color-pale-ivory: #FAF3E0;
+    --color-gray: #6C757D;
+    --color-mint: #D4E2C3;
+    --color-off-white: #FAF8EF;
+    --color-light-brown: #A57D5D;
+    --color-white: #FFFCF5;
+    --color-light-gray: #A0A7B0;
+}
+
+body {
+    background-color: var(--color-off-white);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: auto;
+    background-color: var(--color-white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 120px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--color-brown);
+    margin-bottom: 5px;
+}
+
+.subtext {
+    text-align: center;
+    color: var(--color-gray);
+    margin-bottom: 25px;
+}
+
+form label {
+    display: block;
+    margin: 12px 0 5px;
+    color: var(--color-light-brown);
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 8px;
+    background-color: var(--color-cream);
+    margin-bottom: 10px;
+}
+
+input::placeholder {
+    color: var(--color-gray);
+}
+
+button {
+    width: 100%;
+    background-color: var(--color-light-green);
+    color: var(--color-brown);
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: var(--color-mint);
+}
+
+.note {
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-gray);
+    margin-top: 10px;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: var(--color-light-brown);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
