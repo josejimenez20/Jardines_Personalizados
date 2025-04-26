@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -5,16 +6,16 @@
   <title>FLORGAERFRA - Recomendaciones</title>
   <style>
     :root {
-      --color-light-green: #cce3cc;
-      --color-cream: #fefbea;
-      --color-brown: #7F5539;
-      --color-pale-ivory: #fefcf4;
-      --color-gray: #6C757D;
-      --color-mint: #e4f1da;
-      --color-off-white: #fffcf5;
+      --color-light-green: #b2c59c;
+      --color-cream: #f9f5eb;
+      --color-brown: #7f5539;
+      --color-pale-ivory: #ffffff;
+      --color-gray: #6c757d;
+      --color-mint: #d8e5cf;
+      --color-off-white: #f9f5eb;
       --color-light-brown: #a88a74;
       --color-white: #ffffff;
-      --color-light-gray: #d6d9dd;
+      --color-light-gray: #d8e5cf;
     }
 
     body {
@@ -34,28 +35,34 @@
       padding: 15px 20px;
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      position: relative;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      height: 50px;
     }
 
     header h1 {
       font-size: 1.6em;
       color: var(--color-brown);
       margin: 0;
-      text-align: center;
     }
 
     nav {
-      position: absolute;
-      right: 20px;
       display: flex;
       gap: 15px;
     }
 
     nav a {
       text-decoration: none;
-      color: var(--color-brown);
+      color: var(--color-white);
       font-weight: bold;
     }
 
@@ -71,7 +78,7 @@
 
     h2 {
       font-size: 1.2em;
-      color: var(--color-light-brown);
+      color: var(--color-brown);
     }
 
     h3 {
@@ -105,7 +112,7 @@
       padding: 12px 24px;
       font-size: 1em;
       background-color: var(--color-light-green);
-      color: var(--color-brown);
+      color: var(--color-white);
       border: none;
       border-radius: 10px;
       cursor: pointer;
@@ -120,12 +127,14 @@
 <body>
 
   <header>
-    <h1>FLORGAERFRA</h1>
-    <img src="/Img/logo_jardinespersonalizados.png" alt="">
+    <div class="header-left">
+      <img src="/Img/logo_jardinespersonalizados.png" alt="Logo" class="logo">
+      <h1>FLORGAERFRA</h1>
+    </div>
     <nav>
       <a href="#">Inicio</a>
       <a href="#">Recomendaciones</a>
-      <a href="#">Mi Cuenta</a>
+      <a href="#">Mi Cuenta&nbsp;👤</a>
     </nav>
   </header>
 
