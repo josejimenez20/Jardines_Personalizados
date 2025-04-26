@@ -55,12 +55,12 @@ h1 {
 .subtext {
     text-align: center;
     color: var(--color-gray);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 form label {
     display: block;
-    margin: 12px 0 5px;
+    margin: 20px 0 5px;
     color: var(--color-light-brown);
     font-weight: bold;
 }
