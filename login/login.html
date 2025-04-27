@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/Img/logo_jardinespersonalizados.png" type="image/png">
     <style>
+        /* Estilos CSS para el formulario de inicio de sesión y registro */
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
         :root {
             --color-light-green: #A3B18A; 
             --color-cream: #F6EEC9;
@@ -18,8 +21,9 @@
             --color-light-gray: #A0A7B0;
             --color-accent: #588B76;  /* Color acento para la parte lateral */
         }
-        
+
         * {
+
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -114,9 +118,14 @@
         }
         
         .login-container {
-            left: 40%;
-            z-index: 1;
+           left: 40%;
+           z-index: 1;
+           height: 100%;
+           display: flex;
+           flex-direction: column;
+           justify-content: center; 
         }
+
         
         .register-container {
             right: 0;
@@ -367,7 +376,7 @@
             
             <!-- Panel lateral para registro (inicialmente oculto) -->
             <div class="side-panel register-panel">
-                <img src="/Img/logo_jardinespersonalizados.png" alt="Logo" class="logo">
+                <img src="/Img/logo_imagen.png" alt="Logo" class="logo">
                 <h2>¡Bienvenido!</h2>
                 <p>Inicie sesión con sus datos para acceder a sus recomendaciones personalizadas</p>
                 <button class="toggle-btn" onclick="toggleForms()">Iniciar Sesión</button>
@@ -380,20 +389,15 @@
                     <p>Accede a tu cuenta para ver tus recomendaciones</p>
                 </div>
                 
-                <div class="social-icons">
-                    <a href="#"><i class="fab">T</i></a>
-                    <a href="#"><i class="fab">G</i></a>
-                    <a href="#"><i class="fab">F</i></a>
-                </div>
-                
+
                 <form id="login-form">
                     <div class="form-group">
-                        <i class="fas">✉️</i>
+                        <i class="fas"></i>
                         <input type="email" placeholder="Correo electrónico" required>
                     </div>
                     
                     <div class="form-group">
-                        <i class="fas">🔒</i>
+                        <i class="fas"></i>
                         <input type="password" placeholder="Contraseña" required>
                     </div>
                     
@@ -414,22 +418,22 @@
                 
                 <form id="register-form">
                     <div class="form-group">
-                        <i class="fas">👤</i>
+                        <i class="fas"></i>
                         <input type="text" placeholder="Nombre" required>
                     </div>
                     
                     <div class="form-group">
-                        <i class="fas">✉️</i>
+                        <i class="fas"></i>
                         <input type="email" placeholder="Correo electrónico" required>
                     </div>
                     
                     <div class="form-group">
-                        <i class="fas">🔒</i>
+                        <i class="fas"></i>
                         <input type="password" placeholder="Contraseña" required>
                     </div>
                     
                     <div class="form-group">
-                        <i class="fas">📍</i>
+                        <i class="fas"></i>
                         <select id="municipio" required>
                             <option value="" disabled selected hidden>Selecciona un municipio</option>
                             <option value="alegria">Alegría</option>
@@ -466,12 +470,6 @@
         </div>
     </div>
     
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Florgaerra. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
     <script>
         function toggleForms() {
             const container = document.getElementById('container');
