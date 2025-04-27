@@ -6,12 +6,12 @@ body {
 }
 
 header {
-  background-color: #A3B18A;
+  background-color: #F6EEC9;
   padding: 10px 20px;
-  border-bottom: 1px solid #F6EEC9;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid #7F5539; /* Línea de separación */
 }
 
 .logo {
@@ -25,7 +25,7 @@ header {
 .titulo-app {
   font-family: 'Grow West', sans-serif;
   font-size: 30px;
-  color: #A57D5D; 
+  color: #A57D5D;
 }
 
 nav a {
@@ -85,47 +85,54 @@ input[type="text"], select {
   border-radius: 5px;
 }
 
+/* Estilo para los botones */
 button {
   margin-top: 10px;
   padding: 8px 15px;
   background-color: #A3B18A;
-  color: #000000;
+  color: #7F5539; /* Color de texto cambiado a #7F5539 */
   border: none;
   border-radius: 5px;
   cursor: pointer;
   animation-timing-function: ease-in-out;
   animation-duration: 0.3s;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s;
+}
+
+/* Efecto hover */
+button:hover {
+  background-color: #D4E2C3;
+  color: #7F5539; /* Mantiene el color de texto en hover */
+  transform: scale(1.05); /* Añade un pequeño aumento de tamaño */
+}
+
+/* Efecto active */
+button:active {
+  background-color: #A3B18A;
+  color: #7F5539; /* Mantiene el color de texto en active */
+  transform: scale(0.95); /* Reduce el tamaño del botón al presionarlo */
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
   transition: background-color 0.3s ease-in-out;
 }
 
-button:hover {
-  background-color: #D4E2C3;
-}
-
-button:active { 
-  background-color: #A3B18A;
-  animation-timing-function: ease-in-out; 
-  animation-duration: 0.3s;
-  transition: background-color 0.3s ease-in-out;  
-}
-
+/* Estilo para el botón deshabilitado */
 button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
   background-color: #D4E2C3;
-  color: #A57D5D; 
-  animation-timing-function: ease-in-out; 
+  color: #A57D5D;
+  animation-timing-function: ease-in-out;
   animation-duration: 0.3s;
-  transition: background-color 0.3s ease-in-out;  
-}         
+  transition: background-color 0.3s ease-in-out;
+}
 
 button:disabled:hover {
   cursor: not-allowed;
   opacity: 0.5;
   background-color: #D4E2C3;
-  color: #A57D5D; 
-  animation-timing-function: ease-in-out; 
+  color: #A57D5D;
+  animation-timing-function: ease-in-out;
   animation-duration: 0.3s;
-  transition: background-color 0.3s ease-in-out;  
-} 
-  
+  transition: background-color 0.3s ease-in-out;
+}
