@@ -29,7 +29,7 @@
 
 /* Estilo del cuerpo de la página */
 body {
-    background-color: var(--color-white); /* Color de fondo del body */
+    background-color: var(-color-pale-ivory); /* Color de fondo del body */
 }
 
 /* Contenedor principal */
@@ -49,26 +49,32 @@ header {
 /* Contenido del header */
 .header-content {
     display: flex;
-    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; /* Centra verticalmente */
+    align-items: center;
+    padding: 0 20px;
 }
 
 /* Ajuste para el logo */
 .logo {
     display: flex;
     align-items: center;
+    transform: scale(0.6); /* Escala el logo */
     margin-right: auto; /* Empuja los demás elementos a la derecha */
+    width: 10px; /* Más pequeño */
 }
 
 /* Icono del logo */
 .logo-icon {
     width: 8px; /* Más pequeño */
-    height: 25px; /* Más pequeño */
+    height: 40px; /* Más pequeño */
+    margin-right: 10px; /* Espacio entre icono y texto */
     fill: var(--color-light-green); /* Color del icono */
 }
 
 /* Texto del logo */
 .logo-text {
-    font-size: 20px; /* Más pequeño */
+    font-size: 30px; /* Más pequeño */
+    margin-left: 10px; /* Espacio entre icono y texto */
     font-weight: bold; /* Negrita */
     color: var(--color-brown); /* Color del texto */
 }
@@ -77,7 +83,7 @@ header {
 nav ul {
     display: flex; /* Flexbox en la lista */
     list-style: none; /* Sin viñetas */
-    gap: 15px; /* Espacio entre elementos */
+    gap: 10px; /* Espacio entre elementos */
     margin: 0; /* Sin márgenes */
     padding: 0; /* Sin relleno */
 }
@@ -143,7 +149,13 @@ nav li button.active {
     justify-content: center;
     color: white;
 }
-
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    gap: 20px;
+}
 /* Migas de pan (navegación secundaria) */
 .breadcrumbs {
     padding: 15px 0;
@@ -307,45 +319,13 @@ nav li button.active {
     display: none;
 }
 
-/* Mensaje de notificación */
-.notification {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--color-light-green);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    display: none; /* Inicialmente oculto */
-    z-index: 1000; /* Por encima de otros elementos */
-}
-
-/* Mostrar notificación */
-.notification.show {
-    display: block;
-    animation: fadeIn 0.3s, fadeOut 0.3s 2s forwards; /* Aparece y luego desaparece */
-}
-
-/* Animación para aparecer */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Animación para desaparecer */
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
-
-    </style>
+</style>
 </head>
 <body>
     <header>
         <div class="container header-content">
             <div class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24">
+                <svg class="logo-icon" >
                   <img src="/Img/logo_jardinespersonalizados.png" alt=""> 
                 </svg>
                 <span class="logo-text">FLORGAERFRA</span>
@@ -358,8 +338,7 @@ nav li button.active {
                 </ul>
             </nav>
             <div class="account-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12,12c2.2,0,4-1.8,4-4s-1.8-4-4-4s-4,1.8-4,4S9.8,12,12,12z M12,14c-3.3,0-10,1.7-10,5v3h20v-3C22,15.7,15.3,14,12,14z"/>
+                    <span class="icon">👤</span>
                 </svg>
             </div>
         </div>
@@ -530,8 +509,7 @@ nav li button.active {
         </div>
     </div>
 
-    <!-- Notificación -->
-    <div id="notification" class="notification">Redirigiendo...</div>
+   
 
     <script>
         // Simulación de cambio de página para botones de navegación
@@ -595,17 +573,7 @@ nav li button.active {
             });
         });
         
-        // Función para mostrar notificaciones
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.classList.add('show');
-            
-            // Quitar la notificación después de 2.5 segundos
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 2500);
-        }
+        
     </script>
 </body>
 </html>
