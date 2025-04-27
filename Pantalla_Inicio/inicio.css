@@ -1,50 +1,77 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 40px;
-  }
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 0 40px 40px;
+  background-color: #F6EEC9; /* Color crema de fondo */
+}
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    border-bottom: 1px solid #F6EEC9;
-  }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #F6EEC9; /* Color crema en el header */
+  border-bottom: 1px solid #A3B18A;
+}
 
-  .logo {
-    font-weight: bold;
-  }
+.logo {
+  font-weight: bold;
+  color: #7F5539; /* Color para el texto del logo */
+}
 
-  .icon {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #F6EEC9;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #A3B18A;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .main-icon {
-    font-size: 50px;
-    margin: 40px 0;
-  }
+.main-icon {
+  font-size: 50px;
+  margin: 20px 0;
+}
 
-  h1 {
-    font-size: 24px;
-  }
+h1 {
+  font-size: 24px;
+  color: #7F5539; /* Color para el texto del título */
+}
 
-  p {
-    font-size: 18px;
-    margin: 10px 0;
-  }
+p {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #7F5539; /* Color para el texto del párrafo */
+}
 
-  .btn {
-    margin-top: 30px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 2px solid #555;
-    background-color: rgb(255, 255, 255);
-    cursor: pointer;
-  }
+.btn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #A3B18A;
+  background-color: #D4E2C3;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s, color 0.3s;
+  color: #7F5539; /* Color de texto en el botón */
+}
+
+.btn:hover {
+  background-color: #F6EEC9;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: scale(1.05);
+  color: #7F5539; /* Mantiene el color de texto #7F5539 en hover */
+}
+
+.btn:active {
+  background-color: #e0d6aa;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transform: scale(0.95);
+  color: #7F5539; /* Mantiene el color de texto #7F5539 en el estado activo */
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #F6EEC9; /* Añade un borde sutil cuando el botón está enfocado */
+}
