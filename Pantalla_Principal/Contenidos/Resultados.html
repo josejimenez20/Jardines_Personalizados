@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLORGAERFRA - Recomendaciones de Plantas</title>
+    <title>Recomendaciones de Plantas</title>
     <link rel="shortcut icon" href="/Img/logo_imagen.png" type="image/png">
     <style>
         :root {
@@ -19,276 +19,326 @@
             --color-light-gray: #A0A7B0;
         }
 
+        /* Estilos generales para todos los elementos */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    margin: 0; /* Elimina márgenes predeterminados */
+    padding: 0; /* Elimina rellenos predeterminados */
+    box-sizing: border-box; /* Incluye padding y borde en el tamaño total del elemento */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente general */
+}
 
-        body {
-            background-color: var(--color-white);
-        }
+/* Estilo del cuerpo de la página */
+body {
+    background-color: var(--color-white); /* Color de fondo del body */
+}
 
-        .container {
-            max-width: 12000px;
-            margin: 0 auto;
-            padding: 10px;
-        }
+/* Contenedor principal */
+.container {
+    max-width: 12000px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 10px; /* Espaciado interno */
+}
 
-        /* Header styles */
-        header {
-            background-color: var(--color-pale-ivory);
-            border-bottom: 2px solid var(--color-light-green);
-            padding: 10px 0;
-        }
+/* Estilos del encabezado */
+header {
+    background-color: var(--color-pale-ivory); /* Color de fondo */
+    border-bottom: 2px solid var(--color-light-green); /* Borde inferior */
+    padding: 10px 0; /* Espaciado arriba y abajo */
+}
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* Contenido del header */
+.header-content {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+/* Ajuste para el logo */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto; /* Empuja los demás elementos a la derecha */
+}
 
-        .logo-icon {
-            width: 10px;
-            height: 40px;
-            fill: var(--color-light-green);
-        }
+/* Icono del logo */
+.logo-icon {
+    width: 8px; /* Más pequeño */
+    height: 25px; /* Más pequeño */
+    fill: var(--color-light-green); /* Color del icono */
+}
 
-        .logo-text {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--color-brown);
-        }
+/* Texto del logo */
+.logo-text {
+    font-size: 20px; /* Más pequeño */
+    font-weight: bold; /* Negrita */
+    color: var(--color-brown); /* Color del texto */
+}
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-        }
+/* Estilos de la navegación */
+nav ul {
+    display: flex; /* Flexbox en la lista */
+    list-style: none; /* Sin viñetas */
+    gap: 15px; /* Espacio entre elementos */
+    margin: 0; /* Sin márgenes */
+    padding: 0; /* Sin relleno */
+}
 
-        nav li button {
-            padding: 8px 10px;
-            background-color: var(--color-cream);
-            border: 1px solid var(--color-light-brown);
-            border-radius: 10px;
-            color: var(--color-brown);
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .header-content {
-            display: flex;
-           justify-content: space-between;
-          align-items: flex;
-     }
+/* Botones de la navegación */
+nav li button {
+    padding: 8px 15px; /* Espaciado interno */
+    background-color: var(--color-cream); /* Color de fondo */
+    border: 1px solid var(--color-light-brown); /* Borde */
+    border-radius: 10px; /* Bordes redondeados */
+    color: var(--color-brown); /* Color del texto */
+    font-weight: 500; /* Peso de fuente medio */
+    cursor: pointer; /* Cambia a puntero al pasar encima */
+    transition: background-color 0.3s; /* Transición suave */
+    font-size: 14px; /* Tamaño de fuente */
+    text-align: center; /* Centra el texto */
+    text-decoration: none; /* Sin subrayado */
+    outline: none; /* Sin contorno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-        nav li button:hover {
-            background-color: var(--color-mint);
-        }
+/* Ícono del usuario */
+.user-icon {
+    width: 32px; /* Tamaño del icono de usuario */
+    height: 32px;
+    margin-right: 10px; /* Espacio entre el usuario y los botones */
+}
 
-        .left-group {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
 
-        nav li button.active {
-            background-color: var(--color-light-green);
-            color: var(--color-white);
-        }
+/* Corrección en repetición de .header-content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex; /* Esta propiedad está mal, debería ser 'center' */
+}
 
-        .account-icon {
-            width: 30px;
-            height: 30px;
-            background-color: var(--color-light-gray);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
+/* Efecto hover en los botones de navegación */
+nav li button:hover {
+    background-color: var(--color-mint); /* Cambia color al pasar el mouse */
+}
 
-        /* Breadcrumbs */
-        .breadcrumbs {
-            padding: 15px 0;
-            color: var(--color-gray);
-        }
+/* Agrupación de elementos a la izquierda */
+.left-group {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espacio entre elementos */
+}
 
-        /* Filter section */
-        .filter-section {
-            margin: 20px 0;
-        }
+/* Botón de navegación activo */
+nav li button.active {
+    background-color: var(--color-light-green); /* Fondo verde claro */
+    color: var(--color-white); /* Texto blanco */
+}
 
-        .filter-criteria {
-            background-color: var(--color-cream);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
+/* Icono de la cuenta */
+.account-icon {
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-light-gray); /* Fondo gris claro */
+    border-radius: 50%; /* Forma circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
 
-        .filter-count {
-            text-align: right;
-            color: var(--color-gray);
-            margin-bottom: 10px;
-        }
+/* Migas de pan (navegación secundaria) */
+.breadcrumbs {
+    padding: 15px 0;
+    color: var(--color-gray); /* Color de texto gris */
+}
 
-        .filter-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
+/* Sección de filtros */
+.filter-section {
+    margin: 20px 0; /* Espaciado superior e inferior */
+}
 
-        .filter-btn {
-            background-color: var(--color-white);
-            border: 2px solid var(--color-light-green);
-            border-radius: 20px;
-            padding: 5px 15px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
+/* Criterios de filtrado */
+.filter-criteria {
+    background-color: var(--color-cream); /* Fondo color crema */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
 
-        .filter-btn.active {
-            background-color: var(--color-light-green);
-            color: white;
-        }
+/* Contador de filtros */
+.filter-count {
+    text-align: right; /* Alinea a la derecha */
+    color: var(--color-gray);
+    margin-bottom: 10px;
+}
 
-        .filter-btn:hover {
-            background-color: var(--color-mint);
-        }
+/* Botones de filtros */
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Permite que los botones se bajen a otra línea */
+}
 
-        /* Plant cards */
-        .plant-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
+/* Estilos de botón de filtro */
+.filter-btn {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-light-green);
+    border-radius: 20px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: all 0.3s; /* Transición general */
+}
 
-        .plant-card {
-            border: 2px solid var(--color-light-gray);
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: var(--color-off-white);
-            transition: transform 0.3s;
-        }
+/* Botón de filtro activo */
+.filter-btn.active {
+    background-color: var(--color-light-green);
+    color: white;
+}
 
-        .plant-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+/* Botón de filtro al pasar el mouse */
+.filter-btn:hover {
+    background-color: var(--color-mint);
+}
 
-        .plant-image {
-            height: 150px;
-            background-color: var(--color-pale-ivory);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* Grilla de tarjetas de plantas */
+.plant-grid {
+    display: grid; /* Uso de grid */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Columnas automáticas */
+    gap: 20px; /* Espacio entre tarjetas */
+}
 
-        .plant-icon {
-            width: 60px;
-            height: 60px;
-            fill: var(--color-light-brown);
-        }
+/* Tarjetas de plantas individuales */
+.plant-card {
+    border: 2px solid var(--color-light-gray);
+    border-radius: 10px;
+    overflow: hidden; /* Oculta el desbordamiento */
+    background-color: var(--color-off-white);
+    transition: transform 0.3s; /* Suaviza la transformación */
+}
 
-        .plant-info {
-            padding: 15px;
-        }
+/* Efecto hover en tarjetas */
+.plant-card:hover {
+    transform: translateY(-5px); /* Eleva ligeramente la tarjeta */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra ligera */
+}
 
-        .plant-name {
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 5px;
-            color: var(--color-brown);
-        }
+/* Imagen de planta en la tarjeta */
+.plant-image {
+    height: 150px;
+    background-color: var(--color-pale-ivory);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .plant-scientific {
-            font-style: italic;
-            color: var(--color-gray);
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
+/* Icono de planta */
+.plant-icon {
+    width: 60px;
+    height: 60px;
+    fill: var(--color-light-brown);
+}
 
-        .plant-tags {
-            display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
+/* Información de la planta */
+.plant-info {
+    padding: 15px;
+}
 
-        .plant-tag {
-            background-color: var(--color-mint);
-            color: var(--color-brown);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
+/* Nombre de la planta */
+.plant-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--color-brown);
+}
 
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-            gap: 10px;
-        }
+/* Nombre científico de la planta */
+.plant-scientific {
+    font-style: italic;
+    color: var(--color-gray);
+    margin-bottom: 10px;
+    font-size: 14px;
+}
 
-        .page-btn {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--color-light-gray);
-            background-color: var(--color-white);
-            cursor: pointer;
-        }
+/* Etiquetas de características de las plantas */
+.plant-tags {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
 
-        .page-btn.active {
-            background-color: var(--color-light-green);
-            color: white;
-            border-color: var(--color-light-green);
-        }
+/* Estilo individual de cada etiqueta */
+.plant-tag {
+    background-color: var(--color-mint);
+    color: var(--color-brown);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
 
-        /* Clase para plantas ocultas */
-        .plant-card.hidden {
-            display: none;
-        }
+/* Paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+}
 
-        /* Mensaje de notificación */
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--color-light-green);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            display: none;
-            z-index: 1000;
-        }
+/* Botones de página */
+.page-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-light-gray);
+    background-color: var(--color-white);
+    cursor: pointer;
+}
 
-        .notification.show {
-            display: block;
-            animation: fadeIn 0.3s, fadeOut 0.3s 2s forwards;
-        }
+/* Botón de página activo */
+.page-btn.active {
+    background-color: var(--color-light-green);
+    color: white;
+    border-color: var(--color-light-green);
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+/* Clase para ocultar tarjetas de plantas */
+.plant-card.hidden {
+    display: none;
+}
 
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
+/* Mensaje de notificación */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-light-green);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    display: none; /* Inicialmente oculto */
+    z-index: 1000; /* Por encima de otros elementos */
+}
+
+/* Mostrar notificación */
+.notification.show {
+    display: block;
+    animation: fadeIn 0.3s, fadeOut 0.3s 2s forwards; /* Aparece y luego desaparece */
+}
+
+/* Animación para aparecer */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animación para desaparecer */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
     </style>
 </head>
 <body>
