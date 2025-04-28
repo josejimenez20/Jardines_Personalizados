@@ -5,80 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/Img/logo_jardinespersonalizados.png" type="image/png">
     <link rel="stylesheet" href="login.css">
+    <title>Login y Registro</title>
 </head>
 <body>
+    
     <div class="page">
         <div class="container" id="container">
-            <!-- Panel lateral para login (inicialmente visible) -->
+
+            <!-- Panel lateral para login -->
             <div class="side-panel login-panel">
                 <img src="/Img/logo_imagen.png" alt="Logo" class="logo">
                 <h2>¡Hola!</h2>
                 <p>Regístrese con sus datos personales para usar todas las funciones del sitio</p>
                 <button class="toggle-btn" onclick="toggleForms()">Crear Cuenta</button>
             </div>
-            
-            <!-- Panel lateral para registro (inicialmente oculto) -->
+
+            <!-- Panel lateral para registro -->
             <div class="side-panel register-panel">
                 <img src="/Img/logo_imagen.png" alt="Logo" class="logo">
                 <h2>¡Bienvenido!</h2>
                 <p>Inicie sesión con sus datos para acceder a sus recomendaciones personalizadas</p>
                 <button class="toggle-btn" onclick="toggleForms()">Iniciar Sesión</button>
-                <P>¿Ya tienes cuenta? <a href="/login/login.html"></a></P>
             </div>
-            
-            <!-- Formulario de Login (inicialmente visible) -->
+
+            <!-- Formulario de Login -->
             <div class="form-container login-container">
                 <div class="form-header">
                     <h1>Iniciar Sesión</h1>
                     <p>Accede a tu cuenta para ver tus recomendaciones</p>
                 </div>
-                
-                <!-- Cambiado a usar onclick directamente en el botón en lugar de un event listener -->
-                <form>
+                <form action="login.php" method="POST">
                     <div class="form-group">
-                        <i class="fas"></i>
-                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="email" name="correo" placeholder="Correo electrónico" required>
                     </div>
-                    
                     <div class="form-group">
-                        <i class="fas"></i>
-                        <input type="password" placeholder="Contraseña" required>
+                        <input type="password" name="contraseña" placeholder="Contraseña" required>
                     </div>
-                    
-                    <button type="button" class="btn" onclick="redirectToHome()">Iniciar Sesión</button>
+                    <button type="submit" class="btn">Iniciar Sesión</button>
                 </form>
-                
                 <div class="forgot-password">
                     <a href="#">¿Olvidaste tu contraseña?</a>
                 </div>
             </div>
-            
-            <!-- Formulario de Registro (inicialmente oculto) -->
+
+            <!-- Formulario de Registro -->
             <div class="form-container register-container">
                 <div class="form-header">
                     <h1>Crear Cuenta</h1>
                     <p>Comienza a recibir recomendaciones para tu jardín</p>
                 </div>
-                
-                <form>
+                <form action="registrar.php" method="POST">
                     <div class="form-group">
-                        <i class="fas"></i>
-                        <input type="text" placeholder="Nombre" required>
+                        <input type="text" name="nombre" placeholder="Nombre" required>
                     </div>
-                    
                     <div class="form-group">
-                        <i class="fas"></i>
-                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="email" name="correo" placeholder="Correo electrónico" required>
                     </div>
-                    
                     <div class="form-group">
-                        <i class="fas"></i>
-                        <input type="password" placeholder="Contraseña" required>
+                        <input type="password" name="contraseña" placeholder="Contraseña" required>
                     </div>
-                    
                     <div class="form-group">
-                        <i class="fas"></i>
-                        <select id="municipio" required>
+                        <select id="municipio" name="municipio" required>
                             <option value="" disabled selected hidden>Selecciona un municipio</option>
                             <option value="alegria">Alegría</option>
                             <option value="berlin">Berlín</option>
@@ -105,31 +92,19 @@
                             <option value="usulutan">Usulután</option>
                         </select>
                     </div>
-                    
                     <p class="note">Podés personalizar más tus recomendaciones después</p>
-                    
-                    <button type="button" class="btn" onclick="redirectToRegister()">Registrarme</button>
+                    <button type="submit" class="btn">Registrarme</button>
                 </form>
             </div>
+
         </div>
     </div>
-    
+
     <script>
         function toggleForms() {
             const container = document.getElementById('container');
             container.classList.toggle('show-register');
         }
-
-        function redirectToHome() {
-            // Redirigir a la página de inicio (ajusta la URL según sea necesario)
-            window.location.href = '/Inicio/inicio.html';
-        }
-        
-        function redirectToRegister() {
-            // Redirigir a la página de registro (ajusta la URL según sea necesario)
-            window.location.href = '/login/login.html';
-        }
-        
     </script>
 </body>
 </html>
