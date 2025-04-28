@@ -1,40 +1,79 @@
+:root {
+  --color-light-green: #A3B18A;
+  --color-cream: #F6EEC9;
+  --color-brown: #7F5539;
+  --color-light-brown: #A57D5D;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #F6EEC9;
   margin: 0;
   padding: 0;
 }
 
 header {
-  background-color: #F6EEC9;
-  padding: 10px 20px;
+  background-color: var(--color-cream);
+  padding: 30px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #7F5539; /* Línea de separación */
+  border-bottom: 1px solid #E0D8B0;
+  border-bottom: 3px solid #C2C9AB;
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 18px;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
 .titulo-app {
-  font-family: 'Grow West', sans-serif;
-  font-size: 30px;
-  color: #A57D5D;
+  font-weight: bold;
+  color: #5e301f;
+  font-size: 18px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
 }
 
 nav a {
-  margin-right: 15px;
+  margin-right: 10px;
   text-decoration: none;
-  color: #F6EEC9;
+  color: #333;
+  background-color: var(--color-cream);
+  border: 1px solid #C2C9AB;
+  border-radius: 15px;
+  padding: 8px 15px;
+  font-size: 14px;
+}
+
+nav a.active {
+  background-color: var(--color-light-green);
+  color: var(--color-brown);
+  border: 1px solid var(--color-light-green);
 }
 
 .icon {
+  width: 35px;
+  height: 35px;
+  background-color: #c5c5c5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 20px;
 }
 
@@ -42,7 +81,7 @@ main {
   padding: 20px;
   max-width: 600px;
   margin: auto;
-  background-color: #F6EEC9;
+  background-color: var(--color-cream);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
   border-radius: 8px;
@@ -51,11 +90,13 @@ main {
 h1 {
   font-size: 20px;
   margin-bottom: 10px;
+  color: var(--color-brown);
 }
 
 p {
   font-size: 14px;
   margin-bottom: 15px;
+  color: var(--color-brown);
 }
 
 .toggle-buttons {
@@ -76,6 +117,7 @@ form {
 label {
   margin-top: 10px;
   font-weight: bold;
+  color: var(--color-brown);
 }
 
 input[type="text"], select {
@@ -89,8 +131,8 @@ input[type="text"], select {
 button {
   margin-top: 10px;
   padding: 8px 15px;
-  background-color: #A3B18A;
-  color: #7F5539; /* Color de texto cambiado a #7F5539 */
+  background-color: var(--color-light-green);
+  color: var(--color-brown);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -102,15 +144,15 @@ button {
 /* Efecto hover */
 button:hover {
   background-color: #D4E2C3;
-  color: #7F5539; /* Mantiene el color de texto en hover */
-  transform: scale(1.05); /* Añade un pequeño aumento de tamaño */
+  color: var(--color-brown);
+  transform: scale(1.05);
 }
 
 /* Efecto active */
 button:active {
-  background-color: #A3B18A;
-  color: #7F5539; /* Mantiene el color de texto en active */
-  transform: scale(0.95); /* Reduce el tamaño del botón al presionarlo */
+  background-color: var(--color-light-green);
+  color: var(--color-brown);
+  transform: scale(0.95);
   animation-timing-function: ease-in-out;
   animation-duration: 0.3s;
   transition: background-color 0.3s ease-in-out;
@@ -121,7 +163,7 @@ button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
   background-color: #D4E2C3;
-  color: #A57D5D;
+  color: var(--color-light-brown);
   animation-timing-function: ease-in-out;
   animation-duration: 0.3s;
   transition: background-color 0.3s ease-in-out;
@@ -131,7 +173,7 @@ button:disabled:hover {
   cursor: not-allowed;
   opacity: 0.5;
   background-color: #D4E2C3;
-  color: #A57D5D;
+  color: var(--color-light-brown);
   animation-timing-function: ease-in-out;
   animation-duration: 0.3s;
   transition: background-color 0.3s ease-in-out;

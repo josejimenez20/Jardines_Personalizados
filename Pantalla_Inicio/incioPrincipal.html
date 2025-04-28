@@ -12,15 +12,17 @@
 <body>
   <header>
     <div class="logo">
-      <img src="/Img/logo_jardinespersonalizados.png" alt=""> 
+      <img src="/Img/logo_jardinespersonalizados.png" alt="Logo de FLORGAERFRA">
       <span class="titulo-app">FLORGAERFRA</span>
     </div>
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Recomendaciones</a>
-      <a href="#">Mi cuenta</a>
+    <div class="nav-container">
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#" class="active">Recomendaciones</a>
+        <a href="#">Mi Cuenta</a>
+      </nav>
       <span class="icon">👤</span>
-    </nav>
+    </div>
   </header>
 
   <main>
@@ -33,25 +35,24 @@
       <button>SÍ</button>
       <button>NO</button>
     </div>
-
+    
     <form>
       <label for="suelo">Tipo de suelo</label>
       <input type="text" id="suelo" placeholder="Arenoso" />
-
+      
       <label for="agua">Disponibilidad de agua</label>
       <input type="text" id="agua" placeholder="Moderada" />
-
+      
       <label for="luz">Exposición a la luz</label>
       <input type="text" id="luz" placeholder="Sol pleno" />
-
+      
       <label for="espacio">Tamaño del espacio</label>
       <select id="espacio">
         <option value="mediano">Mediano (5-20m²)</option>
       </select>
-
+      
       <label for="proposito">Propósito (opcional)</label>
       <input type="text" id="proposito" placeholder="Decorativas, Comestibles, Aromáticas..." />
-
     </form>
     <button type="submit">Siguiente</button>
   </main>
