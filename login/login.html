@@ -32,8 +32,8 @@
                     <p>Accede a tu cuenta para ver tus recomendaciones</p>
                 </div>
                 
-
-                <form id="login-form">
+                <!-- Cambiado a usar onclick directamente en el botón en lugar de un event listener -->
+                <form>
                     <div class="form-group">
                         <i class="fas"></i>
                         <input type="email" placeholder="Correo electrónico" required>
@@ -44,7 +44,7 @@
                         <input type="password" placeholder="Contraseña" required>
                     </div>
                     
-                    <button type="submit" class="btn">Iniciar Sesión</button>
+                    <button type="button" class="btn" onclick="redirectToHome()">Iniciar Sesión</button>
                 </form>
                 
                 <div class="forgot-password">
@@ -59,7 +59,7 @@
                     <p>Comienza a recibir recomendaciones para tu jardín</p>
                 </div>
                 
-                <form id="register-form">
+                <form>
                     <div class="form-group">
                         <i class="fas"></i>
                         <input type="text" placeholder="Nombre" required>
@@ -107,7 +107,7 @@
                     
                     <p class="note">Podés personalizar más tus recomendaciones después</p>
                     
-                    <button type="submit" class="btn">Registrarme</button>
+                    <button type="button" class="btn" onclick="redirectToHome()">Registrarme</button>
                 </form>
             </div>
         </div>
@@ -118,6 +118,17 @@
             const container = document.getElementById('container');
             container.classList.toggle('show-register');
         }
+
+        function redirectToHome() {
+            // Redirigir a la página de inicio (ajusta la URL según sea necesario)
+            window.location.href = '/Inicio/inicio.html';
+        }
+        
+        function redirectToRegister() {
+            // Redirigir a la página de registro (ajusta la URL según sea necesario)
+            window.location.href = '/login/login.html';
+        }
+        
     </script>
 </body>
 </html>

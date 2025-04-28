@@ -32,8 +32,8 @@
     ¿Deseas ajustar los filtros manualmente?</p>
     
     <div class="toggle-buttons">
-      <button>SÍ</button>
-      <button>NO</button>
+      <button type="button" class="btn" onclick="redirectToRegister()">si</button>
+      <button type="button" class="btn" onclick="redirectToHome()">no</button>
     </div>
     
     <form>
@@ -54,7 +54,18 @@
       <label for="proposito">Propósito (opcional)</label>
       <input type="text" id="proposito" placeholder="Decorativas, Comestibles, Aromáticas..." />
     </form>
-    <button type="submit">Siguiente</button>
+    <button type="button" class="btn" onclick="redirectToRegister()">Registrarme</button>
   </main>
+
+  <script>
+    function redirectToRegister() {
+      // Redirigir a la página de registro (ajusta la URL según sea necesario)
+      window.location.href = '/Pantalla_Principal/Contenidos/Resultados.html';
+    }
+    function redirectToHome() {
+            // Redirigir a la página de inicio (ajusta la URL según sea necesario)
+            window.location.href = '/Pantalla_Principal/Contenidos/Pantalla4.html';
+        }
+    </script>
 </body>
 </html>
