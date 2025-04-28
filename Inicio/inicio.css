@@ -99,20 +99,20 @@ h1 {
 }
 
 p {
-  font-size: 18px;
-  margin: 10px 0;
+  font-size: 20px;
+  margin: px 0;
   color: #7F5539;
 }
 
 .btn {
   margin-top: 30px;
-  padding: 10px 20px;
+  padding: 10px 30px;
   font-size: 16px;
   border: 2px solid #A3B18A;
   background-color: #D4E2C3;
   cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s, color 0.3s;
+  border-radius: 11px;
+  transition: background-color 0.6s, box-shadow 0.6s, transform 0.2s, color 0.3s;
   color: #7F5539;
 }
 
