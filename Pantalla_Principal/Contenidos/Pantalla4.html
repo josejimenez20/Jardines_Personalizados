@@ -7,21 +7,21 @@
   <link rel="shortcut icon" href="/Img/logo_imagen.png" type="image/png">
   <style>
     :root {
-    --color-light-green: #A3B18A;
-    --color-cream: #F6EEC9;
-    --color-brown: #7F5539;
-    --color-pale-ivory: #FAF3E0;
-    --color-gray: #6C757D;
-    --color-mint: #D4E2C3;
-    --color-off-white: #FAF8EF;
-    --color-light-brown: #A57D5D;
-    --color-white: #FFFCF5;
-    --color-light-gray: #A0A7B0;
-}
+      --color-light-green: #A3B18A;
+      --color-cream: #F6EEC9;
+      --color-brown: #7F5539;
+      --color-pale-ivory: #FAF3E0;
+      --color-gray: #6C757D;
+      --color-mint: #D4E2C3;
+      --color-off-white: #FAF8EF;
+      --color-light-brown: #A57D5D;
+      --color-white: #FFFCF5;
+      --color-light-gray: #A0A7B0;
+    }
 
     body {
       font-family: Arial, sans-serif;
-      background-color: var#FAF8EF;
+      background-color: var(--color-off-white);
       margin: 0;
       padding: 0;
       color: var(--color-brown);
@@ -32,39 +32,90 @@
     }
 
     header {
-      background-color: var(--color-light-green);
-      padding: 15px 20px;
+      background-color: var(--color-cream);
+      padding: 30px 20px;
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid #E0D8B0;
+      border-bottom: 3px solid #C2C9AB;
+      box-sizing: border-box;
     }
 
-    .header-left {
+    .logo-container {
       display: flex;
       align-items: center;
-      gap: 10px;
+      width: 20%;
+    }
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
     }
 
     .logo {
-      height: 50px;
+      font-weight: bold;
+      color: #723b28;
+      font-size: 18px;
     }
 
-    header h1 {
-      font-size: 1.6em;
-      color: var(--color-brown);
-      margin: 0;
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 80%;
+      gap: 15px;
     }
 
     nav {
       display: flex;
-      gap: 15px;
+      align-items: center;
     }
 
-    nav a {
-      text-decoration: none;
-      color: var(--color-white);
-      font-weight: bold;
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      padding: 8px 15px;
+      cursor: pointer;
+      background-color: transparent;
+      border: 1px solid #C2C9AB;
+      border-radius: 11px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    #btn-inicio {
+      background-color: var(--color-cream);
+    }
+
+    #btn-recomendaciones {
+      background-color: var(--color-light-green);
+      color: white;
+      border: 1px solid var(--color-light-green);
+    }
+
+    #btn-cuenta {
+      background-color: var(--color-cream);
+    }
+
+    .icon {
+      width: 35px;
+      height: 35px;
+      background-color: #DDD;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 15px;
+      font-size: 20px;
     }
 
     .container {
@@ -128,15 +179,20 @@
 <body>
 
   <header>
-    <div class="header-left">
-      <img src="/Img/logo_jardinespersonalizados.png" alt="Logo" class="logo">
-      <h1>FLORGAERFRA</h1>
+    <div class="logo-container">
+      <img src="/Img/logo_jardinespersonalizados.png" alt="Logo de FLORGAERFRA" class="logo-img">
+      <div class="logo">FLORGAERFRA</div>
     </div>
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Recomendaciones</a>
-      <a href="#">Mi Cuenta&nbsp;👤</a>
-    </nav>
+    <div class="nav-container">
+      <nav>
+        <ul>
+          <li><button id="btn-inicio" class="nav-btn">Inicio</button></li>
+          <li><button id="btn-recomendaciones" class="nav-btn">Recomendaciones</button></li>
+          <li><button id="btn-cuenta" class="nav-btn">Mi Cuenta</button></li>
+        </ul>
+      </nav>
+      <div class="icon">👤</div>
+    </div>
   </header>
 
   <div class="container">
@@ -182,6 +238,6 @@
 
     <button class="submit-button">Ver recomendaciones</button>
   </div>
-
+  
 </body>
 </html>
