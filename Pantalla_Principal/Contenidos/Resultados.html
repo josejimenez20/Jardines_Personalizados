@@ -573,7 +573,177 @@ nav{
             });
         });
         
+        // Almacena la información de cada planta para usar en la página de detalle
+const plantasInfo = {
+    "hibisco": {
+        nombre: "Hibisco",
+        nombreCientifico: "Hibiscus rosa-sinensis",
+        imagen: "/Img/R (1).jpeg",
+        descripcion: "Arbusto tropical de flores grandes y vistosas, sus flores duran 7-2 días y atraen colibríes y mariposas. Ideal para jardines tropicales y soleados.",
+        cuidados: [
+            "Riego abundante y regular",
+            "Sol pleno",
+            "Clima tropical cálido"
+        ],
+        recomendaciones: [
+            "Perfecta para tu clima",
+            "Se adapta a suelo arenoso",
+            "Florece abundantemente"
+        ],
+        etiquetas: ["Ornamental", "Sol", "Arbusto"]
+    },
+    "limon": {
+        nombre: "Limón",
+        nombreCientifico: "Citrus limon",
+        imagen: "/Img/FUR56L7KBBH4JLMFMJ2TFOCNZI.avif",
+        descripcion: "Árbol frutal perenne que produce frutos cítricos de sabor ácido. Sus flores blancas son aromáticas y su follaje verde brillante es perenne.",
+        cuidados: [
+            "Riego moderado",
+            "Sol pleno",
+            "Proteger de heladas"
+        ],
+        recomendaciones: [
+            "Ideal para clima tropical",
+            "Produce frutos todo el año",
+            "Perfecto para macetas grandes"
+        ],
+        etiquetas: ["Frutal", "Sol", "Perenne"]
+    },
+    "aloe": {
+        nombre: "Aloe Vera",
+        nombreCientifico: "Aloe barbadensis",
+        imagen: "/Img/92364.webp",
+        descripcion: "Planta suculenta medicinal con hojas carnosas que contienen un gel transparente utilizado para tratamientos de la piel y propiedades curativas.",
+        cuidados: [
+            "Riego escaso",
+            "Semi-sol",
+            "Suelo bien drenado"
+        ],
+        recomendaciones: [
+            "Planta medicinal útil",
+            "Requiere poco mantenimiento",
+            "Resistente a sequías"
+        ],
+        etiquetas: ["Medicinal", "Semi-sol", "Suculenta"]
+    },
+    "gardenia": {
+        nombre: "Gardenia",
+        nombreCientifico: "Gardenia jasminoides",
+        imagen: "/Img/R.jpeg",
+        descripcion: "Arbusto ornamental con flores blancas extremadamente fragantes. Su follaje es verde oscuro y brillante, ideal para jardines aromáticos.",
+        cuidados: [
+            "Riego regular",
+            "Semi-sol",
+            "Suelo ácido"
+        ],
+        recomendaciones: [
+            "Flores muy aromáticas",
+            "Elegante para jardines",
+            "Atrae polinizadores"
+        ],
+        etiquetas: ["Ornamental", "Semi-sol", "Arbusto"]
+    },
+    "menta": {
+        nombre: "Menta",
+        nombreCientifico: "Mentha spicata",
+        imagen: "/Img/OIP.jpeg",
+        descripcion: "Hierba aromática perenne con hojas muy fragantes. Es invasiva y se propaga fácilmente, ideal para té y usos culinarios.",
+        cuidados: [
+            "Riego frecuente",
+            "Sol parcial",
+            "Contener su crecimiento"
+        ],
+        recomendaciones: [
+            "Aromática y refrescante",
+            "Fácil de cultivar",
+            "Múltiples usos culinarios"
+        ],
+        etiquetas: ["Medicinal", "Sol parcial", "Hierba"]
+    },
+    "papaya": {
+        nombre: "Papaya",
+        nombreCientifico: "Carica papaya",
+        imagen: "/Img/Planta-de-Papaya-10-1024x768.jpg",
+        descripcion: "Árbol frutal de rápido crecimiento con tallos huecos y frutos dulces. Su crecimiento es vertical y produce frutos durante todo el año.",
+        cuidados: [
+            "Riego abundante",
+            "Sol pleno",
+            "Proteger del viento"
+        ],
+        recomendaciones: [
+            "Crecimiento rápido",
+            "Frutos nutritivos",
+            "Adaptado a clima tropical"
+        ],
+        etiquetas: ["Frutal", "Sol", "Árbol"]
+    },
+    "palma": {
+        nombre: "Palma Areca",
+        nombreCientifico: "Dypsis lutescens",
+        imagen: "/Img/OIP (1).jpeg",
+        descripcion: "Palmera elegante con hojas arqueadas y tallos múltiples. Ideal como planta interior o para dar sombra parcial en exteriores.",
+        cuidados: [
+            "Riego moderado",
+            "Sombra parcial",
+            "Alta humedad"
+        ],
+        recomendaciones: [
+            "Elegante y decorativa",
+            "Purifica el aire",
+            "Fácil adaptación"
+        ],
+        etiquetas: ["Decorativa", "Sombra parcial", "Palma"]
+    },
+    "bambu": {
+        nombre: "Bambú",
+        nombreCientifico: "Bambusa vulgaris",
+        imagen: "/Img/2feb137bb1b7.webp",
+        descripcion: "Gramínea de rápido crecimiento que forma cañas huecas. Excelente como cortavientos, barrera visual o elemento arquitectónico.",
+        cuidados: [
+            "Riego abundante",
+            "Sol parcial",
+            "Contener su propagación"
+        ],
+        recomendaciones: [
+            "Crecimiento muy rápido",
+            "Elemento arquitectónico",
+            "Cortavientos eficaz"
+        ],
+        etiquetas: ["Decorativa", "Sol parcial", "Gramínea"]
+    }
+};
+
+// Guardar la información de la planta al hacer clic y navegar a la página de detalle
+document.querySelectorAll('.plant-card').forEach(card => {
+    card.addEventListener('click', function() {
+        // Obtenemos la categoría y nombre de la planta
+        const categoria = this.getAttribute('data-category');
+        const nombrePlanta = this.querySelector('.plant-name').textContent.toLowerCase();
         
+        // Identificamos la planta según su nombre
+        let plantaId = "";
+        if (nombrePlanta.includes('hibisco')) plantaId = "hibisco";
+        else if (nombrePlanta.includes('limón')) plantaId = "limon";
+        else if (nombrePlanta.includes('aloe')) plantaId = "aloe";
+        else if (nombrePlanta.includes('gardenia')) plantaId = "gardenia";
+        else if (nombrePlanta.includes('menta')) plantaId = "menta";
+        else if (nombrePlanta.includes('papaya')) plantaId = "papaya";
+        else if (nombrePlanta.includes('palma')) plantaId = "palma";
+        else if (nombrePlanta.includes('bambú')) plantaId = "bambu";
+        
+        // Guardar información de la planta en localStorage
+        if (plantaId && plantasInfo[plantaId]) {
+            localStorage.setItem('plantaSeleccionada', JSON.stringify(plantasInfo[plantaId]));
+            // Imprime mensaje para depurar
+            console.log('/Pantalla_Principal/Contenidos/Detalle_de_planta.html', plantasInfo[plantaId]);
+            // Redirigir a la página de detalle con la ruta completa
+            window.location.href = '/Pantalla_Principal/Contenidos/Detalle_de_planta.html';
+        } else {
+            console.error('No se encontró información para la planta:', nombrePlanta);
+        }
+    });
+});
+     
     </script>
 </body>
 </html>

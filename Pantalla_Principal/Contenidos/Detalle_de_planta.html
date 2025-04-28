@@ -285,6 +285,74 @@
             </div>
         </div>
     </main>
-
+     
+    <script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Recuperar la información de la planta seleccionada
+        const plantaData = JSON.parse(localStorage.getItem('plantaSeleccionada'));
+        
+        // Si no hay datos, redirigir a la página principal
+        if (!plantaData) {
+            window.location.href = '/Pantalla_Principal/Contenidos/recomendaciones.html';
+            return;
+        }
+        
+        // Actualizar el título de la página
+        document.title = `${plantaData.nombre} - Detalle de Planta`;
+        
+        // Actualizar la imagen de la planta
+        const imagenPlanta = document.querySelector('.imagen-planta img');
+        if (imagenPlanta) {
+            imagenPlanta.src = plantaData.imagen;
+            imagenPlanta.alt = plantaData.nombre;
+        }
+        
+        // Actualizar el nombre y nombre científico
+        document.querySelector('h3').textContent = plantaData.nombre;
+        document.querySelector('p > i').textContent = plantaData.nombreCientifico;
+        
+        // Actualizar las etiquetas
+        const tagsContainer = document.querySelector('.tags');
+        tagsContainer.innerHTML = '';
+        plantaData.etiquetas.forEach(tag => {
+            const span = document.createElement('span');
+            span.textContent = tag;
+            tagsContainer.appendChild(span);
+        });
+        
+        // Actualizar la descripción
+        document.querySelector('.descripcion p').textContent = plantaData.descripcion;
+        
+        // Actualizar los cuidados principales
+        const cuidadosLista = document.querySelector('.cuidados ol');
+        cuidadosLista.innerHTML = '';
+        plantaData.cuidados.forEach((cuidado, index) => {
+            const li = document.createElement('li');
+            li.textContent = cuidado;
+            cuidadosLista.appendChild(li);
+        });
+        
+        // Actualizar las recomendaciones
+        const recomendacionesLista = document.querySelector('.recomendaciones ul');
+        recomendacionesLista.innerHTML = '';
+        plantaData.recomendaciones.forEach(recomendacion => {
+            const li = document.createElement('li');
+            li.textContent = recomendacion;
+            recomendacionesLista.appendChild(li);
+        });
+        
+        // Configurar botón para volver a recomendaciones
+        document.getElementById('btn-recomendaciones').addEventListener('click', function() {
+            window.location.href = '/Pantalla_Principal/Contenidos/recomendaciones.html';
+        });
+        
+        // Configurar botón para agregar a "Mis Plantas"
+        document.querySelector('.boton-agregar button').addEventListener('click', function() {
+            // Aquí se implementaría la lógica para agregar a "Mis Plantas"
+            alert(`¡${plantaData.nombre} ha sido agregada a tus plantas!`);
+        });
+    });
+</script>
 </body>
 </html>
