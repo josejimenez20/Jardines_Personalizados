@@ -5,365 +5,600 @@
     <title>Mis Plantas</title>
     <style>
         :root {
-    --color-light-green: #A3B18A;
-    --color-cream: #F6EEC9;
-    --color-brown: #7F5539;
-    --color-pale-ivory: #FAF3E0;
-    --color-gray: #6C757D;
-    --color-mint: #D4E2C3;
-    --color-off-white: #FAF8EF;
-    --color-light-brown: #A57D5D;
-    --color-white: #FFFCF5;
-    --color-light-gray: #A0A7B0;
-}
+            --color-light-green: #A3B18A;
+            --color-cream: #F6EEC9;
+            --color-brown: #7F5539;
+            --color-pale-ivory: #FAF3E0;
+            --color-gray: #6C757D;
+            --color-mint: #D4E2C3;
+            --color-off-white: #FAF8EF;
+            --color-light-brown: #A57D5D;
+            --color-white: #FFFCF5;
+            --color-light-gray: #A0A7B0;
+        }
 
-body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f0f8f5;
-        margin: 20px;
-        text-align: center;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8f5;
+            margin: 20px;
+            text-align: center;
+        }
 
-    h1 {
-        font-size: 2.5rem;
-        color: var(--color-brown);
-        margin-bottom: 20px;
-        text-align: left;
-    } 
+        h1 {
+            font-size: 2.5rem;
+            color: var(--color-brown);
+            margin-bottom: 20px;
+            text-align: left;
+        } 
 
-    section {
-    background: #F6EEC9;
-    padding: 10px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: inline-;
-    text-align: left;
-    margin-left: 0; /* Alineado a la izquierda */
-}
+        section {
+            background: #F6EEC9;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: left;
+            margin-left: 0;
+            margin-bottom: 20px;
+            width: 100%;
+        }
 
-    label {
-        font-size: 1.2rem;
-        margin-right: 10px;
-        color: #555;
+        label {
+            font-size: 1.2rem;
+            margin-right: 10px;
+            color: #555;
+        }
 
-    }
+        button {    
+            background-color: var(--color-light-green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-    button {    
-        background-color: var(--color-light-green);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin: 5px;
-        border-radius: 10px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
+        button:hover {
+            background-color: var(--color-light-brown);
+        }
+        
+        header {
+            background-color: var(--color-pale-ivory);
+            border-bottom: 2px solid var(--color-light-green);
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
 
-    button:hover {
-        background-color: var(--color-light-brown);
-    }
-    
-    header {
-    background-color: var(--color-pale-ivory); /* Color de fondo */
-    border-bottom: 2px solid var(--color-light-green); /* Borde inferior */
-    padding: 10px 0;
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
 
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            transform: scale(0.6);
+            margin-right: auto;
+            width: 10px;
+        }
 
-.header-content {
-    display: flex;
-    justify-content: space-between; /* Centra verticalmente */
-    align-items: center;
-    padding: 0 20px;
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
 
-}
+        .logo-text {
+            font-size: 30px;
+            margin-left: 10px;
+            font-weight: bold;
+            color: var(--color-brown);
+        }
 
-.logo {
-    display: flex;
-    align-items: center;
-    transform: scale(0.6); /* Escala el logo */
-    margin-right: auto; /* Empuja los demás elementos a la derecha */
-    width: 10px; /* Más pequeño */
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Icono del logo */
-.logo-icon {
-    width: 8px; /* Más pequeño */
-    height: 40px; /* Más pequeño */
-    margin-right: 10px; /* Espacio entre icono y texto */
-    fill: var(--color-light-green); /* Color del icono */
-}
+        nav li button {
+            padding: 8px 15px;
+            background-color: var(--color-cream);
+            border: 1px solid var(--color-light-brown);
+            border-radius: 10px;
+            color: var(--color-brown);
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-/* Texto del logo */
-.logo-text {
-    font-size: 30px; /* Más pequeño */
-    margin-left: 10px; /* Espacio entre icono y texto */
-    font-weight: bold; /* Negrita */
-    color: var(--color-brown); /* Color del texto */
-}
+        .user-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+        }
 
-nav ul {
-    display: flex; /* Flexbox en la lista */
-    list-style: none; /* Sin viñetas */
-    gap: 10px; /* Espacio entre elementos */
-    margin: 0; /* Sin márgenes */
-    padding: 0; /* Sin relleno */
-}
+        nav li button:hover {
+            background-color: var(--color-mint);
+        }
 
-/* Botones de la navegación */
-nav li button {
-    padding: 8px 15px; /* Espaciado interno */
-    background-color: var(--color-cream); /* Color de fondo */
-    border: 1px solid var(--color-light-brown); /* Borde */
-    border-radius: 10px; /* Bordes redondeados */
-    color: var(--color-brown); /* Color del texto */
-    font-weight: 500; /* Peso de fuente medio */
-    cursor: pointer; /* Cambia a puntero al pasar encima */
-    transition: background-color 0.3s; /* Transición suave */
-    font-size: 14px; /* Tamaño de fuente */
-    text-align: center; /* Centra el texto */
-    text-decoration: none; /* Sin subrayado */
-    outline: none; /* Sin contorno */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+        .left-group {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
 
-/* Ícono del usuario */
-.user-icon {
-    width: 32px; /* Tamaño del icono de usuario */
-    height: 32px;
-    margin-right: 10px; /* Espacio entre el usuario y los botones */
-}
+        nav li button.active {
+            background-color: var(--color-light-green);
+            color: var(--color-white);
+        }
 
+        .account-icon {
+            width: 30px;
+            height: 30px;
+            background-color: var(--color-light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
 
-/* Corrección en repetición de .header-content */
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex; /* Esta propiedad está mal, debería ser 'center' */
-}
+        .plant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-/* Efecto hover en los botones de navegación */
-nav li button:hover {
-    background-color: var(--color-mint); /* Cambia color al pasar el mouse */
-}
+        .plant-card {
+            border: 2px solid var(--color-light-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: var(--color-off-white);
+            transition: transform 0.3s;
+        }
 
-.left-group {
-    display: flex;
-    align-items: center;
-    gap: 30px; /* Espacio entre elementos */
-}
+        .plant-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
 
-/* Botón de navegación activo */
-nav li button.active {
-    background-color: var(--color-light-green); /* Fondo verde claro */
-    color: var(--color-white); /* Texto blanco */
-}
+        .plant-image {
+            height: 150px;
+            background-color: var(--color-pale-ivory);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-/* Icono de la cuenta */
-.account-icon {
-    width: 30px;
-    height: 30px;
-    background-color: var(--color-light-gray); /* Fondo gris claro */
-    border-radius: 50%; /* Forma circular */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
+        .plant-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.plant-grid {
-    display: grid; /* Uso de grid */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Columnas automáticas */
-    gap: 20px; /* Espacio entre tarjetas */
-}
+        .plant-info {
+            padding: 15px;
+        }
 
-/* Tarjetas de plantas individuales */
-.plant-card {
-    border: 2px solid var(--color-light-gray);
-    border-radius: 10px;
-    overflow: hidden; /* Oculta el desbordamiento */
-    background-color: var(--color-off-white);
-    transition: transform 0.3s; /* Suaviza la transformación */
-}
+        .plant-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--color-brown);
+        }
 
-/* Efecto hover en tarjetas */
-.plant-card:hover {
-    transform: translateY(-5px); /* Eleva ligeramente la tarjeta */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra ligera */
-}
+        .plant-scientific {
+            font-style: italic;
+            color: var(--color-gray);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
 
-/* Imagen de planta en la tarjeta */
-.plant-image {
-    height: 150px;
-    background-color: var(--color-pale-ivory);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .plant-tags {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
 
-/* Icono de planta */
-.plant-icon {
-    width: 60px;
-    height: 60px;
-    fill: var(--color-light-brown);
-}
+        .plant-tag {
+            background-color: var(--color-mint);
+            color: var(--color-brown);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
 
-/* Información de la planta */
-.plant-info {
-    padding: 15px;
-}
-
-/* Nombre de la planta */
-.plant-name {
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 5px;
-    color: var(--color-brown);
-}
-
-/* Nombre científico de la planta */
-.plant-scientific {
-    font-style: italic;
-    color: var(--color-gray);
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-/* Etiquetas de características de las plantas */
-.plant-tags {
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
-}
-
-/* Estilo individual de cada etiqueta */
-.plant-tag {
-    background-color: var(--color-mint);
-    color: var(--color-brown);
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-}
-
-
-</style>
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+       
+    </style>
 </head>
 <body>
 
     <header>
         <div class="container header-content">
             <div class="logo">
-                <svg class="logo-icon" >
-                  <img src="/Jardines_Personalizados/Img/logo_jardinespersonalizados.png" alt=""> 
-                </svg>
+                <img src="/Jardines_Personalizados/Img/logo_jardinespersonalizados.png" alt="Logo" class="logo-icon">
                 <span class="logo-text">FLORGAERFRA</span>
             </div>
             <nav>
                 <ul>
-                    <li> <button type="button" class="nav-btn" onclick="redirectToRegister()">Inicio</button></li>
-                    <li> <button type="button" class="nav-btn active" onclick="redirectToRegister()">Recomendaciones</button></li>
-                    <li> <button type="button" class="nav-btn" onclick="redirectToRegister()">Mi cuenta</button></li>
-                    
+                    <li><button id="btn-inicio" class="nav-btn">Inicio</button></li>
+                    <li><button id="btn-recomendaciones" class="nav-btn">Recomendaciones</button></li>
+                    <li><button id="btn-cuenta" class="nav-btn active">Mi cuenta</button></li>
                 </ul>
             </nav>
             <div class="account-icon">
-                    <span class="icon">👤</span>
-                </svg>
+                <span class="icon">👤</span>
             </div>
         </div>
     </header>
 
-    <h1>Mis Plantas</h1>
+    <div class="container">
+        <h1>Mis Plantas</h1>
 
-    <section>
-        <label>Filtrar por:</label>
-        <button>Todos</button>
-        <button>Interior</button>
-        <button>Exterior</button>
-    </section>
-
-    <div class="plant-grid">
+        <section>
+            <label>Filtrar por:</label>
+            <button type="button" class="filter-btn active">Todos</button>
+            <button type="button" class="filter-btn">Interior</button>
+            <button type="button" class="filter-btn">Exterior</button>
+        </section>
 
 
-        <!-- Hibisco Card -->
-        <div class="plant-card" data-category="ornamentales">
-            <div class="plant-image">
-                <svg class="plant-icon" viewBox="0 0 24 24">
-                    <img src="/Jardines_Personalizados/Img/R (1).jpeg" alt="Hibisco" width="300000" height="160"></img>
-                </svg>
+        <div class="plant-grid">
+            <!-- Hibisco Card -->
+            <div class="plant-card" data-category="ornamentales" data-location="exterior">
+                <div class="plant-image">
+                    <img src="/Jardines_Personalizados/Img/R (1).jpeg" alt="Hibisco" class="plant-icon">
+                </div>
+                <div class="plant-info">
+                    <div class="plant-name">Hibisco</div>
+                    <div class="plant-scientific">Hibiscus rosa-sinensis</div>
+                    <div class="button-group">
+                        <button type="button" class="nav-btn">Ver detalles</button>
+                        <button type="button" class="delete-btn">Eliminar</button>
+                    </div>
+                </div>
             </div>
-            <div class="plant-info">
-                <div class="plant-name">Hibisco</div>
-                <div class="plant-scientific">Hibiscus rosa-sinensis</div>
-                <button type="button" class="nav-btn" onclick="redirectToRegister('hibisco')">Ver detalles</button>
-                <button>Eliminar</button>
-                <div class="plant-tags">
-                   
+           
+            <!-- Limón Card -->
+            <div class="plant-card" data-category="frutales" data-location="exterior">
+                <div class="plant-image">
+                    <img src="/Jardines_Personalizados/Img/FUR56L7KBBH4JLMFMJ2TFOCNZI.avif" alt="Limón" class="plant-icon">
+                </div>
+                <div class="plant-info">
+                    <div class="plant-name">Limón</div>
+                    <div class="plant-scientific">Citrus limon</div>
+                    <div class="button-group">
+                        <button type="button" class="nav-btn">Ver detalles</button>
+                        <button type="button" class="delete-btn">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aloe Vera Card -->
+            <div class="plant-card" data-category="medicinales" data-location="interior">
+                <div class="plant-image">
+                    <img src="/Jardines_Personalizados/Img/92364.webp" alt="Aloe Vera" class="plant-icon">
+                </div>
+                <div class="plant-info">
+                    <div class="plant-name">Aloe Vera</div>
+                    <div class="plant-scientific">Aloe barbadensis</div>
+                    <div class="button-group">
+                        <button type="button" class="nav-btn">Ver detalles</button>
+                        <button type="button" class="delete-btn">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gardenia Card -->
+            <div class="plant-card" data-category="ornamentales" data-location="interior">
+                <div class="plant-image">
+                    <img src="/Jardines_Personalizados/Img/R.jpeg" alt="Gardenia" class="plant-icon">
+                </div>
+                <div class="plant-info">
+                    <div class="plant-name">Gardenia</div>
+                    <div class="plant-scientific">Gardenia jasminoides</div>
+                    <div class="button-group">
+                        <button type="button" class="nav-btn">Ver detalles</button>
+                        <button type="button" class="delete-btn">Eliminar</button>
+                    </div>
                 </div>
             </div>
         </div>
-       
-        <!-- Limón Card -->
-        <div class="plant-card" data-category="frutales">
-            <div class="plant-image">
-                <svg class="plant-icon" viewBox="0 0 24 24">
-                    <img src="/Jardines_Personalizados/Img/FUR56L7KBBH4JLMFMJ2TFOCNZI.avif" alt="Hibisco" width="300000" height="160"></img>
-                </svg>
-            </div>
-            <div class="plant-info">
-                <div class="plant-name">Limón</div>
-                <div class="plant-scientific">Citrus limon</div>
-                <div class="plant-tags">
-                <button type="button" class="nav-btn" onclick="redirectToRegister('limon')">Ver detalles</button>
-                   <button>Eliminar</button>
-                   
-                   
-                </div>
-            </div>
-        </div>
-         <!-- Aloe Vera Card -->
-         <div class="plant-card" data-category="medicinales">
-            <div class="plant-image">
-                <svg class="plant-icon" viewBox="0 0 24 24">
-                    <img src="/Jardines_Personalizados/Img/92364.webp" alt="aloe vera" width="300000" height="160"></img>
-               </svg>
+    </div>
 
-            </div>
-            <div class="plant-info">
-                <div class="plant-name">Aloe Vera</div>
-                <div class="plant-scientific">Aloe barbadensis</div>
-                <div class="plant-tags">
-                    <button type="button" class="nav-btn" onclick="redirectToRegister('aloe-vera')">Ver detalles</button>
-                   <button>Eliminar</button>
-                  
-                </div>
-            </div>
-        </div>
 
-        <!-- Plantas adicionales -->
-        <div class="plant-card" data-category="ornamentales">
-            <div class="plant-image">
-                <svg class="plant-icon" viewBox="0 0 24 24">
-                    <img src="/Jardines_Personalizados/Img/R.jpeg" alt="Hibisco" width="300000" height="160"></img>
-                </svg>
-            </div>
-            <div class="plant-info">
-                <div class="plant-name">Gardenia</div>
-                <div class="plant-scientific">Gardenia jasminoides</div>
-                <div class="plant-tags">
-                    <button type="button" class="nav-btn" onclick="redirectToRegister('gardenia')">Ver detalles</button>
-                   <button>Eliminar</button>
-                   
-                </div>
-            </div>
-        </div>
+</body>
+</html>
         
         <script>
-            function redirectToRegister(planta) {
-              window.location.href = `/JARDINES_PERSONALIZADOS/Pantalla_Principal/Contenidos/Resultados.html?planta=${planta}`;
+ // Función simple para eliminar una planta individualesmente
+            function deletePlant(event) {
+                const plantCard = event.target.closest('.plant-card');
+                if (plantCard) {
+                    plantCard.remove();
+                }
             }
-          </script>
+            // Asignar el evento de eliminación a todos los botones de eliminar
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', deletePlant);
+            }); 
+ 
+            // Define la información de todas las plantas
+const plantasInfo = {
+    "hibisco": {
+        nombre: "Hibisco",
+        nombreCientifico: "Hibiscus rosa-sinensis",
+        imagen: "/Jardines_Personalizados/Img/R (1).jpeg",
+        descripcion: "Arbusto tropical de flores grandes y vistosas, sus flores duran 7-2 días y atraen colibríes y mariposas. Ideal para jardines tropicales y soleados.",
+        cuidados: [
+            "Riego abundante y regular",
+            "Sol pleno",
+            "Clima tropical cálido"
+        ],
+        recomendaciones: [
+            "Perfecta para tu clima",
+            "Se adapta a suelo arenoso",
+            "Florece abundantemente"
+        ],
+        etiquetas: ["Ornamental", "Sol", "Arbusto"]
+    },
+    "limon": {
+        nombre: "Limón",
+        nombreCientifico: "Citrus limon",
+        imagen: "/Jardines_Personalizados/Img/FUR56L7KBBH4JLMFMJ2TFOCNZI.avif",
+        descripcion: "Árbol frutal perenne que produce frutos cítricos de sabor ácido. Sus flores blancas son aromáticas y su follaje verde brillante es perenne.",
+        cuidados: [
+            "Riego moderado",
+            "Sol pleno",
+            "Proteger de heladas"
+        ],
+        recomendaciones: [
+            "Ideal para clima tropical",
+            "Produce frutos todo el año",
+            "Perfecto para macetas grandes"
+        ],
+        etiquetas: ["Frutal", "Sol", "Perenne"]
+    },
+    "aloe": {
+        nombre: "Aloe Vera",
+        nombreCientifico: "Aloe barbadensis",
+        imagen: "/Jardines_Personalizados/Img/92364.webp",
+        descripcion: "Planta suculenta medicinal con hojas carnosas que contienen un gel transparente utilizado para tratamientos de la piel y propiedades curativas.",
+        cuidados: [
+            "Riego escaso",
+            "Semi-sol",
+            "Suelo bien drenado"
+        ],
+        recomendaciones: [
+            "Planta medicinal útil",
+            "Requiere poco mantenimiento",
+            "Resistente a sequías"
+        ],
+        etiquetas: ["Medicinal", "Semi-sol", "Suculenta"]
+    },
+    "gardenia": {
+        nombre: "Gardenia",
+        nombreCientifico: "Gardenia jasminoides",
+        imagen: "/Jardines_Personalizados/Img/R.jpeg",
+        descripcion: "Arbusto ornamental con flores blancas extremadamente fragantes. Su follaje es verde oscuro y brillante, ideal para jardines aromáticos.",
+        cuidados: [
+            "Riego regular",
+            "Semi-sol",
+            "Suelo ácido"
+        ],
+        recomendaciones: [
+            "Flores muy aromáticas",
+            "Elegante para jardines",
+            "Atrae polinizadores"
+        ],
+        etiquetas: ["Ornamental", "Semi-sol", "Arbusto"]
+    },
+    "menta": {
+        nombre: "Menta",
+        nombreCientifico: "Mentha spicata",
+        imagen: "/Jardines_Personalizados/Img/OIP.jpeg",
+        descripcion: "Hierba aromática perenne con hojas muy fragantes. Es invasiva y se propaga fácilmente, ideal para té y usos culinarios.",
+        cuidados: [
+            "Riego frecuente",
+            "Sol parcial",
+            "Contener su crecimiento"
+        ],
+        recomendaciones: [
+            "Aromática y refrescante",
+            "Fácil de cultivar",
+            "Múltiples usos culinarios"
+        ],
+        etiquetas: ["Medicinal", "Sol parcial", "Hierba"]
+    },
+    "papaya": {
+        nombre: "Papaya",
+        nombreCientifico: "Carica papaya",
+        imagen: "/Jardines_Personalizados/Img/Planta-de-Papaya-10-1024x768.jpg",
+        descripcion: "Árbol frutal de rápido crecimiento con tallos huecos y frutos dulces. Su crecimiento es vertical y produce frutos durante todo el año.",
+        cuidados: [
+            "Riego abundante",
+            "Sol pleno",
+            "Proteger del viento"
+        ],
+        recomendaciones: [
+            "Crecimiento rápido",
+            "Frutos nutritivos",
+            "Adaptado a clima tropical"
+        ],
+        etiquetas: ["Frutal", "Sol", "Árbol"]
+    },
+    "palma": {
+        nombre: "Palma Areca",
+        nombreCientifico: "Dypsis lutescens",
+        imagen: "/Jardines_Personalizados/Img/OIP (1).jpeg",
+        descripcion: "Palmera elegante con hojas arqueadas y tallos múltiples. Ideal como planta interior o para dar sombra parcial en exteriores.",
+        cuidados: [
+            "Riego moderado",
+            "Sombra parcial",
+            "Alta humedad"
+        ],
+        recomendaciones: [
+            "Elegante y decorativa",
+            "Purifica el aire",
+            "Fácil adaptación"
+        ],
+        etiquetas: ["Decorativa", "Sombra parcial", "Palma"]
+    },
+    "bambu": {
+        nombre: "Bambú",
+        nombreCientifico: "Bambusa vulgaris",
+        imagen: "/Jardines_Personalizados/Img/2feb137bb1b7.webp",
+        descripcion: "Gramínea de rápido crecimiento que forma cañas huecas. Excelente como cortavientos, barrera visual o elemento arquitectónico.",
+        cuidados: [
+            "Riego abundante",
+            "Sol parcial",
+            "Contener su propagación"
+        ],
+        recomendaciones: [
+            "Crecimiento muy rápido",
+            "Elemento arquitectónico",
+            "Cortavientos eficaz"
+        ],
+        etiquetas: ["Decorativa", "Sol parcial", "Gramínea"]
+    }
+};
+
+// Función para redirigir a la página de detalles con la información correcta
+function redirectToPlantDetails(plantId) {
+    // Obtener la información de la planta seleccionada
+    const plantaInfo = plantasInfo[plantId];
     
+    if (plantaInfo) {
+        // Guardar los datos en localStorage para que la página de destino pueda acceder a ellos
+        localStorage.setItem('plantaSeleccionada', JSON.stringify(plantaInfo));
+        console.log('Redirigiendo a planta:', plantaInfo.nombre);
+        
+        // Redirigir a la página de detalles
+        window.location.href = '/JARDINES_PERSONALIZADOS/Pantalla_Principal/Contenidos/Detalle_de_planta.html';
+    } else {
+        console.error('No se encontró información para la planta con ID:', plantId);
+    }
+}
+
+// Función para configurar los botones "Ver detalles" en la página Mis Plantas
+function setupPlantDetailsButtons() {
+    // Obtener todos los botones "Ver detalles"
+    const detailButtons = document.querySelectorAll('button[type="button"].nav-btn');
+    
+    detailButtons.forEach(button => {
+        // Buscar el nombre de la planta en la tarjeta padre
+        const plantCard = button.closest('.plant-card');
+        if (!plantCard) return;
+        
+        const plantNameElement = plantCard.querySelector('.plant-name');
+        if (!plantNameElement) return;
+        
+        const plantName = plantNameElement.textContent.toLowerCase();
+        
+        // Identificar la planta según su nombre
+        let plantId = "";
+        if (plantName.includes('hibisco')) plantId = "hibisco";
+        else if (plantName.includes('limón')) plantId = "limon";
+        else if (plantName.includes('aloe')) plantId = "aloe";
+        else if (plantName.includes('gardenia')) plantId = "gardenia";
+        else if (plantName.includes('menta')) plantId = "menta";
+        else if (plantName.includes('papaya')) plantId = "papaya";
+        else if (plantName.includes('palma')) plantId = "palma";
+        else if (plantName.includes('bambú')) plantId = "bambu";
+        
+        // Configurar el evento de clic para el botón
+        if (plantId) {
+            // Eliminar eventos anteriores
+            button.removeAttribute('onclick');
+            
+            // Agregar el nuevo controlador de eventos
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                redirectToPlantDetails(plantId);
+            });
+        }
+    });
+}
+
+// Inicializar cuando el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', setupPlantDetailsButtons);
+
+// También hacer que las tarjetas de planta sean clicables como en la página de recomendaciones
+document.addEventListener('DOMContentLoaded', function() {
+    const plantCards = document.querySelectorAll('.plant-card');
+    
+    plantCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Evitar que el clic se active si el usuario hizo clic en un botón
+            if (e.target.tagName.toLowerCase() === 'button') return;
+            
+            const nombrePlanta = this.querySelector('.plant-name').textContent.toLowerCase();
+            
+            // Identificar la planta según su nombre
+            let plantId = "";
+            if (nombrePlanta.includes('hibisco')) plantId = "hibisco";
+            else if (nombrePlanta.includes('limón')) plantId = "limon";
+            else if (nombrePlanta.includes('aloe')) plantId = "aloe";
+            else if (nombrePlanta.includes('gardenia')) plantId = "gardenia";
+            else if (nombrePlanta.includes('menta')) plantId = "menta";
+            else if (nombrePlanta.includes('papaya')) plantId = "papaya";
+            else if (nombrePlanta.includes('palma')) plantId = "palma";
+            else if (nombrePlanta.includes('bambú')) plantId = "bambu";
+            
+            if (plantId) {
+                redirectToPlantDetails(plantId);
+            }
+        });
+    });
+});
+
+// BUTON FILTRO (Todos/interior/exterior)
+const filterButtons = document.querySelectorAll('.filter-btn');
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remover la clase activa de todos los botones
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Agregar la clase activa al botón clicado
+        button.classList.add('active');
+        
+        // Obtener el valor del filtro
+        const filterValue = button.textContent.toLowerCase();
+        
+        // Filtrar las tarjetas de planta según el valor del filtro
+        const plantCards = document.querySelectorAll('.plant-card');
+        plantCards.forEach(card => {
+            const location = card.getAttribute('data-location').toLowerCase();
+            if (filterValue === 'todos' || location === filterValue) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+})
+
+        </script>
 </body>
 </html>
