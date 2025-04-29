@@ -29,7 +29,7 @@ body {
         color: var(--color-brown);
         margin-bottom: 20px;
         text-align: left;
-    }
+    } 
 
     section {
     background: #F6EEC9;
@@ -255,15 +255,16 @@ nav li button.active {
         <div class="container header-content">
             <div class="logo">
                 <svg class="logo-icon" >
-                  <img src="/Img/logo_jardinespersonalizados.png" alt=""> 
+                  <img src="/Jardines_Personalizados/Img/logo_jardinespersonalizados.png" alt=""> 
                 </svg>
                 <span class="logo-text">FLORGAERFRA</span>
             </div>
             <nav>
                 <ul>
-                    <li><button id="btn-inicio" class="nav-btn">Inicio</button></li>
-                    <li><button id="btn-recomendaciones" class="nav-btn active">Recomendaciones</button></li>
-                    <li><button id="btn-cuenta" class="nav-btn">Mi Cuenta</button></li>
+                    <li> <button type="button" class="nav-btn" onclick="redirectToRegister()">Inicio</button></li>
+                    <li> <button type="button" class="nav-btn active" onclick="redirectToRegister()">Recomendaciones</button></li>
+                    <li> <button type="button" class="nav-btn" onclick="redirectToRegister()">Mi cuenta</button></li>
+                    
                 </ul>
             </nav>
             <div class="account-icon">
@@ -287,53 +288,83 @@ nav li button.active {
         <div class="plant-card" data-category="ornamentales">
             <div class="plant-image">
                 <svg class="plant-icon" viewBox="0 0 24 24">
-                    <img src="/Img/R (1).jpeg" alt="Hibisco" width="300000" height="160"></img>
+                    <img src="/Jardines_Personalizados/Img/R (1).jpeg" alt="Hibisco" width="300000" height="160"></img>
                 </svg>
             </div>
             <div class="plant-info">
                 <div class="plant-name">Hibisco</div>
                 <div class="plant-scientific">Hibiscus rosa-sinensis</div>
+                <button type="button" class="nav-btn" onclick="redirectToRegister()">Ver detalles</button>
+                <button>Eliminar</button>
                 <div class="plant-tags">
-                    <span class="plant-tag">Ornamental</span>
-                    <span class="plant-tag">Sol</span>
-                    <span class="plant-tag">Arbusto</span>
+                   
                 </div>
             </div>
         </div>
-    <section>
-        <label>Ordenar por:</label>
-        <select>
-            <option value="fecha">Fecha</option>
-        </select>
-    </section>
+       
+        <!-- Limón Card -->
+        <div class="plant-card" data-category="frutales">
+            <div class="plant-image">
+                <svg class="plant-icon" viewBox="0 0 24 24">
+                    <img src="/Jardines_Personalizados/Img/FUR56L7KBBH4JLMFMJ2TFOCNZI.avif" alt="Hibisco" width="300000" height="160"></img>
+                </svg>
+            </div>
+            <div class="plant-info">
+                <div class="plant-name">Limón</div>
+                <div class="plant-scientific">Citrus limon</div>
+                <div class="plant-tags">
+                    <button type="button" class="nav-btn" onclick="redirectToRegister()">Ver detalles</button>
+                   <button>Eliminar</button>
+                   
+                   
+                </div>
+            </div>
+        </div>
+         <!-- Aloe Vera Card -->
+         <div class="plant-card" data-category="medicinales">
+            <div class="plant-image">
+                <svg class="plant-icon" viewBox="0 0 24 24">
+                    <img src="/Jardines_Personalizados/Img/92364.webp" alt="Hibisco" width="300000" height="160"></img>
+               </svg>
 
-    <footer>
-        <button>Buscar en más plantas</button>
-    </footer>
+            </div>
+            <div class="plant-info">
+                <div class="plant-name">Aloe Vera</div>
+                <div class="plant-scientific">Aloe barbadensis</div>
+                <div class="plant-tags">
+                    <button type="button" class="nav-btn" onclick="redirectToRegister()">Ver detalles</button>
+                   <button>Eliminar</button>
+                  
+                </div>
+            </div>
+        </div>
 
-    <script>
-
-        const plantasInfo = {
-    "hibisco": {
-        nombre: "Hibisco",
-        nombreCientifico: "Hibiscus rosa-sinensis",
-        imagen: "/Img/R (1).jpeg",
-        descripcion: "Arbusto tropical de flores grandes y vistosas, sus flores duran 7-2 días y atraen colibríes y mariposas. Ideal para jardines tropicales y soleados.",
-        cuidados: [
-            "Riego abundante y regular",
-            "Sol pleno",
-            "Clima tropical cálido"
-        ],
-        recomendaciones: [
-            "Perfecta para tu clima",
-            "Se adapta a suelo arenoso",
-            "Florece abundantemente"
-        ],
-        etiquetas: ["Ornamental", "Sol", "Arbusto"]
-    },
-
-}
-    </script>
-
+        <!-- Plantas adicionales -->
+        <div class="plant-card" data-category="ornamentales">
+            <div class="plant-image">
+                <svg class="plant-icon" viewBox="0 0 24 24">
+                    <img src="/Jardines_Personalizados/Img/R.jpeg" alt="Hibisco" width="300000" height="160"></img>
+                </svg>
+            </div>
+            <div class="plant-info">
+                <div class="plant-name">Gardenia</div>
+                <div class="plant-scientific">Gardenia jasminoides</div>
+                <div class="plant-tags">
+                    <button type="button" class="nav-btn" onclick="redirectToRegister()">Ver detalles</button>
+                   <button>Eliminar</button>
+                   
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            
+            function redirectToRegister() {
+      // Redirigir a la página de registro (ajusta la URL según sea necesario)
+      window.location.href = '/JARDINES_PERSONALIZADOS/Pantalla_Principal/Contenidos/Detalle_de_planta.html';
+    }
+           
+        </script>
+    
 </body>
 </html>
