@@ -294,12 +294,20 @@
             </section>
 
             <div class="boton-agregar">
-                <button>Agregar a "Mis Plantas"</button>
+                <button onclick="redirectToMisPlantas()">Agregar a mis plantas</button>
+
+                
             </div>
         </div>
     </main>
+    <script>
+        function redirectToMisPlantas() {
+          window.location.href = '/JARDINES_PERSONALIZADOS/Pantalla_Principal/Contenidos/Mis_plantas.html';
+        }
+      </script>
      
     <script>
+        
     
     document.addEventListener('DOMContentLoaded', function() {
         // Recuperar la información de la planta seleccionada
