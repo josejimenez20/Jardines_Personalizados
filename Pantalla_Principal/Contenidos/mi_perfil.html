@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Perfil</title>
+  <link rel="stylesheet" href="/Pantalla_Principal/Contenidos/Css/mi_perfil.css">
+</head>
+<body>
+
+<div class="perfil-container">
+  
+  <h2>Tu Nombre</h2>
+  <p>Correo: tuemail@example.com</p>
+
+  <h3>Cambiar Contraseña</h3>
+  <form action="/cambiar_contrasena" method="POST">
+    <input type="password" name="contrasena_actual" placeholder="Contraseña actual" required>
+    <input type="password" name="nueva_contrasena" placeholder="Nueva contraseña" required>
+    <input type="password" name="confirmar_contrasena" placeholder="Confirmar nueva contraseña" required>
+    <input type="submit" value="Actualizar contraseña">
+  </form>
+</div>
+
+</body>
+</html>
