@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Plantas</title>
+    <style>
+        :root {
+    --color-light-green: #A3B18A;
+    --color-cream: #F6EEC9;
+    --color-brown: #7F5539;
+    --color-pale-ivory: #FAF3E0;
+    --color-gray: #6C757D;
+    --color-mint: #D4E2C3;
+    --color-off-white: #FAF8EF;
+    --color-light-brown: #A57D5D;
+    --color-white: #FFFCF5;
+    --color-light-gray: #A0A7B0;
+}
+
+body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f8f5;
+        margin: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: var(--color-brown);
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    section {
+    background: #F6EEC9;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-;
+    text-align: left;
+    margin-left: 0; /* Alineado a la izquierda */
+}
+
+    label {
+        font-size: 1.2rem;
+        margin-right: 10px;
+        color: #555;
+
+    }
+
+    button {    
+        background-color: var(--color-light-green);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: var(--color-light-brown);
+    }
+    
+    header {
+    background-color: var(--color-pale-ivory); /* Color de fondo */
+    border-bottom: 2px solid var(--color-light-green); /* Borde inferior */
+    padding: 10px 0;
+
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Centra verticalmente */
+    align-items: center;
+    padding: 0 20px;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    transform: scale(0.6); /* Escala el logo */
+    margin-right: auto; /* Empuja los demás elementos a la derecha */
+    width: 10px; /* Más pequeño */
+}
+
+/* Icono del logo */
+.logo-icon {
+    width: 8px; /* Más pequeño */
+    height: 40px; /* Más pequeño */
+    margin-right: 10px; /* Espacio entre icono y texto */
+    fill: var(--color-light-green); /* Color del icono */
+}
+
+/* Texto del logo */
+.logo-text {
+    font-size: 30px; /* Más pequeño */
+    margin-left: 10px; /* Espacio entre icono y texto */
+    font-weight: bold; /* Negrita */
+    color: var(--color-brown); /* Color del texto */
+}
+
+nav ul {
+    display: flex; /* Flexbox en la lista */
+    list-style: none; /* Sin viñetas */
+    gap: 10px; /* Espacio entre elementos */
+    margin: 0; /* Sin márgenes */
+    padding: 0; /* Sin relleno */
+}
+
+/* Botones de la navegación */
+nav li button {
+    padding: 8px 15px; /* Espaciado interno */
+    background-color: var(--color-cream); /* Color de fondo */
+    border: 1px solid var(--color-light-brown); /* Borde */
+    border-radius: 10px; /* Bordes redondeados */
+    color: var(--color-brown); /* Color del texto */
+    font-weight: 500; /* Peso de fuente medio */
+    cursor: pointer; /* Cambia a puntero al pasar encima */
+    transition: background-color 0.3s; /* Transición suave */
+    font-size: 14px; /* Tamaño de fuente */
+    text-align: center; /* Centra el texto */
+    text-decoration: none; /* Sin subrayado */
+    outline: none; /* Sin contorno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícono del usuario */
+.user-icon {
+    width: 32px; /* Tamaño del icono de usuario */
+    height: 32px;
+    margin-right: 10px; /* Espacio entre el usuario y los botones */
+}
+
+
+/* Corrección en repetición de .header-content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex; /* Esta propiedad está mal, debería ser 'center' */
+}
+
+/* Efecto hover en los botones de navegación */
+nav li button:hover {
+    background-color: var(--color-mint); /* Cambia color al pasar el mouse */
+}
+
+.left-group {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espacio entre elementos */
+}
+
+/* Botón de navegación activo */
+nav li button.active {
+    background-color: var(--color-light-green); /* Fondo verde claro */
+    color: var(--color-white); /* Texto blanco */
+}
+
+/* Icono de la cuenta */
+.account-icon {
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-light-gray); /* Fondo gris claro */
+    border-radius: 50%; /* Forma circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.plant-grid {
+    display: grid; /* Uso de grid */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Columnas automáticas */
+    gap: 20px; /* Espacio entre tarjetas */
+}
+
+/* Tarjetas de plantas individuales */
+.plant-card {
+    border: 2px solid var(--color-light-gray);
+    border-radius: 10px;
+    overflow: hidden; /* Oculta el desbordamiento */
+    background-color: var(--color-off-white);
+    transition: transform 0.3s; /* Suaviza la transformación */
+}
+
+/* Efecto hover en tarjetas */
+.plant-card:hover {
+    transform: translateY(-5px); /* Eleva ligeramente la tarjeta */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra ligera */
+}
+
+/* Imagen de planta en la tarjeta */
+.plant-image {
+    height: 150px;
+    background-color: var(--color-pale-ivory);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icono de planta */
+.plant-icon {
+    width: 60px;
+    height: 60px;
+    fill: var(--color-light-brown);
+}
+
+/* Información de la planta */
+.plant-info {
+    padding: 15px;
+}
+
+/* Nombre de la planta */
+.plant-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--color-brown);
+}
+
+/* Nombre científico de la planta */
+.plant-scientific {
+    font-style: italic;
+    color: var(--color-gray);
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Etiquetas de características de las plantas */
+.plant-tags {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+/* Estilo individual de cada etiqueta */
+.plant-tag {
+    background-color: var(--color-mint);
+    color: var(--color-brown);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <svg class="logo-icon" >
+                  <img src="/Img/logo_jardinespersonalizados.png" alt=""> 
+                </svg>
+                <span class="logo-text">FLORGAERFRA</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><button id="btn-inicio" class="nav-btn">Inicio</button></li>
+                    <li><button id="btn-recomendaciones" class="nav-btn active">Recomendaciones</button></li>
+                    <li><button id="btn-cuenta" class="nav-btn">Mi Cuenta</button></li>
+                </ul>
+            </nav>
+            <div class="account-icon">
+                    <span class="icon">👤</span>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <h1>Mis Plantas</h1>
+
+    <section>
+        <label>Filtrar por:</label>
+        <button>Todos</button>
+        <button>Interior</button>
+        <button>Exterior</button>
+    </section>
+
+    <div class="plant-grid">
+        <!-- Hibisco Card -->
+        <div class="plant-card" data-category="ornamentales">
+            <div class="plant-image">
+                <svg class="plant-icon" viewBox="0 0 24 24">
+                    <img src="/Img/R (1).jpeg" alt="Hibisco" width="300000" height="160"></img>
+                </svg>
+            </div>
+            <div class="plant-info">
+                <div class="plant-name">Hibisco</div>
+                <div class="plant-scientific">Hibiscus rosa-sinensis</div>
+                <div class="plant-tags">
+                    <span class="plant-tag">Ornamental</span>
+                    <span class="plant-tag">Sol</span>
+                    <span class="plant-tag">Arbusto</span>
+                </div>
+            </div>
+        </div>
+    <section>
+        <label>Ordenar por:</label>
+        <select>
+            <option value="fecha">Fecha</option>
+        </select>
+    </section>
+
+    <footer>
+        <button>Buscar en más plantas</button>
+    </footer>
+
+    <script>
+
+        const plantasInfo = {
+    "hibisco": {
+        nombre: "Hibisco",
+        nombreCientifico: "Hibiscus rosa-sinensis",
+        imagen: "/Img/R (1).jpeg",
+        descripcion: "Arbusto tropical de flores grandes y vistosas, sus flores duran 7-2 días y atraen colibríes y mariposas. Ideal para jardines tropicales y soleados.",
+        cuidados: [
+            "Riego abundante y regular",
+            "Sol pleno",
+            "Clima tropical cálido"
+        ],
+        recomendaciones: [
+            "Perfecta para tu clima",
+            "Se adapta a suelo arenoso",
+            "Florece abundantemente"
+        ],
+        etiquetas: ["Ornamental", "Sol", "Arbusto"]
+    },
+
+}
+    </script>
+
+</body>
+</html>
