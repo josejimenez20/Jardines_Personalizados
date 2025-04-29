@@ -229,6 +229,68 @@
             margin-top: 10px;
         }
        
+        /* Nuevos estilos para buscador y ordenar */
+        .controls-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 1px solid var(--color-light-gray);
+            border-radius: 10px;
+            padding: 5px 10px;
+            width: 250px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 5px;
+            font-size: 1rem;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            color: var(--color-gray);
+            cursor: pointer;
+            padding: 5px;
+            margin: 0;
+        }
+
+        .search-box button:hover {
+            color: var(--color-brown);
+        }
+
+        .sort-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .sort-box label {
+            margin-right: 10px;
+        }
+
+        .sort-box select {
+            padding: 8px 15px;
+            border-radius: 10px;
+            border: 1px solid var(--color-light-brown);
+            background-color: var(--color-cream);
+            color: var(--color-brown);
+            font-size: 1rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .sort-box select:hover {
+            background-color: var(--color-mint);
+        }
     </style>
 </head>
 <body>
@@ -255,6 +317,22 @@
     <div class="container">
         <h1>Mis Plantas</h1>
 
+        <!-- Fila de control de búsqueda y ordenamiento -->
+        <div class="controls-row">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Buscar en mis plantas">
+                <button id="search-button">🔍</button>
+            </div>
+            
+            <div class="sort-box">
+                <label>Ordenar por:</label>
+                <select id="sort-select">
+                    <option value="fecha">Fecha</option>
+                    <option value="nombre">Nombre</option>
+                </select>
+            </div>
+        </div>
+
         <section>
             <label>Filtrar por:</label>
             <button type="button" class="filter-btn active">Todos</button>
@@ -262,10 +340,9 @@
             <button type="button" class="filter-btn">Exterior</button>
         </section>
 
-
         <div class="plant-grid">
             <!-- Hibisco Card -->
-            <div class="plant-card" data-category="ornamentales" data-location="exterior">
+            <div class="plant-card" data-category="ornamentales" data-location="exterior" data-name="Hibisco" data-date="2023-10-15">
                 <div class="plant-image">
                     <img src="/Jardines_Personalizados/Img/R (1).jpeg" alt="Hibisco" class="plant-icon">
                 </div>
@@ -280,7 +357,7 @@
             </div>
            
             <!-- Limón Card -->
-            <div class="plant-card" data-category="frutales" data-location="exterior">
+            <div class="plant-card" data-category="frutales" data-location="exterior" data-name="Limón" data-date="2023-12-01">
                 <div class="plant-image">
                     <img src="/Jardines_Personalizados/Img/FUR56L7KBBH4JLMFMJ2TFOCNZI.avif" alt="Limón" class="plant-icon">
                 </div>
@@ -295,7 +372,7 @@
             </div>
 
             <!-- Aloe Vera Card -->
-            <div class="plant-card" data-category="medicinales" data-location="interior">
+            <div class="plant-card" data-category="medicinales" data-location="interior" data-name="Aloe Vera" data-date="2024-01-20">
                 <div class="plant-image">
                     <img src="/Jardines_Personalizados/Img/92364.webp" alt="Aloe Vera" class="plant-icon">
                 </div>
@@ -310,7 +387,7 @@
             </div>
 
             <!-- Gardenia Card -->
-            <div class="plant-card" data-category="ornamentales" data-location="interior">
+            <div class="plant-card" data-category="ornamentales" data-location="interior" data-name="Gardenia" data-date="2024-02-14">
                 <div class="plant-image">
                     <img src="/Jardines_Personalizados/Img/R.jpeg" alt="Gardenia" class="plant-icon">
                 </div>
@@ -326,279 +403,384 @@
         </div>
     </div>
 
-
-</body>
-</html>
-        
-        <script>
- // Función simple para eliminar una planta individualesmente
-            function deletePlant(event) {
-                const plantCard = event.target.closest('.plant-card');
-                if (plantCard) {
-                    plantCard.remove();
-                }
+    <script>
+        // Función simple para eliminar una planta individualesmente
+        function deletePlant(event) {
+            const plantCard = event.target.closest('.plant-card');
+            if (plantCard) {
+                plantCard.remove();
             }
-            // Asignar el evento de eliminación a todos los botones de eliminar
-            const deleteButtons = document.querySelectorAll('.delete-btn');
-            deleteButtons.forEach(button => {
-                button.addEventListener('click', deletePlant);
-            }); 
- 
-            // Define la información de todas las plantas
-const plantasInfo = {
-    "hibisco": {
-        nombre: "Hibisco",
-        nombreCientifico: "Hibiscus rosa-sinensis",
-        imagen: "/Jardines_Personalizados/Img/R (1).jpeg",
-        descripcion: "Arbusto tropical de flores grandes y vistosas, sus flores duran 7-2 días y atraen colibríes y mariposas. Ideal para jardines tropicales y soleados.",
-        cuidados: [
-            "Riego abundante y regular",
-            "Sol pleno",
-            "Clima tropical cálido"
-        ],
-        recomendaciones: [
-            "Perfecta para tu clima",
-            "Se adapta a suelo arenoso",
-            "Florece abundantemente"
-        ],
-        etiquetas: ["Ornamental", "Sol", "Arbusto"]
-    },
-    "limon": {
-        nombre: "Limón",
-        nombreCientifico: "Citrus limon",
-        imagen: "/Jardines_Personalizados/Img/FUR56L7KBBH4JLMFMJ2TFOCNZI.avif",
-        descripcion: "Árbol frutal perenne que produce frutos cítricos de sabor ácido. Sus flores blancas son aromáticas y su follaje verde brillante es perenne.",
-        cuidados: [
-            "Riego moderado",
-            "Sol pleno",
-            "Proteger de heladas"
-        ],
-        recomendaciones: [
-            "Ideal para clima tropical",
-            "Produce frutos todo el año",
-            "Perfecto para macetas grandes"
-        ],
-        etiquetas: ["Frutal", "Sol", "Perenne"]
-    },
-    "aloe": {
-        nombre: "Aloe Vera",
-        nombreCientifico: "Aloe barbadensis",
-        imagen: "/Jardines_Personalizados/Img/92364.webp",
-        descripcion: "Planta suculenta medicinal con hojas carnosas que contienen un gel transparente utilizado para tratamientos de la piel y propiedades curativas.",
-        cuidados: [
-            "Riego escaso",
-            "Semi-sol",
-            "Suelo bien drenado"
-        ],
-        recomendaciones: [
-            "Planta medicinal útil",
-            "Requiere poco mantenimiento",
-            "Resistente a sequías"
-        ],
-        etiquetas: ["Medicinal", "Semi-sol", "Suculenta"]
-    },
-    "gardenia": {
-        nombre: "Gardenia",
-        nombreCientifico: "Gardenia jasminoides",
-        imagen: "/Jardines_Personalizados/Img/R.jpeg",
-        descripcion: "Arbusto ornamental con flores blancas extremadamente fragantes. Su follaje es verde oscuro y brillante, ideal para jardines aromáticos.",
-        cuidados: [
-            "Riego regular",
-            "Semi-sol",
-            "Suelo ácido"
-        ],
-        recomendaciones: [
-            "Flores muy aromáticas",
-            "Elegante para jardines",
-            "Atrae polinizadores"
-        ],
-        etiquetas: ["Ornamental", "Semi-sol", "Arbusto"]
-    },
-    "menta": {
-        nombre: "Menta",
-        nombreCientifico: "Mentha spicata",
-        imagen: "/Jardines_Personalizados/Img/OIP.jpeg",
-        descripcion: "Hierba aromática perenne con hojas muy fragantes. Es invasiva y se propaga fácilmente, ideal para té y usos culinarios.",
-        cuidados: [
-            "Riego frecuente",
-            "Sol parcial",
-            "Contener su crecimiento"
-        ],
-        recomendaciones: [
-            "Aromática y refrescante",
-            "Fácil de cultivar",
-            "Múltiples usos culinarios"
-        ],
-        etiquetas: ["Medicinal", "Sol parcial", "Hierba"]
-    },
-    "papaya": {
-        nombre: "Papaya",
-        nombreCientifico: "Carica papaya",
-        imagen: "/Jardines_Personalizados/Img/Planta-de-Papaya-10-1024x768.jpg",
-        descripcion: "Árbol frutal de rápido crecimiento con tallos huecos y frutos dulces. Su crecimiento es vertical y produce frutos durante todo el año.",
-        cuidados: [
-            "Riego abundante",
-            "Sol pleno",
-            "Proteger del viento"
-        ],
-        recomendaciones: [
-            "Crecimiento rápido",
-            "Frutos nutritivos",
-            "Adaptado a clima tropical"
-        ],
-        etiquetas: ["Frutal", "Sol", "Árbol"]
-    },
-    "palma": {
-        nombre: "Palma Areca",
-        nombreCientifico: "Dypsis lutescens",
-        imagen: "/Jardines_Personalizados/Img/OIP (1).jpeg",
-        descripcion: "Palmera elegante con hojas arqueadas y tallos múltiples. Ideal como planta interior o para dar sombra parcial en exteriores.",
-        cuidados: [
-            "Riego moderado",
-            "Sombra parcial",
-            "Alta humedad"
-        ],
-        recomendaciones: [
-            "Elegante y decorativa",
-            "Purifica el aire",
-            "Fácil adaptación"
-        ],
-        etiquetas: ["Decorativa", "Sombra parcial", "Palma"]
-    },
-    "bambu": {
-        nombre: "Bambú",
-        nombreCientifico: "Bambusa vulgaris",
-        imagen: "/Jardines_Personalizados/Img/2feb137bb1b7.webp",
-        descripcion: "Gramínea de rápido crecimiento que forma cañas huecas. Excelente como cortavientos, barrera visual o elemento arquitectónico.",
-        cuidados: [
-            "Riego abundante",
-            "Sol parcial",
-            "Contener su propagación"
-        ],
-        recomendaciones: [
-            "Crecimiento muy rápido",
-            "Elemento arquitectónico",
-            "Cortavientos eficaz"
-        ],
-        etiquetas: ["Decorativa", "Sol parcial", "Gramínea"]
-    }
-};
+        }
+        // Asignar el evento de eliminación a todos los botones de eliminar
+        const deleteButtons = document.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', deletePlant);
+        }); 
 
-// Función para redirigir a la página de detalles con la información correcta
-function redirectToPlantDetails(plantId) {
-    // Obtener la información de la planta seleccionada
-    const plantaInfo = plantasInfo[plantId];
-    
-    if (plantaInfo) {
-        // Guardar los datos en localStorage para que la página de destino pueda acceder a ellos
-        localStorage.setItem('plantaSeleccionada', JSON.stringify(plantaInfo));
-        console.log('Redirigiendo a planta:', plantaInfo.nombre);
-        
-        // Redirigir a la página de detalles
-        window.location.href = '/JARDINES_PERSONALIZADOS/Pantalla_Principal/Contenidos/Detalle_de_planta.html';
-    } else {
-        console.error('No se encontró información para la planta con ID:', plantId);
-    }
-}
+        // Define la información de todas las plantas
+        const plantasInfo = {
+            "hibisco": {
+                nombre: "Hibisco",
+                nombreCientifico: "Hibiscus rosa-sinensis",
+                imagen: "/Jardines_Personalizados/Img/R (1).jpeg",
+                descripcion: "Arbusto tropical de flores grandes y vistosas, sus flores duran 7-2 días y atraen colibríes y mariposas. Ideal para jardines tropicales y soleados.",
+                cuidados: [
+                    "Riego abundante y regular",
+                    "Sol pleno",
+                    "Clima tropical cálido"
+                ],
+                recomendaciones: [
+                    "Perfecta para tu clima",
+                    "Se adapta a suelo arenoso",
+                    "Florece abundantemente"
+                ],
+                etiquetas: ["Ornamental", "Sol", "Arbusto"]
+            },
+            "limon": {
+                nombre: "Limón",
+                nombreCientifico: "Citrus limon",
+                imagen: "/Jardines_Personalizados/Img/FUR56L7KBBH4JLMFMJ2TFOCNZI.avif",
+                descripcion: "Árbol frutal perenne que produce frutos cítricos de sabor ácido. Sus flores blancas son aromáticas y su follaje verde brillante es perenne.",
+                cuidados: [
+                    "Riego moderado",
+                    "Sol pleno",
+                    "Proteger de heladas"
+                ],
+                recomendaciones: [
+                    "Ideal para clima tropical",
+                    "Produce frutos todo el año",
+                    "Perfecto para macetas grandes"
+                ],
+                etiquetas: ["Frutal", "Sol", "Perenne"]
+            },
+            "aloe": {
+                nombre: "Aloe Vera",
+                nombreCientifico: "Aloe barbadensis",
+                imagen: "/Jardines_Personalizados/Img/92364.webp",
+                descripcion: "Planta suculenta medicinal con hojas carnosas que contienen un gel transparente utilizado para tratamientos de la piel y propiedades curativas.",
+                cuidados: [
+                    "Riego escaso",
+                    "Semi-sol",
+                    "Suelo bien drenado"
+                ],
+                recomendaciones: [
+                    "Planta medicinal útil",
+                    "Requiere poco mantenimiento",
+                    "Resistente a sequías"
+                ],
+                etiquetas: ["Medicinal", "Semi-sol", "Suculenta"]
+            },
+            "gardenia": {
+                nombre: "Gardenia",
+                nombreCientifico: "Gardenia jasminoides",
+                imagen: "/Jardines_Personalizados/Img/R.jpeg",
+                descripcion: "Arbusto ornamental con flores blancas extremadamente fragantes. Su follaje es verde oscuro y brillante, ideal para jardines aromáticos.",
+                cuidados: [
+                    "Riego regular",
+                    "Semi-sol",
+                    "Suelo ácido"
+                ],
+                recomendaciones: [
+                    "Flores muy aromáticas",
+                    "Elegante para jardines",
+                    "Atrae polinizadores"
+                ],
+                etiquetas: ["Ornamental", "Semi-sol", "Arbusto"]
+            },
+            "menta": {
+                nombre: "Menta",
+                nombreCientifico: "Mentha spicata",
+                imagen: "/Jardines_Personalizados/Img/OIP.jpeg",
+                descripcion: "Hierba aromática perenne con hojas muy fragantes. Es invasiva y se propaga fácilmente, ideal para té y usos culinarios.",
+                cuidados: [
+                    "Riego frecuente",
+                    "Sol parcial",
+                    "Contener su crecimiento"
+                ],
+                recomendaciones: [
+                    "Aromática y refrescante",
+                    "Fácil de cultivar",
+                    "Múltiples usos culinarios"
+                ],
+                etiquetas: ["Medicinal", "Sol parcial", "Hierba"]
+            },
+            "papaya": {
+                nombre: "Papaya",
+                nombreCientifico: "Carica papaya",
+                imagen: "/Jardines_Personalizados/Img/Planta-de-Papaya-10-1024x768.jpg",
+                descripcion: "Árbol frutal de rápido crecimiento con tallos huecos y frutos dulces. Su crecimiento es vertical y produce frutos durante todo el año.",
+                cuidados: [
+                    "Riego abundante",
+                    "Sol pleno",
+                    "Proteger del viento"
+                ],
+                recomendaciones: [
+                    "Crecimiento rápido",
+                    "Frutos nutritivos",
+                    "Adaptado a clima tropical"
+                ],
+                etiquetas: ["Frutal", "Sol", "Árbol"]
+            },
+            "palma": {
+                nombre: "Palma Areca",
+                nombreCientifico: "Dypsis lutescens",
+                imagen: "/Jardines_Personalizados/Img/OIP (1).jpeg",
+                descripcion: "Palmera elegante con hojas arqueadas y tallos múltiples. Ideal como planta interior o para dar sombra parcial en exteriores.",
+                cuidados: [
+                    "Riego moderado",
+                    "Sombra parcial",
+                    "Alta humedad"
+                ],
+                recomendaciones: [
+                    "Elegante y decorativa",
+                    "Purifica el aire",
+                    "Fácil adaptación"
+                ],
+                etiquetas: ["Decorativa", "Sombra parcial", "Palma"]
+            },
+            "bambu": {
+                nombre: "Bambú",
+                nombreCientifico: "Bambusa vulgaris",
+                imagen: "/Jardines_Personalizados/Img/2feb137bb1b7.webp",
+                descripcion: "Gramínea de rápido crecimiento que forma cañas huecas. Excelente como cortavientos, barrera visual o elemento arquitectónico.",
+                cuidados: [
+                    "Riego abundante",
+                    "Sol parcial",
+                    "Contener su propagación"
+                ],
+                recomendaciones: [
+                    "Crecimiento muy rápido",
+                    "Elemento arquitectónico",
+                    "Cortavientos eficaz"
+                ],
+                etiquetas: ["Decorativa", "Sol parcial", "Gramínea"]
+            }
+        };
 
-// Función para configurar los botones "Ver detalles" en la página Mis Plantas
-function setupPlantDetailsButtons() {
-    // Obtener todos los botones "Ver detalles"
-    const detailButtons = document.querySelectorAll('button[type="button"].nav-btn');
-    
-    detailButtons.forEach(button => {
-        // Buscar el nombre de la planta en la tarjeta padre
-        const plantCard = button.closest('.plant-card');
-        if (!plantCard) return;
-        
-        const plantNameElement = plantCard.querySelector('.plant-name');
-        if (!plantNameElement) return;
-        
-        const plantName = plantNameElement.textContent.toLowerCase();
-        
-        // Identificar la planta según su nombre
-        let plantId = "";
-        if (plantName.includes('hibisco')) plantId = "hibisco";
-        else if (plantName.includes('limón')) plantId = "limon";
-        else if (plantName.includes('aloe')) plantId = "aloe";
-        else if (plantName.includes('gardenia')) plantId = "gardenia";
-        else if (plantName.includes('menta')) plantId = "menta";
-        else if (plantName.includes('papaya')) plantId = "papaya";
-        else if (plantName.includes('palma')) plantId = "palma";
-        else if (plantName.includes('bambú')) plantId = "bambu";
-        
-        // Configurar el evento de clic para el botón
-        if (plantId) {
-            // Eliminar eventos anteriores
-            button.removeAttribute('onclick');
+        // Función para redirigir a la página de detalles con la información correcta
+        function redirectToPlantDetails(plantId) {
+            // Obtener la información de la planta seleccionada
+            const plantaInfo = plantasInfo[plantId];
             
-            // Agregar el nuevo controlador de eventos
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                redirectToPlantDetails(plantId);
+            if (plantaInfo) {
+                // Guardar los datos en localStorage para que la página de destino pueda acceder a ellos
+                localStorage.setItem('plantaSeleccionada', JSON.stringify(plantaInfo));
+                console.log('Redirigiendo a planta:', plantaInfo.nombre);
+                
+                // Redirigir a la página de detalles
+                window.location.href = '/JARDINES_PERSONALIZADOS/Pantalla_Principal/Contenidos/Detalle_de_planta.html';
+            } else {
+                console.error('No se encontró información para la planta con ID:', plantId);
+            }
+        }
+
+        // Función para configurar los botones "Ver detalles" en la página Mis Plantas
+        function setupPlantDetailsButtons() {
+            // Obtener todos los botones "Ver detalles"
+            const detailButtons = document.querySelectorAll('button[type="button"].nav-btn');
+            
+            detailButtons.forEach(button => {
+                // Buscar el nombre de la planta en la tarjeta padre
+                const plantCard = button.closest('.plant-card');
+                if (!plantCard) return;
+                
+                const plantNameElement = plantCard.querySelector('.plant-name');
+                if (!plantNameElement) return;
+                
+                const plantName = plantNameElement.textContent.toLowerCase();
+                
+                // Identificar la planta según su nombre
+                let plantId = "";
+                if (plantName.includes('hibisco')) plantId = "hibisco";
+                else if (plantName.includes('limón')) plantId = "limon";
+                else if (plantName.includes('aloe')) plantId = "aloe";
+                else if (plantName.includes('gardenia')) plantId = "gardenia";
+                else if (plantName.includes('menta')) plantId = "menta";
+                else if (plantName.includes('papaya')) plantId = "papaya";
+                else if (plantName.includes('palma')) plantId = "palma";
+                else if (plantName.includes('bambú')) plantId = "bambu";
+                
+                // Configurar el evento de clic para el botón
+                if (plantId) {
+                    // Eliminar eventos anteriores
+                    button.removeAttribute('onclick');
+                    
+                    // Agregar el nuevo controlador de eventos
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        redirectToPlantDetails(plantId);
+                    });
+                }
             });
+        }
+
+        // Inicializar cuando el DOM esté completamente cargado
+        document.addEventListener('DOMContentLoaded', setupPlantDetailsButtons);
+
+        // También hacer que las tarjetas de planta sean clicables como en la página de recomendaciones
+        document.addEventListener('DOMContentLoaded', function() {
+            const plantCards = document.querySelectorAll('.plant-card');
+            
+            plantCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Evitar que el clic se active si el usuario hizo clic en un botón
+                    if (e.target.tagName.toLowerCase() === 'button') return;
+                    
+                    const nombrePlanta = this.querySelector('.plant-name').textContent.toLowerCase();
+                    
+                    // Identificar la planta según su nombre
+                    let plantId = "";
+                    if (nombrePlanta.includes('hibisco')) plantId = "hibisco";
+                    else if (nombrePlanta.includes('limón')) plantId = "limon";
+                    else if (nombrePlanta.includes('aloe')) plantId = "aloe";
+                    else if (nombrePlanta.includes('gardenia')) plantId = "gardenia";
+                    else if (nombrePlanta.includes('menta')) plantId = "menta";
+                    else if (nombrePlanta.includes('papaya')) plantId = "papaya";
+                    else if (nombrePlanta.includes('palma')) plantId = "palma";
+                    else if (nombrePlanta.includes('bambú')) plantId = "bambu";
+                    
+                    if (plantId) {
+                        redirectToPlantDetails(plantId);
+                    }
+                });
+            });
+        });
+
+        // BUTON FILTRO (Todos/interior/exterior)
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remover la clase activa de todos los botones
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Agregar la clase activa al botón clicado
+                button.classList.add('active');
+                
+                // Obtener el valor del filtro
+                const filterValue = button.textContent.toLowerCase();
+                
+                // Filtrar las tarjetas de planta según el valor del filtro
+                const plantCards = document.querySelectorAll('.plant-card');
+                plantCards.forEach(card => {
+                    const location = card.getAttribute('data-location').toLowerCase();
+                    if (filterValue === 'todos' || location === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // NUEVO: Funcionalidad de búsqueda
+        document.getElementById('search-button').addEventListener('click', function() {
+            performSearch();
+        });
+
+        document.getElementById('search-input').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+            const plantCards = document.querySelectorAll('.plant-card');
+            
+            plantCards.forEach(card => {
+                const plantName = card.querySelector('.plant-name').textContent.toLowerCase();
+                const plantScientific = card.querySelector('.plant-scientific').textContent.toLowerCase();
+                
+                if (plantName.includes(searchTerm) || plantScientific.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // NUEVO: Funcionalidad de ordenar
+        document.getElementById('sort-select').addEventListener('change', function() {
+            const sortType = this.value;
+            const plantGrid = document.querySelector('.plant-grid');
+            const plantCards = Array.from(document.querySelectorAll('.plant-card'));
+            
+            plantCards.sort((a, b) => {
+                if (sortType === 'fecha') {
+                    const dateA = new Date(a.getAttribute('data-date'));
+                    const dateB = new Date(b.getAttribute('data-date'));
+                    return dateB - dateA; // Orden descendente (más reciente primero)
+                } else if (sortType === 'nombre') {
+                    const nameA = a.getAttribute('data-name').toLowerCase();
+                    const nameB = b.getAttribute('data-name').toLowerCase();
+                    return nameA.localeCompare(nameB); // Orden alfabético
+                }
+            });
+            
+            // Limpiar y volver a agregar los elementos ordenados
+            plantGrid.innerHTML = '';
+            plantCards.forEach(card => {
+                plantGrid.appendChild(card);
+            });
+            
+            // Volver a configurar los eventos después de reordenar
+            setupPlantDetailsButtons();
+        });
+       // NUEVO: Funcionalidad de búsqueda
+document.getElementById('search-button').addEventListener('click', function() {
+    performSearch();
+});
+
+document.getElementById('search-input').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        performSearch();
+    }
+});
+
+function performSearch() {
+    const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+    const plantCards = document.querySelectorAll('.plant-card');
+    
+    plantCards.forEach(card => {
+        const plantName = card.querySelector('.plant-name').textContent.toLowerCase();
+        const plantScientific = card.querySelector('.plant-scientific').textContent.toLowerCase();
+        
+        if (plantName.includes(searchTerm) || plantScientific.includes(searchTerm)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
         }
     });
 }
 
-// Inicializar cuando el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', setupPlantDetailsButtons);
-
-// También hacer que las tarjetas de planta sean clicables como en la página de recomendaciones
-document.addEventListener('DOMContentLoaded', function() {
-    const plantCards = document.querySelectorAll('.plant-card');
+// NUEVO: Funcionalidad de ordenar
+document.getElementById('sort-select').addEventListener('change', function() {
+    const sortType = this.value;
+    const plantGrid = document.querySelector('.plant-grid');
+    const plantCards = Array.from(document.querySelectorAll('.plant-card'));
     
+    plantCards.sort((a, b) => {
+        if (sortType === 'fecha') {
+            const dateA = new Date(a.getAttribute('data-date'));
+            const dateB = new Date(b.getAttribute('data-date'));
+            return dateB - dateA; // Orden descendente (más reciente primero)
+        } else if (sortType === 'nombre') {
+            const nameA = a.getAttribute('data-name').toLowerCase();
+            const nameB = b.getAttribute('data-name').toLowerCase();
+            return nameA.localeCompare(nameB); // Orden alfabético
+        }
+    });
+    
+    // Limpiar y volver a agregar los elementos ordenados
+    plantGrid.innerHTML = '';
     plantCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            // Evitar que el clic se active si el usuario hizo clic en un botón
-            if (e.target.tagName.toLowerCase() === 'button') return;
-            
-            const nombrePlanta = this.querySelector('.plant-name').textContent.toLowerCase();
-            
-            // Identificar la planta según su nombre
-            let plantId = "";
-            if (nombrePlanta.includes('hibisco')) plantId = "hibisco";
-            else if (nombrePlanta.includes('limón')) plantId = "limon";
-            else if (nombrePlanta.includes('aloe')) plantId = "aloe";
-            else if (nombrePlanta.includes('gardenia')) plantId = "gardenia";
-            else if (nombrePlanta.includes('menta')) plantId = "menta";
-            else if (nombrePlanta.includes('papaya')) plantId = "papaya";
-            else if (nombrePlanta.includes('palma')) plantId = "palma";
-            else if (nombrePlanta.includes('bambú')) plantId = "bambu";
-            
-            if (plantId) {
-                redirectToPlantDetails(plantId);
-            }
-        });
+        plantGrid.appendChild(card);
     });
+    
+    // Volver a configurar los eventos luego de reordenar
+    setupPlantDetailsButtons();
 });
-
-// BUTON FILTRO (Todos/interior/exterior)
-const filterButtons = document.querySelectorAll('.filter-btn');
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remover la clase activa de todos los botones
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Agregar la clase activa al botón clicado
-        button.classList.add('active');
-        
-        // Obtener el valor del filtro
-        const filterValue = button.textContent.toLowerCase();
-        
-        // Filtrar las tarjetas de planta según el valor del filtro
-        const plantCards = document.querySelectorAll('.plant-card');
-        plantCards.forEach(card => {
-            const location = card.getAttribute('data-location').toLowerCase();
-            if (filterValue === 'todos' || location === filterValue) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-})
-
-        </script>
+      
+    </script>
 </body>
 </html>
