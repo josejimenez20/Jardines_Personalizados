@@ -1,0 +1,147 @@
+:root {
+  --color-light-green: #A3B18A;
+  --color-cream: #F6EEC9;
+  --color-brown: #7F5539;
+  --color-pale-ivory: #FAF3E0;
+  --color-gray: #6C757D;
+  --color-mint: #D4E2C3;
+  --color-off-white: #FAF8EF;
+  --color-light-brown: #A57D5D;
+  --color-white: #FFFCF5;
+  --color-light-gray: #A0A7B0;
+}
+
+@font-face {
+  font-family: 'Geova';
+  src: url('../../../geova/GeovaTrial-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Geova', sans-serif;
+}
+
+body {
+  background-color: var(--color-pale-ivory);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.perfil-container {
+  background-color: var(--color-off-white);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  width: 100%;
+  animation: fadeIn 1s ease-out;
+}
+
+.perfil-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.perfil-avatar {
+  width: 90px;
+  height: 90px;
+  background-color: var(--color-light-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: var(--color-white);
+  margin-bottom: 15px;
+}
+
+.perfil-name {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--color-brown);
+}
+
+.perfil-email {
+  color: var(--color-gray);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.section-title {
+  color: var(--color-light-brown);
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid var(--color-light-green);
+  padding-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="password"] {
+  padding: 12px;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 10px;
+  background-color: var(--color-cream);
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+input[type="password"]:focus {
+  background-color: var(--color-white);
+  border-color: var(--color-light-green);
+  box-shadow: 0 0 8px var(--color-mint);
+  outline: none;
+}
+
+input[type="submit"] {
+  background-color: var(--color-light-green);
+  color: var(--color-white);
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--color-mint);
+  transform: translateY(-3px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 500px) {
+  .perfil-container {
+    padding: 30px 20px;
+  }
+
+  .perfil-name {
+    font-size: 22px;
+  }
+
+  .perfil-avatar {
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+  }
+}
