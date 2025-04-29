@@ -37,7 +37,7 @@ if ($stmt) {
             $_SESSION['correo'] = $usuario['correo'];
 
             // Redirigir a la página principal
-            header("Location: /JARDINES_PERSONALIZADOS/Inicio/inicio.html");
+            header("Location: /JARDINES_PERSONALIZADOS/Inicio/inicio.php");
             exit();
         } else {
             echo "Contraseña incorrecta.";
