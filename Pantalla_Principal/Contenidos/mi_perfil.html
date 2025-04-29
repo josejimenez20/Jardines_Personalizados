@@ -7,18 +7,20 @@
   <link rel="stylesheet" href="/Pantalla_Principal/Contenidos/Css/mi_perfil.css">
 </head>
 <body>
-
 <div class="perfil-container">
-  
-  <h2>Tu Nombre</h2>
-  <p>Correo: tuemail@example.com</p>
+  <div class="perfil-header">
+    <div class="perfil-avatar">👤</div>
+    <div class="perfil-name">Tu Nombre</div>
+    <div class="perfil-email">tuemail@example.com</div>
+  </div>
 
-  <h3>Cambiar Contraseña</h3>
+  <div class="section-title">Cambiar Contraseña</div>
+  
   <form action="/cambiar_contrasena" method="POST">
     <input type="password" name="contrasena_actual" placeholder="Contraseña actual" required>
     <input type="password" name="nueva_contrasena" placeholder="Nueva contraseña" required>
     <input type="password" name="confirmar_contrasena" placeholder="Confirmar nueva contraseña" required>
-    <input type="submit" value="Actualizar contraseña">
+    <input type="submit" value="Actualizar Contraseña">
   </form>
 </div>
 
