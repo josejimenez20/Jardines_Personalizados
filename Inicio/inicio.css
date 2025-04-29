@@ -1,8 +1,15 @@
-body {
-  font-family: Arial, sans-serif;
+@font-face {
+  font-family: 'Geova';
+  src: url('../geova/GeovaTrial-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
   margin: 0;
   padding: 0;
-  background-color: #fafafa;
+  box-sizing: border-box;
+  font-family: 'Geova', sans-serif;
 }
 
 header {
@@ -85,7 +92,7 @@ nav ul {
 
 .main-content {
   text-align: center;
-  padding: 40px;
+  padding: 50px;
 }
 
 .main-icon {
@@ -95,12 +102,14 @@ nav ul {
 
 h1 {
   font-size: 24px;
+  margin: 10px 0;
+  font-weight: bold;
   color: #7F5539;
 }
 
 p {
   font-size: 20px;
-  margin: px 0;
+  margin: 10px 0;
   color: #7F5539;
 }
 

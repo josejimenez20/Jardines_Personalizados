@@ -10,15 +10,22 @@
     --color-light-brown: #A57D5D;
     --color-white: #FFFCF5;
     --color-light-gray: #A0A7B0;
-    --color-accent: #588B76;  /* Color acento para la parte lateral */
+    --color-accent: #588B76;
 }
-* {
 
+@font-face {
+    font-family: 'Geova';
+    src: url('../geova/GeovaTrial-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+    font-family: 'Geova', sans-serif;
+  }
 
 body {
     background-color: var(--color-pale-ivory);
