@@ -5,209 +5,253 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Florgaerfra</title>
   <link rel="shortcut icon" href="/Img/logo_imagen.png" type="image/png">
+  <style>
+    :root {
+      --color-light-green: #A3B18A;
+      --color-cream: #F6EEC9;
+      --color-brown: #7F5539;
+      --color-light-brown: #A57D5D;
+      --color-pale-ivory: #FAF3E0;
+      --color-gray: #6C757D;
+      --color-mint: #D4E2C3;
+      --color-off-white: #FAF8EF;
+      --color-white: #FFFCF5;
+      --color-light-gray: #A0A7B0;
+    }
+
+    @font-face {
+      font-family: 'Geova';
+      src: url('../geova/GeovaTrial-semibold.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Geova', sans-serif;
+    }
+    
+    /* Nuevo estilo para el header, similar a mis_plantas.html */
+    header {
+      background-color: var(--color-cream);
+      border-bottom: 2px solid var(--color-light-green);
+      padding: 10px 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .titulo-app {
+      font-weight: bold;
+      color: var(--color-brown);
+      font-size: 18px;
+    }
+
+    /* Estilo de navegación modificado para reducir espacios */
+    nav {
+      display: flex;
+      align-items: center;
+      margin-right: 10px; /* Añadido para acercar la navegación al icono */
+    }
+
+    /* Contenedor para nav y el icono de usuario */
+    .nav-user-container {
+      display: flex;
+      align-items: center;
+      gap: 10px; /* Espacio reducido entre la navegación y el icono */
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 8px; /* Reducido el espacio entre botones */
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li button {
+      padding: 8px 12px; /* Reducido el padding horizontal */
+      background-color: var(--color-cream);
+      border: 1px solid var(--color-light-brown);
+      border-radius: 10px;
+      color: var(--color-brown);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 14px;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav li button:hover {
+      background-color: var(--color-mint);
+    }
+
+    nav li button.active {
+      background-color: var(--color-light-green);
+      color: var(--color-white);
+    }
+
+    .icon {
+      width: 32px;
+      height: 32px;
+      background-color: var(--color-light-gray);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      background-color: var(--color-cream);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+      border-radius: 8px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--color-brown);
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 15px;
+      color: var(--color-brown);
+    }
+
+    .toggle-buttons {
+      margin-bottom: 20px;
+    }
+
+    .toggle-buttons button {
+      margin-right: 10px;
+      padding: 6px 15px;
+      cursor: pointer;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 10px;
+      font-weight: bold;
+      color: var(--color-brown);
+    }
+
+    input[type="text"], select {
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Estilo para los botones */
+    button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: var(--color-light-green);
+      color: var(--color-brown);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.3s;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s;
+    }
+
+    /* Efecto hover */
+    button:hover {
+      background-color: #D4E2C3;
+      color: var(--color-brown);
+      transform: scale(1.05);
+    }
+
+    /* Efecto active */
+    button:active {
+      background-color: var(--color-light-green);
+      color: var(--color-brown);
+      transform: scale(0.95);
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.3s;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    /* Estilo para el botón deshabilitado */
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background-color: #D4E2C3;
+      color: var(--color-light-brown);
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.3s;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:disabled:hover {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background-color: #D4E2C3;
+      color: var(--color-light-brown);
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.3s;
+      transition: background-color 0.3s ease-in-out;
+    }
+  </style>
 </head>
-<style>
-:root {
-  --color-light-green: #A3B18A;
-  --color-cream: #F6EEC9;
-  --color-brown: #7F5539;
-  --color-light-brown: #A57D5D;
-}
-
-@font-face {
-  font-family: 'Geova';
-  src: url('../geova/GeovaTrial-semibold.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Geova', sans-serif;
-}
-header {
-  background-color: var(--color-cream);
-  padding: 30px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #E0D8B0;
-  border-bottom: 3px solid #C2C9AB;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo img {
-  width: 40px;
-  height: 40px;
-}
-
-.titulo-app {
-  font-weight: bold;
-  color: #5e301f;
-  font-size: 18px;
-}
-
-.nav-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-}
-
-nav a {
-  margin-right: 10px;
-  text-decoration: none;
-  color: #333;
-  background-color: var(--color-cream);
-  border: 1px solid #C2C9AB;
-  border-radius: 15px;
-  padding: 8px 11px;
-  font-size: 14px;
-}
-
-nav a.active {
-  background-color: var(--color-light-green);
-  color: white;
-  border: 1px solid var(--color-light-green);
-}
-
-.icon {
-  width: 35px;
-  height: 35px;
-  background-color: #c5c5c5;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-}
-
-main {
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-  background-color: var(--color-cream);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 30px;
-  border-radius: 8px;
-}
-
-h1 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: var(--color-brown);
-}
-
-p {
-  font-size: 14px;
-  margin-bottom: 15px;
-  color: var(--color-brown);
-}
-
-.toggle-buttons {
-  margin-bottom: 20px;
-}
-
-.toggle-buttons button {
-  margin-right: 10px;
-  padding: 6px 15px;
-  cursor: pointer;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-top: 10px;
-  font-weight: bold;
-  color: var(--color-brown);
-}
-
-input[type="text"], select {
-  padding: 8px;
-  margin-top: 4px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Estilo para los botones */
-button {
-  margin-top: 10px;
-  padding: 8px 15px;
-  background-color: var(--color-light-green);
-  color: var(--color-brown);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.3s;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s;
-}
-
-/* Efecto hover */
-button:hover {
-  background-color: #D4E2C3;
-  color: var(--color-brown);
-  transform: scale(1.05);
-}
-
-/* Efecto active */
-button:active {
-  background-color: var(--color-light-green);
-  color: var(--color-brown);
-  transform: scale(0.95);
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.3s;
-  transition: background-color 0.3s ease-in-out;
-}
-
-/* Estilo para el botón deshabilitado */
-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-  background-color: #D4E2C3;
-  color: var(--color-light-brown);
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.3s;
-  transition: background-color 0.3s ease-in-out;
-}
-
-button:disabled:hover {
-  cursor: not-allowed;
-  opacity: 0.5;
-  background-color: #D4E2C3;
-  color: var(--color-light-brown);
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.3s;
-  transition: background-color 0.3s ease-in-out;
-}
-</style>
 <body>
   <header>
-    <div class="logo">
-      <img src="/Jardines_Personalizados/Img/logo_jardinespersonalizados.png" alt="Logo de FLORGAERFRA">
-      <span class="titulo-app">FLORGAERFRA</span>
-    </div>
-    <div class="nav-container">
-      <nav>
-        <a href="#">Inicio</a>
-        <a href="#" class="active">Recomendaciones</a>
-        <a href="#">Mi Cuenta</a>
-      </nav>
-      <span class="icon">👤</span>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="/Jardines_Personalizados/Img/logo_jardinespersonalizados.png" alt="Logo de FLORGAERFRA">
+          <span class="titulo-app">FLORGAERFRA</span>
+        </div>
+        
+        <!-- Nav y usuario agrupados en un contenedor -->
+        <div class="nav-user-container">
+          <nav>
+            <ul>
+              <li><button id="btn-inicio" class="active">Inicio</button></li>
+              <li><button id="btn-recomendaciones">Recomendaciones</button></li>
+              <li><button id="btn-cuenta">Mi cuenta</button></li>
+            </ul>
+          </nav>
+          <div class="icon">👤</div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -244,14 +288,28 @@ button:disabled:hover {
   </main>
 
   <script>
+    // Manejo de navegación
+    document.getElementById('btn-inicio').addEventListener('click', function() {
+      window.location.href = '../Pantalla_Principal/index.html';
+    });
+    
+    document.getElementById('btn-recomendaciones').addEventListener('click', function() {
+      window.location.href = '../Pantalla_Principal/Contenidos/Sobre.html';
+    });
+    
+    document.getElementById('btn-cuenta').addEventListener('click', function() {
+      window.location.href = '../Pantalla_Principal/Contenidos/Mi_Cuenta.html';
+    });
+    
     function redirectToHome() {
       // Redirigir a la página de registro (ajusta la URL según sea necesario)
       window.location.href = '../Pantalla_Principal/Contenidos/Resultados.html';
     }
+    
     function redirectToRegister() {
-            // Redirigir a la página de inicio (ajusta la URL según sea necesario)
-            window.location.href = '../Pantalla_Principal/Contenidos/Sobre.html';
-        }
-    </script>
+      // Redirigir a la página de inicio (ajusta la URL según sea necesario)
+      window.location.href = '../Pantalla_Principal/Contenidos/Sobre.html';
+    }
+  </script>
 </body>
 </html>

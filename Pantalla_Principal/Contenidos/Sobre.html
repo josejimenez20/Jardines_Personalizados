@@ -28,6 +28,13 @@
       font-style: normal;
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Geova', sans-serif;
+    }
+    
     body {
       font-family: 'Geova', sans-serif;
       background-color: var(--color-off-white);
@@ -40,18 +47,12 @@
       min-height: 100vh;
     }
 
-    header {
+   header {
       background-color: var(--color-cream);
-      padding: 30px 20px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #E0D8B0;
-      border-bottom: 3px solid #C2C9AB;
-      box-sizing: border-box;
+      border-bottom: 2px solid var(--color-light-green);
+      padding: 10px 0;
     }
-
+    
     .logo-container {
       display: flex;
       align-items: center;
@@ -70,17 +71,19 @@
       font-size: 18px;
     }
 
+    /* Estilos modificados para la navegación */
     .nav-container {
       display: flex;
       align-items: center;
       justify-content: flex-end;
       width: 80%;
-      gap: 15px;
+      gap: 10px; /* Reducido de 15px a 10px */
     }
 
     nav {
       display: flex;
       align-items: center;
+      margin-right: 5px; /* Añadido para acercar los botones al icono */
     }
 
     nav ul {
@@ -88,11 +91,11 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      gap: 10px;
+      gap: 8px; /* Reducido de 10px a 8px */
     }
 
     .nav-btn {
-      padding: 8px 15px;
+      padding: 8px 12px; /* Reducido el padding horizontal de 15px a 12px */
       cursor: pointer;
       background-color: transparent;
       border: 1px solid #C2C9AB;
@@ -123,7 +126,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: 15px;
+      margin-left: 5px; /* Reducido de 15px a 5px */
       font-size: 20px;
     }
 
@@ -154,7 +157,7 @@
     }
 
     .options button {
-      padding: 8px 12px;
+      padding: 8px 11px;
       border: 2px solid var(--color-light-green);
       background-color: var(--color-pale-ivory);
       border-radius: 8px;
@@ -245,10 +248,7 @@
     <button type="button" class="submit-button" onclick="redirectToRegister()">Ver recomendaciones</button>
   </div>
   <script>
-    function redirectToRegister() {
-      // Redirigir a la página de registro (ajusta la URL según sea necesario)
-      window.location.href = '/JARDINES_PERSONALIZADOS/Pantalla_Principal/Contenidos/Resultados.html';
-    }
-    </script>
+   
+  </script>
 </body>
 </html>
