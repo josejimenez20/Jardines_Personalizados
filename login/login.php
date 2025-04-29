@@ -1,6 +1,4 @@
 <?php
-session_start(); // Muy importante para usar variables de sesión
-
 // Conexión a la base de datos
 $conn = new mysqli('localhost', 'root', '', 'db_jardines', 3307);
 
@@ -15,9 +13,7 @@ $contrasena = $_POST['contraseña'] ?? '';
 
 // Verificar que los campos no estén vacíos
 if (empty($correo) || empty($contrasena)) {
-    $_SESSION['error_login'] = "Por favor, complete todos los campos.";
-    header("Location: /JARDINES_PERSONALIZADOS/login/login.html");
-    exit();
+    die("Por favor, complete todos los campos.");
 }
 
 // Buscar el correo en la base de datos
@@ -35,39 +31,26 @@ if ($stmt) {
         // Verificar la contraseña
         if (password_verify($contrasena, $usuario['contraseña'])) {
             // Inicio de sesión exitoso
+            session_start();
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nombre'] = $usuario['nombre'];
             $_SESSION['correo'] = $usuario['correo'];
 
-            // Redirigir a la pantalla principal
+            // Redirigir a la página principal
             header("Location: /JARDINES_PERSONALIZADOS/Inicio/inicio.html");
             exit();
         } else {
-            // Contraseña incorrecta
-            $_SESSION['error_login'] = "Contraseña incorrecta.";
-            header("Location: /JARDINES_PERSONALIZADOS/login/login.html");
-            exit();
+            echo "Contraseña incorrecta.";
         }
     } else {
-        // Correo no registrado
-        $_SESSION['error_login'] = "El correo no está registrado.";
-        header("Location: /JARDINES_PERSONALIZADOS/login/login.html");
-        exit();
+        echo "El correo no está registrado.";
     }
 
     $stmt->close();
 } else {
-    $_SESSION['error_login'] = "Error en el servidor. Inténtalo más tarde.";
-    header("Location: /JARDINES_PERSONALIZADOS/login/login.html");
-    exit();
+    echo "Error en la preparación de la consulta: " . $conn->error;
 }
 
 // Cerrar conexión
 $conn->close();
 ?>
-
-
-/*
-    Ha este Php le falta la validación de notificciones ese codigo con el creador de este archivo
-    y la validación de que el usuario no haya iniciado sesión antes de iniciar sesión
-*/
