@@ -1,0 +1,180 @@
+:root {
+  --color-light-green: #A3B18A;
+  --color-cream: #F6EEC9;
+  --color-brown: #7F5539;
+  --color-light-brown: #A57D5D;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: var(--color-cream);
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #E0D8B0;
+  border-bottom: 3px solid #C2C9AB;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.titulo-app {
+  font-weight: bold;
+  color: #5e301f;
+  font-size: 18px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+  background-color: var(--color-cream);
+  border: 1px solid #C2C9AB;
+  border-radius: 15px;
+  padding: 8px 11px;
+  font-size: 14px;
+}
+
+nav a.active {
+  background-color: var(--color-light-green);
+  color: white;
+  border: 1px solid var(--color-light-green);
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  background-color: #c5c5c5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+main {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  background-color: var(--color-cream);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--color-brown);
+}
+
+p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: var(--color-brown);
+}
+
+.toggle-buttons {
+  margin-bottom: 20px;
+}
+
+.toggle-buttons button {
+  margin-right: 10px;
+  padding: 6px 15px;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--color-brown);
+}
+
+input[type="text"], select {
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilo para los botones */
+button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: var(--color-light-green);
+  color: var(--color-brown);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s;
+}
+
+/* Efecto hover */
+button:hover {
+  background-color: #D4E2C3;
+  color: var(--color-brown);
+  transform: scale(1.05);
+}
+
+/* Efecto active */
+button:active {
+  background-color: var(--color-light-green);
+  color: var(--color-brown);
+  transform: scale(0.95);
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Estilo para el botón deshabilitado */
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #D4E2C3;
+  color: var(--color-light-brown);
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #D4E2C3;
+  color: var(--color-light-brown);
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+  transition: background-color 0.3s ease-in-out;
+}

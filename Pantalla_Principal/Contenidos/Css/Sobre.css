@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recomendaciones</title>
-  <link rel="shortcut icon" href="/Img/logo_imagen.png" type="image/png">
-</head>
-<body>
-  <style>
+
     :root {
       --color-light-green: #A3B18A;
       --color-cream: #F6EEC9;
@@ -21,15 +12,8 @@
       --color-light-gray: #A0A7B0;
     }
 
-    @font-face {
-      font-family: 'Geova';
-      src: url('../geova/GeovaTrial-Regular.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
     body {
-      font-family: 'Geova', sans-serif;
+      font-family: Arial, sans-serif;
       background-color: var(--color-off-white);
       margin: 0;
       padding: 0;
@@ -183,72 +167,3 @@
     .submit-button:hover {
       background-color: var(--color-light-gray);
     }
-  </style>
-  <header>
-    <div class="logo-container">
-      <img src="/Jardines_Personalizados/Img/logo_jardinespersonalizados.png" alt="Logo de FLORGAERFRA" class="logo-img">
-      <div class="logo">FLORGAERFRA</div>
-    </div>
-    <div class="nav-container">
-      <nav>
-        <ul>
-          <li><button id="btn-inicio" class="nav-btn">Inicio</button></li>
-          <li><button id="btn-recomendaciones" class="nav-btn">Recomendaciones</button></li>
-          <li><button id="btn-cuenta" class="nav-btn">Mi Cuenta</button></li>
-        </ul>
-      </nav>
-      <div class="icon">👤</div>
-    </div>
-  </header>
-
-  <div class="container">
-    <h2>Cuéntanos sobre tu jardín</h2>
-
-    <h3>¿Qué tipo de clima tiene?</h3>
-    <div class="options">
-      <button>Tropical cálido</button>
-      <button>Templado</button>
-      <button>Frío</button>
-      <button>Desértico</button>
-    </div>
-
-    <h3>¿Qué tipo de suelo tiene?</h3>
-    <div class="options">
-      <button>Arenoso</button>
-      <button>Arcilloso</button>
-      <button>Fértil</button>
-      <button>No sé</button>
-    </div>
-
-    <h3>¿Cuánta luz solar recibe tu jardín?</h3>
-    <div class="options">
-      <button>Sol pleno</button>
-      <button>Semi-sombra</button>
-      <button>Sombra</button>
-    </div>
-
-    <h3>¿Con qué frecuencia puedes regar?</h3>
-    <div class="options">
-      <button>Diariamente</button>
-      <button>Moderado</button>
-      <button>Poca frecuencia</button>
-    </div>
-
-    <h3>¿Qué tipo de plantas te interesan?</h3>
-    <div class="options">
-      <button>Ornamentales</button>
-      <button>Medicinales</button>
-      <button>Frutales</button>
-      <button>Suculentas</button>
-    </div>
-
-    <button type="button" class="submit-button" onclick="redirectToRegister()">Ver recomendaciones</button>
-  </div>
-  <script>
-    function redirectToRegister() {
-      // Redirigir a la página de registro (ajusta la URL según sea necesario)
-      window.location.href = '/JARDINES_PERSONALIZADOS/Pantalla_Principal/Contenidos/Resultados.html';
-    }
-    </script>
-</body>
-</html>

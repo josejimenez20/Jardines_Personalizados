@@ -20,13 +20,19 @@
         }
 
         /* Estilos generales para todos los elementos */
-        * {
-    margin: 0; /* Elimina márgenes predeterminados */
-    padding: 0; /* Elimina rellenos predeterminados */
-    box-sizing: border-box; /* Incluye padding y borde en el tamaño total del elemento */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente general */
+        @font-face {
+  font-family: 'Geova';
+  src: url('../geova/GeovaTrial-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Geova', sans-serif;
+}
 /* Estilo del cuerpo de la página */
 body {
     background-color: var(-color-pale-ivory); /* Color de fondo del body */

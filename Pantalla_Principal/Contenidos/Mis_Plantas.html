@@ -284,6 +284,8 @@ nav li button.active {
     </section>
 
     <div class="plant-grid">
+
+
         <!-- Hibisco Card -->
         <div class="plant-card" data-category="ornamentales">
             <div class="plant-image">
@@ -294,7 +296,7 @@ nav li button.active {
             <div class="plant-info">
                 <div class="plant-name">Hibisco</div>
                 <div class="plant-scientific">Hibiscus rosa-sinensis</div>
-                <button type="button" class="nav-btn" onclick="redirectToRegister()">Ver detalles</button>
+                <button type="button" class="nav-btn" onclick="redirectToRegister('hibisco')">Ver detalles</button>
                 <button>Eliminar</button>
                 <div class="plant-tags">
                    
@@ -313,7 +315,7 @@ nav li button.active {
                 <div class="plant-name">Limón</div>
                 <div class="plant-scientific">Citrus limon</div>
                 <div class="plant-tags">
-                    <button type="button" class="nav-btn" onclick="redirectToRegister()">Ver detalles</button>
+                <button type="button" class="nav-btn" onclick="redirectToRegister('limon')">Ver detalles</button>
                    <button>Eliminar</button>
                    
                    
@@ -324,7 +326,7 @@ nav li button.active {
          <div class="plant-card" data-category="medicinales">
             <div class="plant-image">
                 <svg class="plant-icon" viewBox="0 0 24 24">
-                    <img src="/Jardines_Personalizados/Img/92364.webp" alt="Hibisco" width="300000" height="160"></img>
+                    <img src="/Jardines_Personalizados/Img/92364.webp" alt="aloe vera" width="300000" height="160"></img>
                </svg>
 
             </div>
@@ -332,7 +334,7 @@ nav li button.active {
                 <div class="plant-name">Aloe Vera</div>
                 <div class="plant-scientific">Aloe barbadensis</div>
                 <div class="plant-tags">
-                    <button type="button" class="nav-btn" onclick="redirectToRegister()">Ver detalles</button>
+                    <button type="button" class="nav-btn" onclick="redirectToRegister('aloe-vera')">Ver detalles</button>
                    <button>Eliminar</button>
                   
                 </div>
@@ -350,7 +352,7 @@ nav li button.active {
                 <div class="plant-name">Gardenia</div>
                 <div class="plant-scientific">Gardenia jasminoides</div>
                 <div class="plant-tags">
-                    <button type="button" class="nav-btn" onclick="redirectToRegister()">Ver detalles</button>
+                    <button type="button" class="nav-btn" onclick="redirectToRegister('gardenia')">Ver detalles</button>
                    <button>Eliminar</button>
                    
                 </div>
@@ -358,13 +360,10 @@ nav li button.active {
         </div>
         
         <script>
-            
-            function redirectToRegister() {
-      // Redirigir a la página de registro (ajusta la URL según sea necesario)
-      window.location.href = '/JARDINES_PERSONALIZADOS/Pantalla_Principal/Contenidos/Detalle_de_planta.html';
-    }
-           
-        </script>
+            function redirectToRegister(planta) {
+              window.location.href = `/JARDINES_PERSONALIZADOS/Pantalla_Principal/Contenidos/Resultados.html?planta=${planta}`;
+            }
+          </script>
     
 </body>
 </html>
