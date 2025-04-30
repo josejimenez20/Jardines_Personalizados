@@ -28,13 +28,6 @@
       font-style: normal;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Geova', sans-serif;
-    }
-    
     body {
       font-family: 'Geova', sans-serif;
       background-color: var(--color-off-white);
@@ -47,17 +40,23 @@
       min-height: 100vh;
     }
 
-   header {
+    header {
       background-color: var(--color-cream);
-      border-bottom: 2px solid var(--color-light-green);
-      padding: 10px 0;
-    }
-    
-    .logo-container {
+      padding: 11px 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #E0D8B0;
+      border-bottom: 3px solid #C2C9AB;
+      box-sizing: border-box;
+}
+
+.logo-container {
       display: flex;
       align-items: center;
-      width: 20%;
-    }
+      width:20%;
+}
 
     .logo-img {
       width: 40px;
@@ -68,7 +67,32 @@
     .logo {
       font-weight: bold;
       color: #723b28;
-      font-size: 18px;
+      font-size: px;
+    }
+
+    nav li button {
+      padding: 8px 12px; /* Reducido el padding horizontal */
+      background-color: var(--color-cream);
+      border: 1px solid var(--color-light-brown);
+      border-radius: 10px;
+      color: var(--color-brown);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 14px;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav li button:hover {
+      background-color: var(--color-mint);
+    }
+
+    nav li button.active {
+      background-color: var(--color-light-green);
+      color: var(--color-white);
     }
 
     /* Estilos modificados para la navegación */
@@ -94,29 +118,30 @@
       gap: 8px; /* Reducido de 10px a 8px */
     }
 
+
     .nav-btn {
       padding: 8px 12px; /* Reducido el padding horizontal de 15px a 12px */
       cursor: pointer;
       background-color: transparent;
-      border: 1px solid #C2C9AB;
+      border: 1px solid #723b28;
       border-radius: 11px;
       font-size: 14px;
       color: #333;
     }
 
     #btn-inicio {
-      background-color: var(--color-cream);
-    }
+  background-color: var(--color-cream);
+}
 
-    #btn-recomendaciones {
-      background-color: var(--color-light-green);
-      color: white;
-      border: 1px solid var(--color-light-green);
-    }
+#btn-recomendaciones {
+  background-color: var(--color-light-green);
+  color: white;
+  border: 1px solid var(--color-brown);
+}
 
-    #btn-cuenta {
-      background-color: var(--color-cream);
-    }
+#btn-cuenta {
+  background-color: var(--color-cream);
+}
 
     .icon {
       width: 35px;
@@ -192,17 +217,21 @@
       <img src="/Jardines_Personalizados/Img/logo_jardinespersonalizados.png" alt="Logo de FLORGAERFRA" class="logo-img">
       <div class="logo">FLORGAERFRA</div>
     </div>
-    <div class="nav-container">
+     <!-- Nav y usuario agrupados en un contenedor -->
+     <div class="nav-container">
       <nav>
         <ul>
-          <li><button id="btn-inicio" class="nav-btn">Inicio</button></li>
-          <li><button id="btn-recomendaciones" class="nav-btn">Recomendaciones</button></li>
-          <li><button id="btn-cuenta" class="nav-btn">Mi Cuenta</button></li>
+          <li><button id="btn-inicio" class="nav-btn" onclick="redirectToHome()">Inicio</button></li>
+          <li><button id="btn-recomendaciones" class="nav-btn" onclick="redirectToRecommendations()">Recomendaciones</button></li>
+          <li><button id="btn-cuenta" class="nav-btn" onclick="redirectToAccount()">Mi Cuenta</button></li>
         </ul>
       </nav>
       <div class="icon">👤</div>
     </div>
-  </header>
+  </div>
+</div>
+</header>
+
 
   <div class="container">
     <h2>Cuéntanos sobre tu jardín</h2>

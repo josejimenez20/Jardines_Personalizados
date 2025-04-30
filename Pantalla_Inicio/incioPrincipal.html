@@ -33,24 +33,27 @@
       font-family: 'Geova', sans-serif;
     }
     
-    /* Nuevo estilo para el header, similar a mis_plantas.html */
+    /* Header styles with modifications for true edge-to-edge layout */
     header {
       background-color: var(--color-cream);
       border-bottom: 2px solid var(--color-light-green);
       padding: 10px 0;
+      width: 100%;
     }
 
     .container {
       width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
+      max-width: 100%; /* Full width container */
+      margin: 0; /* No margin */
+      padding: 0; /* No padding */
     }
 
     .header-content {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; /* Push items to edges */
       align-items: center;
+      width: 100%; /* Full width */
+      padding: 0 15px; /* Small padding inside the header content */
     }
 
     .logo {
@@ -70,30 +73,29 @@
       font-size: 18px;
     }
 
-    /* Estilo de navegación modificado para reducir espacios */
+    /* Navigation styles */
     nav {
       display: flex;
       align-items: center;
-      margin-right: 10px; /* Añadido para acercar la navegación al icono */
     }
 
-    /* Contenedor para nav y el icono de usuario */
+    /* Nav and user icon container */
     .nav-user-container {
       display: flex;
       align-items: center;
-      gap: 10px; /* Espacio reducido entre la navegación y el icono */
+      gap: 10px;
     }
 
     nav ul {
       display: flex;
       list-style: none;
-      gap: 8px; /* Reducido el espacio entre botones */
+      gap: 8px;
       margin: 0;
       padding: 0;
     }
 
     nav li button {
-      padding: 8px 12px; /* Reducido el padding horizontal */
+      padding: 8px 12px;
       background-color: var(--color-cream);
       border: 1px solid var(--color-light-brown);
       border-radius: 10px;
@@ -235,12 +237,13 @@
   <header>
     <div class="container">
       <div class="header-content">
+        <!-- Logo completamente al borde izquierdo -->
         <div class="logo">
           <img src="/Jardines_Personalizados/Img/logo_jardinespersonalizados.png" alt="Logo de FLORGAERFRA">
           <span class="titulo-app">FLORGAERFRA</span>
         </div>
         
-        <!-- Nav y usuario agrupados en un contenedor -->
+        <!-- Nav y usuario completamente al borde derecho -->
         <div class="nav-user-container">
           <nav>
             <ul>
