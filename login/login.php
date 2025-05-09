@@ -13,7 +13,8 @@ $contrasena = $_POST['contraseña'] ?? '';
 
 // Verificar que los campos no estén vacíos
 if (empty($correo) || empty($contrasena)) {
-    die("Por favor, complete todos los campos.");
+    header("Location: login.html?error=campos");
+    exit();
 }
 
 // Buscar el correo en la base de datos
@@ -27,7 +28,7 @@ if ($stmt) {
 
     if ($resultado->num_rows === 1) {
         $usuario = $resultado->fetch_assoc();
-        
+
         // Verificar la contraseña
         if (password_verify($contrasena, $usuario['contraseña'])) {
             // Inicio de sesión exitoso
@@ -40,15 +41,18 @@ if ($stmt) {
             header("Location: /JARDINES_PERSONALIZADOS/Inicio/inicio.php");
             exit();
         } else {
-            echo "Contraseña incorrecta.";
+            header("Location: login.html?error=contrasena");
+            exit();
         }
     } else {
-        echo "El correo no está registrado.";
+        header("Location: login.html?error=correo");
+        exit();
     }
 
     $stmt->close();
 } else {
-    echo "Error en la preparación de la consulta: " . $conn->error;
+    header("Location: login.html?error=consulta");
+    exit();
 }
 
 // Cerrar conexión
