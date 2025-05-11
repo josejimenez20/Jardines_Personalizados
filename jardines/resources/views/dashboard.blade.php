@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>FLORGAERFRA</title>
+    <link rel="shortcut icon" href="/JARDINES_PERSONALIZADOS/Img/logo_jardinespersonalizados.png" type="image/png">
+    <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
+</head>
+<style>
+    @font-face {
+  font-family: 'Geova';
+  src: url('../geova/GeovaTrial-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Geova', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 20px;
+  background-color: #F6EEC9;
+  border-bottom: 3px solid #C2C9AB;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo {
+  font-weight: bold;
+  color: #6e3b28;
+  font-size: 18px;
+}
+
+nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-btn {
+  padding: 8px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 11px;
+  font-size: 14px;
+  color: #333;
+}
+
+#btn-inicio {
+  background-color: #A3B18A;
+  border: 1px solid #F6EEC9;
+  color: white;
+}
+
+#btn-recomendaciones {
+  background-color: #F6EEC9;
+  border: 1px solid #A3B18A;
+  
+}
+
+#btn-cuenta {
+  background-color: #F6EEC9;
+  border: 1px solid #C2C9AB;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  background-color: #DDD;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.main-content {
+  text-align: center;
+  padding: 50px;
+}
+
+.main-icon {
+  font-size: 50px;
+  margin: 20px 0;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #7F5539;
+}
+
+p {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #7F5539;
+}
+
+.btn {
+  margin-top: 30px;
+  padding: 10px 30px;
+  font-size: 16px;
+  border: 2px solid #A3B18A;
+  background-color: #D4E2C3;
+  cursor: pointer;
+  border-radius: 11px;
+  transition: background-color 0.6s, box-shadow 0.6s, transform 0.2s, color 0.3s;
+  color: #7F5539;
+}
+
+.btn:hover {
+  background-color: #F6EEC9;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: scale(1.05);
+  color: #7F5539;
+}
+</style>
+<body>
+<header>
+    <div class="logo-container">
+        <img src="/JARDINES_PERSONALIZADOS/Img/logo_jardinespersonalizados.png" alt="Logo de FLORGAERFRA" class="logo-img">
+        <div class="logo">FLORGAERFRA</div>
+    </div>
+    <nav>
+        <ul>
+            <p>{{ Auth::user()->name }}</p>
+        </ul>
+    </nav>
+    <div class="icon">👤</div>
+</header>
+
+<div class="main-content">
+    <div class="main-icon">🌱</div>
+    <h1>¡Bienvenido a FLORGAERFRA!</h1>
+    <bp>Tu asistente personal para crear el jardín perfecto</bp>
+    <p>Comienza obteniendo recomendaciones personalizadas de plantas</p>
+    <button type="button" class="btn" onclick="redirectToRegister()">Recomendación de especies</button>
+</div>
+
+<script>
+    function redirectToRegister() {
+        window.location.href = '{{ url("/pantalla-inicio") }}'; // Asegúrate de que esta ruta exista
+    }
+</script>
+</body>
+</html>
