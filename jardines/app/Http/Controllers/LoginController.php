@@ -46,7 +46,7 @@ class LoginController extends Controller
         return redirect()->back()->with('success', 'Registro exitoso. Ahora puedes iniciar sesión.');
     }
 
-    // Funcion de cerrar seccion 
+    // Logout
     public function logout()
     {
         Auth::logout();
