@@ -32,7 +32,7 @@ class LoginController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string|min:6',
             'municipio' => 'required|string',
         ]);
 
@@ -46,8 +46,11 @@ class LoginController extends Controller
         return redirect()->back()->with('success', 'Registro exitoso. Ahora puedes iniciar sesión.');
     }
 
-    // Logout
+    // Funcion de cerrar seccion 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login.form');
+    }
+
 }
-
-
-

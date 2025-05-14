@@ -11,6 +11,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('login.custom');
 Route::post('/register', [LoginController::class, 'register'])->name('register.custom');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 Route::get('/Pantalla_inicio', [Pantalla_inicioController::class, 'Pantalla_inicio'])->name('pantalla_inicio');
+
 Route::get('/mi_perfil', [Mi_perfilController::class, 'Mi_perfil'])->name('mi_perfil');
 Route::post('/mi_perfil/update-password', [Mi_perfilController::class, 'updatePassword'])->name('perfil.updatePassword');
 Route::post('/mi_perfil/update-email', [Mi_perfilController::class, 'updateEmail'])->name('perfil.updateEmail');
