@@ -57,7 +57,7 @@
                 <button type="submit" class="btn">Iniciar Sesión</button>
             </form>
             <div class="forgot-password">
-                <a href="#">¿Olvidaste tu contraseña?</a>
+                <a href="#"></a>
             </div>
         </div>
 

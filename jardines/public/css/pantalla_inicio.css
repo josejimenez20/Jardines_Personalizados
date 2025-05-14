@@ -1,0 +1,225 @@
+    :root {
+      --color-light-green: #A3B18A;
+      --color-cream: #F6EEC9;
+      --color-brown: #7F5539;
+      --color-light-brown: #A57D5D;
+      --color-pale-ivory: #FAF3E0;
+      --color-gray: #6C757D;
+      --color-mint: #D4E2C3;
+      --color-off-white: #FAF8EF;
+      --color-white: #FFFCF5;
+      --color-light-gray: #A0A7B0;
+    }
+
+    @font-face {
+      font-family: 'Geova';
+      src: url('../geova/GeovaTrial-semibold.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Geova', sans-serif;
+    }
+    
+    /* Header styles with modifications for true edge-to-edge layout */
+    header {
+      background-color: var(--color-cream);
+      border-bottom: 2px solid var(--color-light-green);
+      padding: 10px 0;
+      width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 100%; /* Full width container */
+      margin: 0; /* No margin */
+      padding: 0; /* No padding */
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between; /* Push items to edges */
+      align-items: center;
+      width: 100%; /* Full width */
+      padding: 0 15px; /* Small padding inside the header content */
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .titulo-app {
+      font-weight: bold;
+      color: var(--color-brown);
+      font-size: 18px;
+    }
+
+    /* Navigation styles */
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Nav and user icon container */
+    .nav-user-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li button {
+      padding: 8px 12px;
+      background-color: var(--color-cream);
+      border: 1px solid var(--color-light-brown);
+      border-radius: 10px;
+      color: var(--color-brown);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 14px;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav li button:hover {
+      background-color: var(--color-mint);
+    }
+
+    nav li button.active {
+      background-color: var(--color-light-green);
+      color: var(--color-white);
+    }
+
+    .icon {
+      width: 32px;
+      height: 32px;
+      background-color: var(--color-light-gray);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      background-color: var(--color-cream);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+      border-radius: 8px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--color-brown);
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 15px;
+      color: var(--color-brown);
+    }
+
+    .toggle-buttons {
+      margin-bottom: 20px;
+    }
+
+    .toggle-buttons button {
+      margin-right: 10px;
+      padding: 6px 15px;
+      cursor: pointer;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 10px;
+      font-weight: bold;
+      color: var(--color-brown);
+    }
+
+    input[type="text"], select {
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Estilo para los botones */
+    button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: var(--color-light-green);
+      color: var(--color-brown);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.3s;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s;
+    }
+
+    /* Efecto hover */
+    button:hover {
+      background-color: #D4E2C3;
+      color: var(--color-brown);
+      transform: scale(1.05);
+    }
+
+    /* Efecto active */
+    button:active {
+      background-color: var(--color-light-green);
+      color: var(--color-brown);
+      transform: scale(0.95);
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.3s;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    /* Estilo para el botón deshabilitado */
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background-color: #D4E2C3;
+      color: var(--color-light-brown);
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.3s;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:disabled:hover {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background-color: #D4E2C3;
+      color: var(--color-light-brown);
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.3s;
+      transition: background-color 0.3s ease-in-out;
+    }
