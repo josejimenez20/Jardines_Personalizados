@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
 </head>
 <style>
-    @font-face {
-  font-family: 'Geova';
-  src: url('../geova/GeovaTrial-SemiBold.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
+@font-face {
+    font-family: 'Arial';
+    src: local('Arial'), local('Arial-Regular');
+    font-weight: normal;
+    font-style: normal;
+} 
 * {
   margin: 0;
   padding: 0;
@@ -33,12 +33,13 @@ header {
 .logo-container {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .logo-img {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%; /* Opcional: da forma redonda al logo */
 }
 
 .logo {
@@ -80,7 +81,6 @@ nav ul {
 #btn-recomendaciones {
   background-color: #F6EEC9;
   border: 1px solid #A3B18A;
-  
 }
 
 #btn-cuenta {
@@ -89,8 +89,8 @@ nav ul {
 }
 
 .icon {
-  width: 35px;
-  height: 35px;
+  width: 28px;
+  height: 28px;
   background-color: #DDD;
   border-radius: 50%;
   display: flex;
@@ -144,7 +144,7 @@ p {
 <body>
 <header>
     <div class="logo-container">
-        <img src="/JARDINES_PERSONALIZADOS/Img/logo_jardinespersonalizados.png" alt="Logo de FLORGAERFRA" class="logo-img">
+        <img src="{{ asset('Img/logo_jardinespersonalizados.png') }}" alt="Logo" class="logo">
         <div class="logo">FLORGAERFRA</div>
     </div>
     <nav>
@@ -157,7 +157,7 @@ p {
 
 <div class="main-content">
     <div class="main-icon">🌱</div>
-    <h1>¡Bienvenido a FLORGAERFRA!</h1>
+    <h1>¡Bienvenido/a {{ Auth::user()->name }} a FLORGAERFRA!</h1>
     <bp>Tu asistente personal para crear el jardín perfecto</bp>
     <p>Comienza obteniendo recomendaciones personalizadas de plantas</p>
     <button type="button" class="btn" onclick="redirectToRegister()">Recomendación de especies</button>
