@@ -2,21 +2,18 @@
   --color-light-green: #A3B18A;
   --color-cream: #F6EEC9;
   --color-brown: #7F5539;
-  --color-light-brown: #A57D5D;
   --color-pale-ivory: #FAF3E0;
   --color-gray: #6C757D;
   --color-mint: #D4E2C3;
   --color-off-white: #FAF8EF;
+  --color-light-brown: #A57D5D;
   --color-white: #FFFCF5;
   --color-light-gray: #A0A7B0;
 }
 
-/*=======================
-=       FUENTE          =
-========================*/
 @font-face {
   font-family: 'Geova';
-  src: url('../geova/GeovaTrial-semibold.ttf') format('truetype');
+  src: url('../geova/GeovaTrial-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -28,18 +25,17 @@
   font-family: 'Geova', sans-serif;
 }
 
-/*=======================
-=       BODY           =
-========================*/
 body {
-  background-color: var(--color-pale-ivory);
+  background-color: var(--color-off-white);
   color: var(--color-brown);
-  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-/*=======================
-=       HEADER         =
-========================*/
 header {
   background-color: var(--color-cream);
   border-bottom: 2px solid var(--color-light-green);
@@ -82,9 +78,6 @@ header {
   color: var(--color-brown);
 }
 
-/*=======================
-=       NAV            =
-========================*/
 nav {
   display: flex;
   align-items: center;
@@ -104,16 +97,16 @@ nav ul {
 }
 
 nav li button {
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-brown);
+  padding: 10px 20px;
   background-color: var(--color-cream);
-  border: 1px solid var(--color-light-brown);
-  border-radius: 10px;
+  border: 2px solid var(--color-light-brown);
+  border-radius: 999px;
+  color: var(--color-brown);
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 nav li button:hover {
@@ -125,47 +118,85 @@ nav li button.active {
   color: var(--color-white);
 }
 
-/*=======================
-=       MAIN           =
-========================*/
+/* MAIN CONTENT */
 main {
   max-width: 700px;
   margin: 40px auto;
   padding: 30px 25px;
   background-color: var(--color-off-white);
-  border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
   transition: all 0.3s ease;
 }
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 12px;
+h2,
+h3 {
   color: var(--color-brown);
+  margin-bottom: 10px;
 }
 
-p {
-  font-size: 15px;
-  margin-bottom: 18px;
-  color: var(--color-light-brown);
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 20px;
 }
 
-/*=============================
-=       TOGGLE BUTTONS       =
-==============================*/
+.options button {
+  padding: 8px 14px;
+  border: 2px solid var(--color-light-green);
+  background-color: var(--color-pale-ivory);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-brown);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.options button:hover {
+  background-color: var(--color-mint);
+}
+
+.options button.selected {
+  background-color: var(--color-light-green);
+  color: var(--color-white);
+  border-color: var(--color-brown);
+  transform: scale(1.05);
+}
+
+.submit-button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 28px;
+  font-size: 16px;
+  background-color: var(--color-light-green);
+  color: var(--color-white);
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.submit-button:hover {
+  background-color: var(--color-light-gray);
+}
+
+/* TOGGLE BUTTONS */
 .toggle-buttons {
   margin-bottom: 20px;
 }
 
 .toggle-buttons button {
-  margin-right: 10px;
-  padding: 8px 16px;
+  padding: 10px 20px;
   background-color: var(--color-light-green);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 999px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: 0.3s ease-in-out;
 }
 
 .toggle-buttons button:hover {
@@ -173,9 +204,7 @@ p {
   color: var(--color-brown);
 }
 
-/*=======================
-=        FORM          =
-========================*/
+/* FORM */
 form {
   display: flex;
   flex-direction: column;
@@ -189,12 +218,12 @@ label {
 
 input[type="text"],
 select {
-  padding: 10px;
-  font-size: 14px;
-  background-color: var(--color-white);
+  padding: 10px 14px;
   border: 2px solid var(--color-mint);
-  border-radius: 10px;
+  border-radius: 12px;
+  font-size: 14px;
   transition: all 0.3s ease;
+  background-color: var(--color-white);
 }
 
 input:focus,
@@ -204,18 +233,16 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(163, 177, 138, 0.25);
 }
 
-/*=======================
-=       BOTONES        =
-========================*/
+/* BOTONES GENERALES */
 button {
-  padding: 10px 18px;
-  font-weight: 600;
+  padding: 10px 20px;
   background-color: var(--color-light-green);
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 999px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 button:hover {

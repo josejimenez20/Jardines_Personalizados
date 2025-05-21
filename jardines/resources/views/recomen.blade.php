@@ -1,0 +1,1 @@
+<h2>En esta sección puedes encontrar recomendaciones de especies para tu jardín</h2>

@@ -1,45 +1,74 @@
-/* Tipografía base */
-@font-face {
-    font-family: 'Arial';
-    src: local('Arial'), local('Arial-Regular');
+:root {
+  --font-main: 'Arial', sans-serif;
+
+  --color-primary: #7F5539;
+  --color-secondary: #6e3b28;
+  --color-light: #FAF8EF;
+  --color-accent: #A3B18A;
+  --color-highlight: #D4E2C3;
+  --color-background: #F6EEC9;
+  --color-border: #C2C9AB;
+  --color-icon-bg: #C2C9AB;
+  --color-icon-hover: #A3B18A;
+  --color-btn-text: #fff;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+@font-face {
+  font-family: 'Arial';
+  src: local('Arial'), local('Arial-Regular');
 }
-/* --- HEADER --- */
+
+/* === RESET & BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+}
+
+body {
+  background-color: var(--color-light);
+  color: var(--color-primary);
+  line-height: 1.6;
+}
+
+/* === HEADER === */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
-  background-color: #F6EEC9;
-  border-bottom: 3px solid #C2C9AB;
+  padding: 18px 36px;
+  background-color: var(--color-background);
+  border-bottom: 2px solid var(--color-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* Logo */
+/* --- Logo y título --- */
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
 .logo-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.logo {
-  font-size: 20px;
+.logo-title {
+  font-size: 24px;
   font-weight: bold;
-  color: #6e3b28;
+  color: var(--color-secondary);
+  letter-spacing: 1px;
 }
 
-/* Navegación */
+/* === NAVEGACIÓN === */
 nav {
   flex-grow: 1;
   display: flex;
@@ -48,96 +77,122 @@ nav {
 
 nav ul {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 14px;
   list-style: none;
 }
 
-/* Botones del header */
 .nav-btn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 11px;
+  padding: 8px 20px;
+  border-radius: 14px;
   font-size: 14px;
   background-color: transparent;
-  color: #333;
+  color: var(--color-secondary);
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
 }
 
 .nav-btn:hover {
-  transform: translateY(-1px);
+  background-color: var(--color-highlight);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Botones específicos */
+/* --- Botones específicos --- */
 #btn-inicio {
-  background-color: #A3B18A;
-  border: 1px solid #F6EEC9;
-  color: #fff;
+  background-color: var(--color-accent);
+  color: var(--color-btn-text);
+  border: 1px solid var(--color-background);
 }
 
 #btn-recomendaciones,
 #btn-cuenta {
-  background-color: #F6EEC9;
-  border: 1px solid #A3B18A;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-accent);
+  color: var(--color-primary);
 }
 
-#btn-cuenta {
-  border-color: #C2C9AB;
+/* === USUARIO === */
+.user-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  justify-content: flex-end;
+  max-width: max-content;
 }
 
-/* Ícono del usuario */
+.username {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-secondary);
+  margin: 0;
+  line-height: 1;
+}
+
 .icon {
-  width: 32px;
-  height: 32px;
-  background-color: #DDD;
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-icon-bg);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 15px;
+  font-size: 18px;
+  color: #4B3A67;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* --- CONTENIDO PRINCIPAL --- */
+.icon:hover {
+  background-color: var(--color-icon-hover);
+  transform: scale(1.1);
+}
+
+/* === CONTENIDO PRINCIPAL === */
 .main-content {
   text-align: center;
-  padding: 60px 20px;
+  padding: 70px 24px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .main-icon {
-  font-size: 56px;
-  margin: 20px 0;
-  color: #7F5539;
+  font-size: 64px;
+  margin: 30px 0;
+  color: var(--color-primary);
 }
 
-/* Títulos y texto */
 h1 {
-  font-size: 26px;
-  margin: 15px 0;
+  font-size: 30px;
+  margin-bottom: 20px;
   font-weight: bold;
-  color: #7F5539;
+  color: var(--color-primary);
 }
 
 p {
   font-size: 18px;
-  margin: 10px 0;
-  color: #7F5539;
+  margin-bottom: 20px;
+  color: var(--color-secondary);
 }
 
-/* Botón principal */
+/* === BOTÓN PRINCIPAL === */
 .btn {
-  margin-top: 30px;
-  padding: 12px 36px;
+  margin-top: 32px;
+  padding: 14px 38px;
   font-size: 16px;
-  border: 2px solid #A3B18A;
-  background-color: #D4E2C3;
-  color: #7F5539;
-  border-radius: 11px;
+  border: 2px solid var(--color-accent);
+  background-color: var(--color-highlight);
+  color: var(--color-primary);
+  border-radius: 14px;
   cursor: pointer;
-  transition: background-color 0.4s, box-shadow 0.4s, transform 0.2s, color 0.3s;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #F6EEC9;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transform: scale(1.05);
+  background-color: var(--color-background);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: scale(1.06);
 }

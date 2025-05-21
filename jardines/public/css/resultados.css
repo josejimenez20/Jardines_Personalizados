@@ -1,0 +1,268 @@
+:root {
+  --color-light-green: #A3B18A;
+  --color-cream: #F6EEC9;
+  --color-brown: #7F5539;
+  --color-pale-ivory: #FAF3E0;
+  --color-gray: #6C757D;
+  --color-mint: #D4E2C3;
+  --color-off-white: #FAF8EF;
+  --color-light-brown: #A57D5D;
+  --color-white: #FFFCF5;
+  --color-light-gray: #A0A7B0;
+}
+
+@font-face {
+  font-family: 'Geova';
+  src: url('../geova/GeovaTrial-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Geova', sans-serif;
+}
+
+body {
+  background-color: var(--color-pale-ivory);
+  color: var(--color-brown);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: var(--color-cream);
+  border-bottom: 2px solid var(--color-light-green);
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  transform: scale(0.8);
+}
+
+.logo-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-light-green);
+}
+
+.logo-text {
+  font-size: 28px;
+  margin-left: 10px;
+  font-weight: bold;
+  color: var(--color-brown);
+}
+
+/* Navegación */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+nav li button {
+  padding: 10px 20px;
+  background-color: var(--color-cream);
+  border: none;
+  border-radius: 999px;
+  color: var(--color-brown);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+nav li button:hover {
+  background-color: var(--color-mint);
+}
+
+nav li button.active {
+  background-color: var(--color-light-green);
+  color: var(--color-white);
+}
+
+.account-icon {
+  width: 35px;
+  height: 35px;
+  background-color: var(--color-light-gray);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.breadcrumbs {
+  padding: 20px 0;
+  color: var(--color-gray);
+}
+
+/* Filtros */
+.filter-section {
+  margin: 30px 0;
+}
+
+.filter-criteria {
+  background-color: var(--color-cream);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.filter-count {
+  text-align: right;
+  color: var(--color-gray);
+  margin-bottom: 10px;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-light-green);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 14px;
+  color: var(--color-brown);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.filter-btn:hover {
+  background-color: var(--color-mint);
+}
+
+.filter-btn.active {
+  background-color: var(--color-light-green);
+  color: white;
+}
+
+/* Grilla */
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.plant-card {
+  border: 2px solid var(--color-light-gray);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--color-off-white);
+  transition: 0.3s ease-in-out;
+}
+
+.plant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.plant-image {
+  height: 160px;
+  background-color: var(--color-pale-ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plant-icon {
+  width: 65px;
+  height: 65px;
+  fill: var(--color-light-brown);
+}
+
+.plant-info {
+  padding: 15px;
+}
+
+.plant-name {
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--color-brown);
+  margin-bottom: 4px;
+}
+
+.plant-scientific {
+  font-style: italic;
+  color: var(--color-gray);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.plant-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.plant-tag {
+  background-color: var(--color-mint);
+  color: var(--color-brown);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 40px 0 0;
+}
+
+.page-btn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-light-gray);
+  background-color: var(--color-white);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.page-btn:hover {
+  background-color: var(--color-mint);
+}
+
+.page-btn.active {
+  background-color: var(--color-light-green);
+  color: white;
+  border-color: var(--color-light-green);
+}
+
+.plant-card.hidden {
+  display: none;
+}

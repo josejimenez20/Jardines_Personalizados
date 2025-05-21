@@ -8,16 +8,10 @@
 </head>
 <body>
 <header>
-    <div class="logo-container">
-        <img src="{{ asset('Img/logo_jardinespersonalizados.png') }}" alt="Logo" class="logo">
-        <div class="logo">FLORGAERFRA</div>
-    </div>
-    <nav>
-        <ul>
-            <p>{{ Auth::user()->name }}</p>
-        </ul>
-    </nav>
-    <div class="icon">👤</div>
+    <div class="user-container">
+  <span class="username">{{ Auth::user()->name }}</span>
+  <div class="icon">👤</div>
+</div>
 </header>
 
 <div class="main-content">
