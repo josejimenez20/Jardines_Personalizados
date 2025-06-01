@@ -26,6 +26,11 @@ class LoginController extends Controller
         return redirect()->back()->with('error', 'Email o contraseña incorrectos, por favor intenta de nuevo.');
     }
 
+     public function index()
+    {
+        return view('dashboard');
+    }
+
     // Función de registro
     public function register(Request $request)
     {

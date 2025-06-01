@@ -1,16 +1,21 @@
 :root {
   --font-main: 'Arial', sans-serif;
 
+  /* Colores base */
   --color-primary: #7F5539;
-  --color-secondary: #6e3b28;
+  --color-primary-dark: #6e3b28;
+  --color-secondary: #A3B18A;
+  --color-secondary-light: #D4E2C3;
+
   --color-light: #FAF8EF;
-  --color-accent: #A3B18A;
-  --color-highlight: #D4E2C3;
   --color-background: #F6EEC9;
   --color-border: #C2C9AB;
+
+  /* Colores UI */
   --color-icon-bg: #C2C9AB;
   --color-icon-hover: #A3B18A;
-  --color-btn-text: #fff;
+  --color-btn-text: #ffffff;
+  --color-btn-hover: #F6EEC9;
 }
 
 @font-face {
@@ -35,7 +40,7 @@ body {
 /* === HEADER === */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* Alinea a la derecha */
   align-items: center;
   padding: 18px 36px;
   background-color: var(--color-background);
@@ -46,7 +51,37 @@ header {
   z-index: 100;
 }
 
-/* --- Logo y título --- */
+.user-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-primary-dark);
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-icon-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #4B3A67;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.icon:hover {
+  background-color: var(--color-icon-hover);
+  transform: scale(1.1);
+}
+
+/* === LOGO Y TÍTULO === */
 .logo-container {
   display: flex;
   align-items: center;
@@ -64,7 +99,7 @@ header {
 .logo-title {
   font-size: 24px;
   font-weight: bold;
-  color: var(--color-secondary);
+  color: var(--color-primary-dark);
   letter-spacing: 1px;
 }
 
@@ -87,7 +122,7 @@ nav ul {
   border-radius: 14px;
   font-size: 14px;
   background-color: transparent;
-  color: var(--color-secondary);
+  color: var(--color-primary-dark);
   cursor: pointer;
   font-weight: 500;
   border: 1px solid transparent;
@@ -95,14 +130,13 @@ nav ul {
 }
 
 .nav-btn:hover {
-  background-color: var(--color-highlight);
+  background-color: var(--color-secondary-light);
   transform: translateY(-2px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* --- Botones específicos --- */
 #btn-inicio {
-  background-color: var(--color-accent);
+  background-color: var(--color-secondary);
   color: var(--color-btn-text);
   border: 1px solid var(--color-background);
 }
@@ -110,7 +144,7 @@ nav ul {
 #btn-recomendaciones,
 #btn-cuenta {
   background-color: var(--color-background);
-  border: 1px solid var(--color-accent);
+  border: 1px solid var(--color-secondary);
   color: var(--color-primary);
 }
 
@@ -118,17 +152,15 @@ nav ul {
 .user-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-left: auto;
   justify-content: flex-end;
-  max-width: max-content;
 }
 
 .username {
   font-size: 16px;
   font-weight: 500;
-  color: var(--color-secondary);
-  margin: 0;
+  color: var(--color-primary-dark);
   line-height: 1;
 }
 
@@ -156,6 +188,7 @@ nav ul {
   padding: 70px 24px;
   max-width: 800px;
   margin: 0 auto;
+  animation: fadeIn 0.6s ease;
 }
 
 .main-icon {
@@ -174,25 +207,62 @@ h1 {
 p {
   font-size: 18px;
   margin-bottom: 20px;
-  color: var(--color-secondary);
+  color: var(--color-primary-dark);
 }
 
-/* === BOTÓN PRINCIPAL === */
+/* === BOTONES === */
 .btn {
-  margin-top: 32px;
+  display: inline-block;
   padding: 14px 38px;
-  font-size: 16px;
-  border: 2px solid var(--color-accent);
-  background-color: var(--color-highlight);
-  color: var(--color-primary);
-  border-radius: 14px;
-  cursor: pointer;
+  font-size: 18px;
   font-weight: 600;
+  text-align: center;
+  border: 2px solid var(--color-accent);
+  border-radius: 14px;
+  background-color: var(--color-secondary-light);
+  color: var(--color-primary);
+  cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .btn:hover {
-  background-color: var(--color-background);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  transform: scale(1.06);
+  background-color: var(--color-secondary);
+  color: var(--color-btn-text);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* === ANIMACIONES === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .main-content {
+    padding: 40px 16px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px 20px;
+  }
 }

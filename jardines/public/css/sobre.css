@@ -1,21 +1,22 @@
+
 :root {
   --color-light-green: #A3B18A;
   --color-cream: #F6EEC9;
-  --color-brown: #7F5539;
+  --color-brown: #A57D5D;
+  --color-light-brown: #A57D5D;
   --color-pale-ivory: #FAF3E0;
   --color-gray: #6C757D;
   --color-mint: #D4E2C3;
-  --color-off-white: #FAF8EF;
-  --color-light-brown: #A57D5D;
+  --color-off-white: #fffae3;
   --color-white: #FFFCF5;
   --color-light-gray: #A0A7B0;
+  --color-green-strong: #7F5539;
 }
 
+/* TIPOGRAFÍA */
 @font-face {
   font-family: 'Geova';
   src: url('../geova/GeovaTrial-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 * {
@@ -25,12 +26,12 @@
   font-family: 'Geova', sans-serif;
 }
 
+/* ESTRUCTURA */
 body {
   background-color: var(--color-off-white);
   color: var(--color-brown);
   display: flex;
   flex-direction: column;
-  align-items: center;
   min-height: 100vh;
 }
 
@@ -45,18 +46,13 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.container {
-  width: 100%;
+.container.header-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .logo {
@@ -66,26 +62,14 @@ header {
 }
 
 .logo img {
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
 }
 
 .titulo-app {
-  font-weight: 700;
-  font-size: 22px;
+  font-size: 18px;
+  font-weight: 600;
   color: var(--color-brown);
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.nav-user-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
 }
 
 nav ul {
@@ -95,167 +79,166 @@ nav ul {
 }
 
 nav li button {
-  padding: 10px 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
   background-color: var(--color-cream);
+  color: var(--color-brown);
   border: 2px solid var(--color-light-brown);
   border-radius: 999px;
-  color: var(--color-brown);
-  font-weight: 600;
   cursor: pointer;
-  font-size: 14px;
-  transition: 0.3s ease-in-out;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
 nav li button:hover {
   background-color: var(--color-mint);
+  color: var(--color-brown);
 }
 
-nav li button.active {
-  background-color: var(--color-light-green);
-  color: var(--color-white);
-}
-
-/* MAIN CONTENT */
+/* MAIN */
 main {
   max-width: 700px;
   margin: 40px auto;
   padding: 30px 25px;
-  background-color: var(--color-off-white);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  transition: all 0.3s ease;
+  background-color: var(--color-white);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: left;
 }
 
-h2,
-h3 {
+h1 {
+  text-align: center;
+  color: var(--color-brown);
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.info-text {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 25px;
+  color: var(--color-gray);
+}
+
+#progressText {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: var(--color-light-brown);
+  font-weight: 500;
+}
+
+/* PREGUNTAS */
+.question {
+  margin-bottom: 32px;
+}
+
+.question p,
+.question h3 {
+  font-weight: bold;
+  font-size: 16px;
   color: var(--color-brown);
   margin-bottom: 10px;
 }
 
-.options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 10px 0 20px;
-}
-
+/* === BOTONES DE OPCIÓN CON VIDA Y SOMBRA === */
+.option,
 .options button {
-  padding: 8px 14px;
-  border: 2px solid var(--color-light-green);
-  background-color: var(--color-pale-ivory);
-  border-radius: 999px;
-  font-size: 14px;
+  padding: 12px 22px;
+  font-size: 15px;
   font-weight: 600;
+  border: 2px solid var(--color-light-gray);
+  border-radius: 999px;
+  background-color: #ffffff;
   color: var(--color-brown);
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+  outline: none;
 }
 
+.option::after,
+.options button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: rgba(163, 177, 138, 0.12); /* efecto de luz suave */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.option:hover,
 .options button:hover {
   background-color: var(--color-mint);
-}
-
-.options button.selected {
-  background-color: var(--color-light-green);
-  color: var(--color-white);
-  border-color: var(--color-brown);
-  transform: scale(1.05);
-}
-
-.submit-button {
-  display: block;
-  margin: 30px auto 0;
-  padding: 12px 28px;
-  font-size: 16px;
-  background-color: var(--color-light-green);
-  color: var(--color-white);
-  border: none;
-  border-radius: 999px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-
-.submit-button:hover {
-  background-color: var(--color-light-gray);
-}
-
-/* TOGGLE BUTTONS */
-.toggle-buttons {
-  margin-bottom: 20px;
-}
-
-.toggle-buttons button {
-  padding: 10px 20px;
-  background-color: var(--color-light-green);
-  color: white;
-  border: none;
-  border-radius: 999px;
-  font-weight: 600;
-  transition: 0.3s ease-in-out;
-}
-
-.toggle-buttons button:hover {
-  background-color: var(--color-mint);
-  color: var(--color-brown);
-}
-
-/* FORM */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-label {
-  font-weight: 600;
-  color: var(--color-brown);
-}
-
-input[type="text"],
-select {
-  padding: 10px 14px;
-  border: 2px solid var(--color-mint);
-  border-radius: 12px;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  background-color: var(--color-white);
-}
-
-input:focus,
-select:focus {
+  transform: scale(1.04);
   border-color: var(--color-light-green);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(163, 177, 138, 0.25);
 }
 
-/* BOTONES GENERALES */
-button {
-  padding: 10px 20px;
+.option:hover::after,
+.options button:hover::after {
+  opacity: 1;
+}
+
+.option.selected,
+.options button.selected {
+  background: linear-gradient(145deg, var(--color-green-strong), #A57D5D);
+  color: white;
+  border-color: var(--color-brown);
+  font-weight: bold;
+  transform: scale(1.06);
+  box-shadow: 0 6px 12px rgba(235, 238, 229, 0.3);
+}
+
+/* === BOTÓN DE CONTINUAR MEJORADO === */
+.submit-button,
+#continueBtn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
   background-color: var(--color-light-green);
   color: white;
   border: none;
   border-radius: 999px;
-  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-button:hover {
-  background-color: var(--color-mint);
-  color: var(--color-brown);
-  transform: scale(1.05);
+.submit-button:hover,
+#continueBtn:hover {
+  background-color: var(--color-green-strong);
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(107, 142, 35, 0.25);
 }
 
-button:active {
-  transform: scale(0.96);
-}
-
-button:disabled {
-  background-color: var(--color-mint);
-  color: var(--color-light-brown);
-  opacity: 0.6;
+.submit-button:disabled,
+#continueBtn:disabled {
+  background-color: #ddd;
+  color: #aaa;
   cursor: not-allowed;
+  border: 2px solid #ccc;
+  box-shadow: none;
+  transform: none;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  main {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .options {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .options button {
+    width: 100%;
+  }
 }

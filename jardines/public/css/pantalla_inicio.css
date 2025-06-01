@@ -37,9 +37,6 @@ body {
   line-height: 1.6;
 }
 
-/*=======================
-=       HEADER         =
-========================*/
 header {
   background-color: var(--color-cream);
   border-bottom: 2px solid var(--color-light-green);
@@ -51,18 +48,13 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.container {
-  width: 100%;
+.container.header-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .logo {
@@ -72,29 +64,15 @@ header {
 }
 
 .logo img {
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .titulo-app {
-  font-weight: 700;
-  font-size: 22px;
+  font-size: 18px;
+  font-weight: 600;
   color: var(--color-brown);
-}
-
-/*=======================
-=       NAV            =
-========================*/
-nav {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.nav-user-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
 }
 
 nav ul {
@@ -107,22 +85,17 @@ nav li button {
   padding: 8px 16px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-brown);
   background-color: var(--color-cream);
-  border: 1px solid var(--color-light-brown);
-  border-radius: 10px;
+  color: var(--color-brown);
+  border: 2px solid var(--color-light-brown);
+  border-radius: 999px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   transition: all 0.3s ease;
 }
 
 nav li button:hover {
   background-color: var(--color-mint);
-}
-
-nav li button.active {
-  background-color: var(--color-light-green);
-  color: var(--color-white);
+  color: var(--color-brown);
 }
 
 /*=======================
@@ -139,14 +112,16 @@ main {
 }
 
 h1 {
-  font-size: 24px;
-  margin-bottom: 12px;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 24px;
   color: var(--color-brown);
 }
 
-p {
-  font-size: 15px;
-  margin-bottom: 18px;
+.info-text {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 28px;
   color: var(--color-light-brown);
 }
 
@@ -154,23 +129,43 @@ p {
 =       TOGGLE BUTTONS       =
 ==============================*/
 .toggle-buttons {
-  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
-.toggle-buttons button {
-  margin-right: 10px;
-  padding: 8px 16px;
+.btn-primary {
   background-color: var(--color-light-green);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-mint);
+  color: var(--color-brown);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-brown);
+  border: 2px solid var(--color-light-green);
+  border-radius: 10px;
+  padding: 10px 22px;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
-.toggle-buttons button:hover {
+.btn-secondary:hover {
   background-color: var(--color-mint);
   color: var(--color-brown);
+  transform: scale(1.05);
 }
 
 /*=======================
@@ -204,8 +199,14 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(163, 177, 138, 0.25);
 }
 
+input[readonly],
+select:disabled {
+  background-color: #f3f3f3;
+  color: #777;
+}
+
 /*=======================
-=       BOTONES        =
+=     GENERIC BUTTONS  =
 ========================*/
 button {
   padding: 10px 18px;
@@ -233,4 +234,34 @@ button:disabled {
   color: var(--color-light-brown);
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/*=======================
+=     RESPONSIVE       =
+========================*/
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .toggle-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toggle-buttons button {
+    width: 100%;
+  }
+
+  main {
+    margin: 20px;
+    padding: 20px;
+  }
 }

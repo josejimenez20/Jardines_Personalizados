@@ -3,106 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Florgaerfra</title>
+  <title>FLORGAERFRA</title>
   <link rel="shortcut icon" href="/Img/logo_imagen.png" type="image/png">
   <link rel="stylesheet" href="{{ asset('css/sobre.css') }}" />
 </head>
 <body>
   <header>
-    <div class="container">
-      <div class="header-content">
-        <!-- Logo completamente al borde izquierdo -->
-        <div class="logo">
-           <img src="{{ asset('Img/logo_jardinespersonalizados.png') }}" alt="Logo" class="logo">
-          <span class="titulo-app">FLORGAERFRA</span>
-        </div>
-        
-        <div class="nav-user-container">
-          <nav>
-            <ul>
-              <li><button id="btn-inicio">Inicio</button></li>
-              <li><button id="btn-recomendaciones">Recomendaciones</button></li>
-              <li><button id="btn-cuenta">Mi cuenta</button></li>
-            </ul>
-          </nav>
-        </div>
+  <div class="container header-content">
+    <div class="logo">
+      <img src="{{ asset('Img/logo_jardinespersonalizados.png') }}" alt="Logo de FLORGAERFRA" />
+      <span class="titulo-app">FLORGAERFRA</span>
+    </div>
+    <nav>
+      <ul>
+        <li><button id="btn-inicio">Inicio</button></li>
+        <li><button id="btn-recomendaciones">Recomendaciones</button></li>
+        <li><button id="btn-cuenta">Mi cuenta</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="main-content">
+    <h1>🌿 Personaliza tu jardín</h1>
+    <p class="info-text">Responde todas las preguntas para recibir recomendaciones personalizadas.</p>
+
+    <div id="progressText">0 de 5 preguntas completadas</div>
+
+    <div class="question" data-question="clima">
+      <p>¿Qué tipo de clima tiene?</p>
+      <div class="options">
+        <button class="option">Tropical cálido</button>
+        <button class="option">Templado</button>
+        <button class="option">Frío</button>
+        <button class="option">Desértico</button>
       </div>
     </div>
-  </header>
 
-  <div class="container">
-    <h2>Cuéntanos sobre tu jardín</h2>
-
-    <h3>¿Qué tipo de clima tiene?</h3>
-    <div class="options">
-      <button>Tropical cálido</button>
-      <button>Templado</button>
-      <button>Frío</button>
-      <button>Desértico</button>
+    <div class="question" data-question="suelo">
+      <p>¿Qué tipo de suelo tiene?</p>
+      <div class="options">
+        <button class="option">Arenoso</button>
+        <button class="option">Arcilloso</button>
+        <button class="option">Fértil</button>
+        <button class="option">No sé</button>
+      </div>
     </div>
 
-    <h3>¿Qué tipo de suelo tiene?</h3>
-    <div class="options">
-      <button>Arenoso</button>
-      <button>Arcilloso</button>
-      <button>Fértil</button>
-      <button>No sé</button>
+    <div class="question" data-question="luz">
+      <p>¿Cuánta luz solar recibe tu jardín?</p>
+      <div class="options">
+        <button class="option">Sol pleno</button>
+        <button class="option">Semi-sombra</button>
+        <button class="option">Sombra</button>
+      </div>
     </div>
 
-    <h3>¿Cuánta luz solar recibe tu jardín?</h3>
-    <div class="options">
-      <button>Sol pleno</button>
-      <button>Semi-sombra</button>
-      <button>Sombra</button>
+    <div class="question" data-question="riego">
+      <p>¿Con qué frecuencia puedes regar?</p>
+      <div class="options">
+        <button class="option">Diariamente</button>
+        <button class="option">Moderado</button>
+        <button class="option">Poca frecuencia</button>
+      </div>
     </div>
 
-    <h3>¿Con qué frecuencia puedes regar?</h3>
-    <div class="options">
-      <button>Diariamente</button>
-      <button>Moderado</button>
-      <button>Poca frecuencia</button>
+    <div class="question" data-question="plantas">
+      <p>¿Qué tipo de plantas te interesan?</p>
+      <div class="options">
+        <button class="option">Ornamentales</button>
+        <button class="option">Medicinales</button>
+        <button class="option">Frutales</button>
+        <button class="option">Suculentas</button>
+      </div>
     </div>
 
-    <h3>¿Qué tipo de plantas te interesan?</h3>
-    <div class="options">
-      <button>Ornamentales</button>
-      <button>Medicinales</button>
-      <button>Frutales</button>
-      <button>Suculentas</button>
-    </div>
-
-    <button type="button" class="submit-button" onclick="redirectToRegister()">Ver recomendaciones</button>
-  </div>
+    <button id="continueBtn" class="submit-button" disabled onclick="redirectToRegister()">Continuar</button>
+  </main>
 
   <script>
-    // Navegación entre pantallas
-    document.getElementById('btn-inicio').addEventListener('click', function() {
-      window.location.href = "{{ route('pantalla_inicio') }}";
-    });
+  document.getElementById('btn-inicio').addEventListener('click', () => {
+    window.location.href = "{{ route('pantalla_inicio') }}";
+  });
 
-    document.getElementById('btn-recomendaciones').addEventListener('click', function() {
-      window.location.href = "{{ route('recomen') }}";
-    });
+  document.getElementById('btn-recomendaciones').addEventListener('click', () => {
+    window.location.href = "{{ route('recomen') }}";
+  });
 
-    document.getElementById('btn-cuenta').addEventListener('click', function() {
-      window.location.href = "{{ route('mi_perfil') }}";
-    });
+  document.getElementById('btn-cuenta').addEventListener('click', () => {
+    window.location.href = "{{ route('mi_perfil') }}";
+  });
 
-    function redirectToRegister() {
-      window.location.href = "{{ route('resultados') }}";
-    }
+  function redirectToRegister() {
+    window.location.href = "{{ route('resultados') }}";
+  }
 
-    // Selección de botones estilo 'radio' visual
-    document.querySelectorAll('.options').forEach(group => {
-      group.addEventListener('click', function (e) {
-        if (e.target.tagName === 'BUTTON') {
-          // Quita la clase 'selected' a todos los botones del grupo
-          group.querySelectorAll('button').forEach(btn => btn.classList.remove('selected'));
-          // Agrega la clase 'selected' al botón clicado
-          e.target.classList.add('selected');
-        }
+  const questions = document.querySelectorAll('.question');
+  const progressText = document.getElementById('progressText');
+  const continueBtn = document.getElementById('continueBtn');
+
+  questions.forEach(question => {
+    const options = question.querySelectorAll('.option');
+
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        // Quitar selección solo en el grupo actual
+        options.forEach(o => o.classList.remove('selected'));
+        // Marcar solo el clickeado
+        option.classList.add('selected');
+        checkCompletion();
       });
     });
-  </script>
+  });
+
+  function checkCompletion() {
+    let completed = 0;
+    questions.forEach(q => {
+      if (q.querySelector('.option.selected')) {
+        completed++;
+      }
+    });
+    progressText.textContent = `${completed} de ${questions.length} preguntas completadas`;
+    continueBtn.disabled = completed !== questions.length;
+  }
+</script>
 </body>
 </html>

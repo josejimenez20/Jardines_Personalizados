@@ -20,6 +20,7 @@ Route::get('/sobre', [Sobre::class, 'sobre'])->name('sobre');
 Route::get('/detalles_plantas', [Sobre::class, 'detalles'])->name('detalles_plantas');
 
 
+
 Route::get('/mi_perfil', [Mi_perfilController::class, 'Mi_perfil'])->name('mi_perfil');
 Route::post('/mi_perfil/update-password', [Mi_perfilController::class, 'updatePassword'])->name('perfil.updatePassword');
 Route::post('/mi_perfil/update-email', [Mi_perfilController::class, 'updateEmail'])->name('perfil.updateEmail');
