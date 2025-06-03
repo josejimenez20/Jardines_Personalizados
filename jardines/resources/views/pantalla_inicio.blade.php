@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FLORGAERFRA</title>
+  <title>Florgaerfra</title>
   <link rel="shortcut icon" href="{{ asset('Img/logo_imagen.png') }}" type="image/png" />
   <link rel="stylesheet" href="{{ asset('css/pantalla_inicio.css') }}" />
 </head>
@@ -25,7 +25,7 @@
   </header>
 
   <main class="main-content">
-    <h1>🌿 Recomendación de especies para tu jardín</h1>
+    <h1>Recomendación de especies para tu jardín</h1>
     <p class="info-text">
       Basado en tu ubicación ({{ $municipio->nombre }}),<br />
       te recomendamos especies para clima {{ strtolower($municipio->clima) }}.<br />

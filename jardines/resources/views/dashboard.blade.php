@@ -9,14 +9,10 @@
 </head>
 <body>
   <header class="header">
-  <div class="user-container">
-    <span class="username">{{ Auth::user()->name }}</span>
-    <div class="icon">👤</div>
-  </div>
 </header>
 
   <main class="main-content">
-    <div class="main-icon" aria-hidden="true">🌱</div>
+    <img src="{{ asset('Img/logo_imagen.png') }}" alt="">
     <h1>¡Bienvenido/a {{ Auth::user()->name }} a FLORGAERFRA!</h1>
     <p class="subtitle">Tu asistente personal para crear el jardín perfecto</p>
     <p>Comienza obteniendo recomendaciones personalizadas de plantas</p>
