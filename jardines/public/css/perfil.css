@@ -1,4 +1,3 @@
-/* === GLOBAL === */
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +9,6 @@ body {
   justify-content: center;
 }
 
-/* === WRAPPER Y CARD === */
 .perfil-wrapper {
   width: 100%;
   max-width: 540px;
@@ -33,7 +31,6 @@ body {
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
 }
 
-/* === CABECERA === */
 .perfil-card h2 {
   font-size: 26px;
   color: #6e3b28;
@@ -51,7 +48,6 @@ body {
   margin-bottom: 24px;
 }
 
-/* === FORMULARIOS === */
 .formulario {
   display: flex;
   flex-direction: column;
@@ -60,14 +56,6 @@ body {
   margin-top: 12px;
 }
 
-.formulario h3 {
-  font-size: 17px;
-  color: #7f5539;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-/* === INPUTS === */
 input[type="email"],
 input[type="password"] {
   padding: 12px 14px;
@@ -84,7 +72,6 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(163, 177, 138, 0.25);
 }
 
-/* === BOTONES GENERALES === */
 button {
   padding: 12px;
   border: none;
@@ -102,7 +89,6 @@ button:hover {
   transform: scale(1.04);
 }
 
-/* === BOTÓN SECUNDARIO === */
 .btn-secondary {
   background-color: #6c757d;
   color: #fff;
@@ -112,7 +98,6 @@ button:hover {
   background-color: #5a6268;
 }
 
-/* === BOTÓN PELIGRO === */
 .btn-danger {
   background-color: #e76f51;
   color: #fff;
@@ -129,7 +114,6 @@ button:hover {
   transform: scale(1.03);
 }
 
-/* === ALERTAS === */
 .alert {
   padding: 14px;
   border-radius: 10px;
@@ -140,31 +124,16 @@ button:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.alert.success {
-  background-color: #e6f4ea;
-  color: #2e7d32;
-  border-color: #81c784;
-}
-
-.alert.error {
-  background-color: #fcebea;
-  color: #c62828;
-  border-color: #e57373;
-}
-
-/* === SEPARADORES === */
 hr {
   border: none;
   border-top: 1px solid #eee;
   margin: 30px 0;
 }
 
-/* === CIERRE DE SESIÓN === */
 .logout-form {
   margin-top: 30px;
 }
 
-/* === ANIMACIÓN === */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -176,7 +145,6 @@ hr {
   }
 }
 
-/* === RESPONSIVE === */
 @media (max-width: 600px) {
   .perfil-card {
     padding: 30px 20px;
@@ -193,4 +161,25 @@ hr {
   button {
     font-size: 14px;
   }
+}
+
+/* === Ícono de puerta === */
+.back-home {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  color: #7f5539;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.back-home:hover {
+  background-color: #e0e0e0;
+  color: #5c4033;
+  transform: scale(1.1);
 }

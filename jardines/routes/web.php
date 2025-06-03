@@ -8,6 +8,7 @@ use App\Http\Controllers\Mi_perfilController;
 use App\Http\Controllers\Recomen;
 use App\Http\Controllers\Resultados;
 use App\Http\Controllers\Sobre;
+use App\Http\Controllers\PlantaController;
 
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login.form');
 Route::post('/login', [LoginController::class, 'login'])->name('login.custom');
@@ -18,6 +19,7 @@ Route::get('/recomen', [Recomen::class, 'recomen'])->name('recomen');
 Route::get('/resultados', [Resultados::class, 'resultados'])->name('resultados');
 Route::get('/sobre', [Sobre::class, 'sobre'])->name('sobre');
 Route::get('/detalles_plantas', [Sobre::class, 'detalles'])->name('detalles_plantas');
+Route::get('/resultados', [PlantaController::class, 'mostrarPorMunicipio'])->name('resultados');
 
 
 

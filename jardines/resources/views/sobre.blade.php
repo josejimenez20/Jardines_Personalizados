@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FLORGAERFRA</title>
+  <title>Florgaerfra</title>
   <link rel="shortcut icon" href="/Img/logo_imagen.png" type="image/png">
   <link rel="stylesheet" href="{{ asset('css/sobre.css') }}" />
 </head>
@@ -28,15 +28,15 @@
     <h1>🌿 Personaliza tu jardín</h1>
     <p class="info-text">Responde todas las preguntas para recibir recomendaciones personalizadas.</p>
 
-    <div id="progressText">0 de 5 preguntas completadas</div>
+    <div id="progressText">0 de 3 preguntas completadas</div>
 
     <div class="question" data-question="clima">
-      <p>¿Qué tipo de clima tiene?</p>
+      <p>¿Con que frecuencia riegas tu jardín?</p>
       <div class="options">
-        <button class="option">Tropical cálido</button>
-        <button class="option">Templado</button>
-        <button class="option">Frío</button>
-        <button class="option">Desértico</button>
+        <button class="option">Mucho</button>
+        <button class="option">Regular</button>
+        <button class="option">Poco</button>
+        <button class="option">Nunca</button>
       </div>
     </div>
 
@@ -46,35 +46,17 @@
         <button class="option">Arenoso</button>
         <button class="option">Arcilloso</button>
         <button class="option">Fértil</button>
-        <button class="option">No sé</button>
+        <button class="option">Ácido</button>
       </div>
     </div>
 
-    <div class="question" data-question="luz">
-      <p>¿Cuánta luz solar recibe tu jardín?</p>
-      <div class="options">
-        <button class="option">Sol pleno</button>
-        <button class="option">Semi-sombra</button>
-        <button class="option">Sombra</button>
-      </div>
-    </div>
 
     <div class="question" data-question="riego">
-      <p>¿Con qué frecuencia puedes regar?</p>
+      <p>¿Tamaño de espacio?</p>
       <div class="options">
-        <button class="option">Diariamente</button>
-        <button class="option">Moderado</button>
-        <button class="option">Poca frecuencia</button>
-      </div>
-    </div>
-
-    <div class="question" data-question="plantas">
-      <p>¿Qué tipo de plantas te interesan?</p>
-      <div class="options">
-        <button class="option">Ornamentales</button>
-        <button class="option">Medicinales</button>
-        <button class="option">Frutales</button>
-        <button class="option">Suculentas</button>
+        <button class="option">Pequeño 10m²</button>
+        <button class="option">Mediano 20m² - 50m²</button>
+        <button class="option">Grande 50m² - 100m²</button>
       </div>
     </div>
 

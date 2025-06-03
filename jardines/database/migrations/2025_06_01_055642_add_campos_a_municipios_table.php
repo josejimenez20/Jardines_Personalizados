@@ -12,11 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('municipios', function (Blueprint $table) {
-            $table->string('clima')->nullable();
-            $table->string('suelo')->nullable();
-            $table->string('agua')->nullable();
-            $table->string('luz')->nullable();
-            $table->string('proposito')->nullable();
+            if (!Schema::hasColumn('municipios', 'clima')) {
+                $table->string('clima')->nullable();
+            }
+            if (!Schema::hasColumn('municipios', 'suelo')) {
+                $table->string('suelo')->nullable();
+            }
+            if (!Schema::hasColumn('municipios', 'agua')) {
+                $table->string('agua')->nullable();
+            }
+            if (!Schema::hasColumn('municipios', 'luz')) {
+                $table->string('luz')->nullable();
+            }
+            if (!Schema::hasColumn('municipios', 'proposito')) {
+                $table->string('proposito')->nullable();
+            }
         });
     }
 
@@ -26,7 +36,21 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('municipios', function (Blueprint $table) {
-            $table->dropColumn(['clima', 'suelo', 'agua', 'luz', 'proposito']);
+            if (Schema::hasColumn('municipios', 'clima')) {
+                $table->dropColumn('clima');
+            }
+            if (Schema::hasColumn('municipios', 'suelo')) {
+                $table->dropColumn('suelo');
+            }
+            if (Schema::hasColumn('municipios', 'agua')) {
+                $table->dropColumn('agua');
+            }
+            if (Schema::hasColumn('municipios', 'luz')) {
+                $table->dropColumn('luz');
+            }
+            if (Schema::hasColumn('municipios', 'proposito')) {
+                $table->dropColumn('proposito');
+            }
         });
     }
 };

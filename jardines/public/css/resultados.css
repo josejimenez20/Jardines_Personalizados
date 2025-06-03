@@ -41,64 +41,62 @@ body {
 header {
   background-color: var(--color-cream);
   border-bottom: 2px solid var(--color-light-green);
-  padding: 15px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  padding: 14px 0;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.header-content {
+.container.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  transform: scale(0.8);
+  gap: 10px;
 }
 
-.logo-icon {
-  width: 20px;
-  height: 20px;
-  fill: var(--color-light-green);
+.logo img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
-.logo-text {
-  font-size: 28px;
-  margin-left: 10px;
-  font-weight: bold;
+.titulo-app {
+  font-size: 18px;
+  font-weight: 600;
   color: var(--color-brown);
-}
-
-/* Navegación */
-nav {
-  display: flex;
-  align-items: center;
-  gap: 20px;
 }
 
 nav ul {
   display: flex;
   list-style: none;
-  gap: 15px;
+  gap: 10px;
 }
 
 nav li button {
-  padding: 10px 20px;
-  background-color: var(--color-cream);
-  border: none;
-  border-radius: 999px;
-  color: var(--color-brown);
+  padding: 8px 16px;
+  font-size: 14px;
   font-weight: 600;
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+  border: 2px solid var(--color-light-brown);
+  border-radius: 999px;
   cursor: pointer;
-  font-size: 15px;
-  transition: 0.3s ease-in-out;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
 }
 
 nav li button:hover {
   background-color: var(--color-mint);
+  color: var(--color-brown);
 }
 
 nav li button.active {

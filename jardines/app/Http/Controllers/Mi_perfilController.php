@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
+
 class Mi_perfilController extends Controller
 {
     public function Mi_perfil()
@@ -13,6 +14,7 @@ class Mi_perfilController extends Controller
         return view('mi_perfil');
     }
 
+    // Cambiar contraseña
     public function updatePassword(Request $request)
     {
         $request->validate([
@@ -21,12 +23,8 @@ class Mi_perfilController extends Controller
             'confirm_password' => 'required|same:new_password',
         ]);
 
-        $user = Auth::guard()->user();
-        if (!$user instanceof \App\Models\User) {
-            return back()->withErrors(['user' => 'Usuario no válido.']);
-        }
-
-        if (!Hash::check($request->current_password, $user->password)) {
+        $user = \App\Models\User::find(Auth::id());
+        if (!$user || !Hash::check($request->current_password, $user->password)) {
             return back()->withErrors(['current_password' => 'La contraseña actual no es correcta.']);
         }
 
@@ -36,43 +34,41 @@ class Mi_perfilController extends Controller
         return back()->with('success', '¡Contraseña actualizada con éxito!');
     }
 
-// Cambiar correo
+    // Cambiar correo electrónico
     public function updateEmail(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|unique:users,email,' . Auth::id(),
+            'email' => [
+                'required',
+                'email',
+                'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+                Rule::unique('users')->ignore(Auth::id()),
+            ],
+        ], [
+            'email.regex' => 'El formato del correo no es válido.'
         ]);
 
-        $user = Auth::user();
-
-        if (!$user instanceof \App\Models\User) {
-            return back()->withErrors(['user' => 'Usuario no válido.']);
-        }
-
+        $user = \App\Models\User::find(Auth::id());
         $user->email = $request->email;
         $user->save();
 
         return back()->with('success', 'Correo actualizado correctamente.');
     }
 
-
     // Eliminar cuenta
     public function deleteAccount(Request $request)
     {
-        $user = Auth::user();
+        $user = \App\Models\User::find(Auth::id());
 
         Auth::logout();
 
-        if (!$user instanceof \App\Models\User) {
-            return back()->withErrors(['user' => 'Usuario no válido.']);
+        if ($user) {
+            $user->delete();
         }
-
-        $user->delete();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
         return redirect('/login')->with('success', 'Tu cuenta ha sido eliminada correctamente.');
     }
-}    
-
+}

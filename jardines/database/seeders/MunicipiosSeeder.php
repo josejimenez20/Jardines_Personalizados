@@ -39,7 +39,10 @@ class MunicipiosSeeder extends Seeder
         ];
 
         foreach ($municipios as $municipio) {
-            DB::table('municipios')->insert($municipio);
+            DB::table('municipios')->updateOrInsert(
+                ['nombre' => $municipio['nombre']], // condición única
+                $municipio
+            );
         }
     }
 }
