@@ -57,7 +57,6 @@
 
       <hr>
 
-      <!-- Eliminar cuenta -->
       <section class="perfil-section">
         <h3>❌ Eliminar cuenta</h3>
         <form action="{{ route('perfil.deleteAccount') }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.');">
