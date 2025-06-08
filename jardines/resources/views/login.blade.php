@@ -148,7 +148,7 @@
         button.textContent = "🔒"; // candado cerrado
     }
 }
-// Mostrar toast si hay mensaje de sesión (Laravel)Add commentMore actions
+// Mostrar toast si hay mensaje de sesión (Laravel)
     window.addEventListener('DOMContentLoaded', () => {
         const toastElement = document.getElementById('liveToast');
         const toastBody = document.getElementById('toast-body');
