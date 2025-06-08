@@ -10,6 +10,13 @@ use App\Http\Controllers\Resultados;
 use App\Http\Controllers\Sobre;
 use App\Http\Controllers\PlantaController;
 
+// RUTA INICIAL
+// Redirige a la página de inicio de sesión
+// o a la pantalla de inicio si el usuario ya está autenticado
+Route::get('/', function () {
+    return redirect()->route('login.form');
+});
+
 Route::get('/login', [LoginController::class, 'showLogin'])->name('login.form');
 Route::post('/login', [LoginController::class, 'login'])->name('login.custom');
 Route::post('/register', [LoginController::class, 'register'])->name('register.custom');
@@ -20,6 +27,9 @@ Route::get('/resultados', [Resultados::class, 'resultados'])->name('resultados')
 Route::get('/sobre', [Sobre::class, 'sobre'])->name('sobre');
 Route::get('/detalles_plantas', [Sobre::class, 'detalles'])->name('detalles_plantas');
 Route::get('/resultados', [PlantaController::class, 'mostrarPorMunicipio'])->name('resultados');
+Route::post('/sobre', [Sobre::class, 'buscarPorFiltros'])->name('resultados.filtro');
+Route::get('/planta/{id}', [PlantaController::class, 'verDetalle'])->name('detalle.planta');
+
 
 
 
@@ -28,5 +38,3 @@ Route::post('/mi_perfil/update-password', [Mi_perfilController::class, 'updatePa
 Route::post('/mi_perfil/update-email', [Mi_perfilController::class, 'updateEmail'])->name('perfil.updateEmail');
 Route::post('/mi_perfil/delete-account', [Mi_perfilController::class, 'deleteAccount'])->name('perfil.deleteAccount');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-

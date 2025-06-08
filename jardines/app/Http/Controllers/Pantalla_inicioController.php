@@ -11,11 +11,20 @@ class Pantalla_inicioController extends Controller
     {
         $user = Auth::user();
 
-        // Busca el municipio asociado al usuario
+        // Verificar si el usuario está autenticado
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'Por favor, inicia sesión.');
+        }
+
+        // Buscar el municipio asociado al usuario
         $municipio = Municipio::where('nombre', $user->municipio)->first();
 
-        return view('Pantalla_inicio', compact('municipio'));
+        // Verificar si el municipio fue encontrado
+        if (!$municipio) {
+            return view('pantalla_inicio')->with('error', 'No se encontró el municipio correspondiente.');
+        }
+
+        return view('pantalla_inicio', compact('municipio'));
     }
+
 }
-
-

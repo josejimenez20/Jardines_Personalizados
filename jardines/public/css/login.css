@@ -24,6 +24,11 @@
   src: local('Arial'), local('Arial-Regular');
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 *,
 *::before,
 *::after {

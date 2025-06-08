@@ -8,10 +8,10 @@
   <link rel="stylesheet" href="{{ asset('css/sobre.css') }}" />
 </head>
 <body>
-  <header>
+<header>
   <div class="container header-content">
     <div class="logo">
-      <img src="{{ asset('Img/logo_jardinespersonalizados.png') }}" alt="Logo de FLORGAERFRA" />
+      <img src="{{ asset('img/logo_jardinespersonalizados.png') }}" alt="Logo de FLORGAERFRA" />
       <span class="titulo-app">FLORGAERFRA</span>
     </div>
     <nav>
@@ -24,46 +24,63 @@
   </div>
 </header>
 
-  <main class="main-content">
-    <h1>🌿 Personaliza tu jardín</h1>
-    <p class="info-text">Responde todas las preguntas para recibir recomendaciones personalizadas.</p>
+<main class="main-content">
+  <h1>Personaliza tu jardín</h1>
+  <p class="info-text">Responde todas las preguntas para recibir recomendaciones personalizadas.</p>
 
-    <div id="progressText">0 de 3 preguntas completadas</div>
+  <div id="progressText">0 de 4 preguntas completadas</div>
 
-    <div class="question" data-question="clima">
-      <p>¿Con que frecuencia riegas tu jardín?</p>
-      <div class="options">
-        <button class="option">Mucho</button>
-        <button class="option">Regular</button>
-        <button class="option">Poco</button>
-        <button class="option">Nunca</button>
-      </div>
+  <div class="question" data-question="riego">
+    <p>¿Con qué frecuencia riegas tu jardín?</p>
+    <div class="options">
+      <button class="option">Mucho</button>
+      <button class="option">Regular</button>
+      <button class="option">Poco</button>
+      <button class="option">Nunca</button>
     </div>
+  </div>
 
-    <div class="question" data-question="suelo">
-      <p>¿Qué tipo de suelo tiene?</p>
-      <div class="options">
-        <button class="option">Arenoso</button>
-        <button class="option">Arcilloso</button>
-        <button class="option">Fértil</button>
-        <button class="option">Ácido</button>
-      </div>
+  <div class="question" data-question="suelo">
+    <p>¿Qué tipo de suelo tiene?</p>
+    <div class="options">
+      <button class="option">Arenoso</button>
+      <button class="option">Arcilloso</button>
+      <button class="option">Fértil</button>
+      <button class="option">Ácido</button>
     </div>
+  </div>
 
-
-    <div class="question" data-question="riego">
-      <p>¿Tamaño de espacio?</p>
-      <div class="options">
-        <button class="option">Pequeño 10m²</button>
-        <button class="option">Mediano 20m² - 50m²</button>
-        <button class="option">Grande 50m² - 100m²</button>
-      </div>
+  <div class="question" data-question="tamano">
+    <p>¿Tamaño de espacio?</p>
+    <div class="options">
+      <button class="option">Pequeño 10m²</button>
+      <button class="option">Mediano 20m² - 50m²</button>
+      <button class="option">Grande 50m² - 100m²</button>
     </div>
+  </div>
 
-    <button id="continueBtn" class="submit-button" disabled onclick="redirectToRegister()">Continuar</button>
-  </main>
+  <div class="question" data-question="luz">
+    <p>¿Cuánta luz solar recibe tu jardín?</p>
+    <div class="options">
+      <button class="option">Sombra</button>
+      <button class="option">Semi sombra</button>
+      <button class="option">Sol pleno</button>
+    </div>
+  </div>
 
-  <script>
+  <button id="continueBtn" class="submit-button" disabled onclick="redirectToRegister()">Continuar</button>
+
+  <!-- Formulario oculto que se envía con las respuestas -->
+  <form id="filtroForm" action="{{ route('resultados.filtro') }}" method="POST" style="display: none;">
+    @csrf
+    <input type="hidden" name="frecuencia_agua" id="frecuencia_agua">
+    <input type="hidden" name="tipo_suelo" id="tipo_suelo">
+    <input type="hidden" name="tamano_espacio" id="tamano_espacio">
+    <input type="hidden" name="exposicion_luz" id="exposicion_luz">
+  </form>
+</main>
+
+<script>
   document.getElementById('btn-inicio').addEventListener('click', () => {
     window.location.href = "{{ route('pantalla_inicio') }}";
   });
@@ -76,10 +93,6 @@
     window.location.href = "{{ route('mi_perfil') }}";
   });
 
-  function redirectToRegister() {
-    window.location.href = "{{ route('resultados') }}";
-  }
-
   const questions = document.querySelectorAll('.question');
   const progressText = document.getElementById('progressText');
   const continueBtn = document.getElementById('continueBtn');
@@ -89,9 +102,7 @@
 
     options.forEach(option => {
       option.addEventListener('click', () => {
-        // Quitar selección solo en el grupo actual
         options.forEach(o => o.classList.remove('selected'));
-        // Marcar solo el clickeado
         option.classList.add('selected');
         checkCompletion();
       });
@@ -107,6 +118,19 @@
     });
     progressText.textContent = `${completed} de ${questions.length} preguntas completadas`;
     continueBtn.disabled = completed !== questions.length;
+  }
+
+  function redirectToRegister() {
+    document.getElementById('frecuencia_agua').value =
+      document.querySelector('[data-question="riego"] .selected')?.innerText || '';
+    document.getElementById('tipo_suelo').value =
+      document.querySelector('[data-question="suelo"] .selected')?.innerText || '';
+    document.getElementById('tamano_espacio').value =
+      document.querySelector('[data-question="tamano"] .selected')?.innerText || '';
+    document.getElementById('exposicion_luz').value =
+      document.querySelector('[data-question="luz"] .selected')?.innerText || '';
+
+    document.getElementById('filtroForm').submit();
   }
 </script>
 </body>

@@ -1,0 +1,241 @@
+:root {
+  --color-light-green: #A3B18A;
+  --color-cream: #F6EEC9;
+  --color-brown: #7F5539;
+  --color-pale-ivory: #FAF3E0;
+  --color-gray: #6C757D;
+  --color-mint: #D4E2C3;
+  --color-off-white: #FAF8EF;
+  --color-light-brown: #A57D5D;
+  --color-white: #FFFCF5;
+  --color-light-gray: #A0A7B0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--color-off-white);
+  color: var(--color-brown);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: var(--color-cream);
+  border-bottom: 2px solid var(--color-light-green);
+  padding: 18px 0; /* más padding para que respire */
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.container.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px; /* más separación horizontal */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* más separación entre icono y texto */
+}
+
+.logo img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.titulo-app {
+  font-weight: 700;
+  color: var(--color-brown);
+  font-size: 20px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+nav li button {
+  padding: 10px 18px;
+  font-weight: 600;
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+  border: 2px solid var(--color-light-brown);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+nav li button:hover {
+  background-color: var(--color-mint);
+  color: var(--color-brown);
+}
+
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px 60px;
+    gap: 60px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 120px);
+}
+
+.imagen-planta {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: fit-content;
+}
+
+.imagen-planta img {
+    width: 50%;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+
+.recomendaciones {
+  background-color: var(--color-cream);
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  border: 2px solid var(--color-brown);
+  margin-top: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.recomendaciones:hover {
+  transform: translateY(-2px);
+}
+
+.recomendaciones ul {
+  list-style-type: "✔️ ";
+  padding-left: 20px;
+  color: var(--color-gray);
+}
+
+/* Contenido derecho */
+.contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+h2 {
+  font-size: 28px;
+  color: var(--color-brown);
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-brown);
+}
+
+h4 {
+  font-size: 20px;
+  color: var(--color-light-brown);
+  margin-bottom: 10px;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tags span {
+  background-color: var(--color-mint);
+  color: var(--color-brown);
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+/* Descripción */
+.descripcion {
+  background-color: var(--color-pale-ivory);
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid var(--color-brown);
+  line-height: 1.6;
+}
+
+/* Cuidados */
+.cuidados {
+  margin-top: 10px;
+}
+
+.cuidados ol {
+  padding-left: 20px;
+}
+
+.cuidados li {
+  margin-bottom: 10px;
+}
+
+/* Botón */
+.boton-agregar {
+  margin-top: 20px;
+}
+
+button {
+  background-color: var(--color-light-green);
+  color: var(--color-brown);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+  background-color: var(--color-mint);
+}
+
+button:active {
+  background-color: var(--color-light-brown);
+}

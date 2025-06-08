@@ -26,35 +26,42 @@
 
   <main class="main-content">
     <h1>Recomendación de especies para tu jardín</h1>
-    <p class="info-text">
-      Basado en tu ubicación ({{ $municipio->nombre }}),<br />
-      te recomendamos especies para clima {{ strtolower($municipio->clima) }}.<br />
-      ¿Deseas ajustar los filtros manualmente?
-    </p>
 
-    <div class="toggle-buttons">
-      <button type="button" class="btn btn-primary" onclick="redirectToRegister()">Sí, ajustar filtros</button>
-      <button type="button" class="btn btn-secondary" onclick="redirectToHome()">No, continuar</button>
-    </div>
+    @if(isset($municipio))
+      <p class="info-text">
+        Basado en tu ubicación ({{ $municipio->nombre }}),<br />
+        te recomendamos especies para clima {{ strtolower($municipio->clima) }}.<br />
+        ¿Deseas ajustar los filtros manualmente?
+      </p>
 
-    <form class="reco-form">
-      <label for="suelo">Tipo de suelo</label>
-      <input type="text" id="suelo" value="{{ $municipio->tipo_suelo }}" readonly />
+      <div class="toggle-buttons">
+        <button type="button" class="btn btn-primary" onclick="redirectToRegister()">Sí, ajustar filtros</button>
+        <button type="button" class="btn btn-secondary" onclick="redirectToHome()">No, continuar</button>
+      </div>
 
-      <label for="agua">Disponibilidad de agua</label>
-      <input type="text" id="agua" value="{{ $municipio->frecuencia_agua }}" readonly />
+      <form class="reco-form">
+        <label for="suelo">Tipo de suelo</label>
+        <input type="text" id="suelo" value="{{ $municipio->tipo_suelo }}" readonly />
 
-      <label for="luz">Exposición a la luz</label>
-      <input type="text" id="luz" value="{{ $municipio->exposicion_luz }}" readonly />
+        <label for="agua">Disponibilidad de agua</label>
+        <input type="text" id="agua" value="{{ $municipio->frecuencia_agua }}" readonly />
 
-      <label for="espacio">Tamaño del espacio</label>
-      <select id="espacio" disabled>
-        <option value="mediano">Mediano (5-20m²)</option>
-      </select>
+        <label for="luz">Exposición a la luz</label>
+        <input type="text" id="luz" value="{{ $municipio->exposicion_luz }}" readonly />
 
-      <label for="proposito">Propósito (opcional)</label>
-      <input type="text" id="proposito" value="{{ $municipio->proposito }}" readonly />
-    </form>
+        <label for="espacio">Tamaño del espacio</label>
+        <select id="espacio" disabled>
+          <option value="mediano">Mediano (5-20m²)</option>
+        </select>
+
+        <label for="proposito">Propósito (opcional)</label>
+        <input type="text" id="proposito" value="{{ $municipio->proposito }}" readonly />
+      </form>
+    @else
+      <p class="info-text">
+        No se pudo cargar la información del municipio. Por favor, revisa tu perfil o contacta al administrador.
+      </p>
+    @endif
   </main>
 
   <script>

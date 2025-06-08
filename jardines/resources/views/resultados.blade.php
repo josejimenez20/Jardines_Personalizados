@@ -10,8 +10,8 @@
   <header>
     <div class="container header-content">
       <div class="logo">
-        <img src="{{ asset('Img/logo_jardinespersonalizados.png') }}" alt="Logo de FLORGAERFRA" />
-        <span class="titulo-app">FLORGAERFRA</span>
+        <img src="{{ asset('img/logo_jardinespersonalizados.png') }}" alt="Logo de FLORGAERFRA" />
+        <span class="titulo-app">Resultados de Plantas</span>
       </div>
       <nav>
         <ul>
@@ -26,7 +26,7 @@
   <div class="container">
     <div class="filter-section">
       <div class="filter-criteria">
-        <p>Basado en: Clima tropical cálido, suelo arenoso, sol pleno, riego moderado</p>
+        <p>{{ $mensaje ?? 'Basado en: Clima tropical cálido, suelo arenoso, sol pleno, riego moderado' }}</p>
       </div>
       <div class="filter-count">{{ count($plantas) }} plantas encontradas</div>
       <div class="filter-buttons">
@@ -40,20 +40,26 @@
 
     <div class="plant-grid">
       @forelse($plantas as $planta)
-        <div class="plant-card" data-category="{{ strtolower($planta->proposito) }}">
-          <div class="plant-image">
-            <img src="{{ asset('Img/' . $planta->imagen) }}" alt="{{ $planta->nombre }}" width="300" height="160">
-          </div>
-          <div class="plant-info">
-            <div class="plant-name">{{ $planta->nombre }}</div>
-            <div class="plant-scientific"><em>{{ $planta->nombre_cientifico }}</em></div>
-            <div class="plant-tags">
-              <span class="plant-tag">{{ ucfirst($planta->proposito) }}</span>
-              <span class="plant-tag">{{ $planta->exposicion_luz }}</span>
-              <span class="plant-tag">{{ $planta->tipo_suelo }}</span>
+        <a href="{{ route('detalle.planta', $planta->id) }}" style="text-decoration: none; color: inherit;">
+          <div class="plant-card" data-category="{{ strtolower($planta->proposito) }}">
+            <div class="plant-image">
+              @if ($planta->imagen)
+                <img src="{{ asset('img/' . $planta->imagen) }}" alt="{{ $planta->nombre }}" width="300" height="160">
+              @else
+                <img src="{{ asset('img/respaldo.jpg') }}" alt="Sin imagen" width="300" height="160">
+              @endif
+            </div>
+            <div class="plant-info">
+              <div class="plant-name">{{ $planta->nombre }}</div>
+              <div class="plant-scientific"><em>{{ $planta->nombre_cientifico }}</em></div>
+              <div class="plant-tags">
+                <span class="plant-tag">{{ ucfirst($planta->proposito) }}</span>
+                <span class="plant-tag">{{ $planta->exposicion_luz }}</span>
+                <span class="plant-tag">{{ $planta->tipo_suelo }}</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       @empty
         <p class="text-muted">No se encontraron plantas para tu municipio.</p>
       @endforelse

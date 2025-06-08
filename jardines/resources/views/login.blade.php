@@ -5,9 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ asset('logo_jardinespersonalizados.png') }}" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-     <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
-
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
     <title>Jardines Personalizados</title>
+    <style>
+        .form-group.password-wrapper {
+            position: relative;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #6c757d;
+        }
+    </style>
 </head>
 <body>
 
@@ -51,8 +66,9 @@
                 <div class="form-group">
                     <input type="email" name="email" placeholder="Correo electrónico" value="{{ old('email') }}" required>
                 </div>
-                <div class="form-group">
-                    <input type="password" name="password" placeholder="Contraseña" required>
+                <div class="form-group password-wrapper">
+                    <input type="password" name="password" placeholder="Contraseña" id="loginPassword" required>
+                    <button type="button" class="password-toggle" onclick="togglePassword('loginPassword', this)">🔒</button>
                 </div>
                 <button type="submit" class="btn">Iniciar Sesión</button>
             </form>
@@ -75,35 +91,37 @@
                 <div class="form-group">
                     <input type="email" name="email" placeholder="Correo electrónico" value="{{ old('email') }}" required>
                 </div>
-                <div class="form-group">
-                    <input type="password" name="password" placeholder="Contraseña" required>
+                <div class="form-group password-wrapper">
+                    <input type="password" name="password" placeholder="Contraseña" id="registerPassword" required>
+                    <button type="button" class="password-toggle" onclick="togglePassword('registerPassword', this)">🔒</button>
                 </div>
                 <div class="form-group">
                     <select id="municipio" name="municipio" required>
                         <option value="" disabled selected hidden>Selecciona un municipio</option>
-                        <option value="alegria">Alegría</option>
-                        <option value="berlin">Berlín</option>
-                        <option value="california">California</option>
-                        <option value="concepcion_batres">Concepción Batres</option>
-                        <option value="el_triunfo">El Triunfo</option>
-                        <option value="ereguyquin">Ereguayquín</option>
-                        <option value="estanzuelas">Estanzuelas</option>
-                        <option value="jiquilisco">Jiquilisco</option>
-                        <option value="jucuapa">Jucuapa</option>
-                        <option value="jucuarán">Jucuarán</option>
-                        <option value="mercedes_umana">Mercedes Umaña</option>
-                        <option value="nueva_granada">Nueva Granada</option>
-                        <option value="ozatlan">Ozatlán</option>
-                        <option value="puerto_el_triunfo">Puerto El Triunfo</option>
-                        <option value="san_agustin">San Agustín</option>
-                        <option value="san_buenaventura">San Buenaventura</option>
-                        <option value="san_dionisio">San Dionisio</option>
-                        <option value="san_francisco_javier">San Francisco Javier</option>
-                        <option value="santa_elena">Santa Elena</option>
-                        <option value="santa_maria">Santa María</option>
-                        <option value="santiago_de_maria">Santiago de María</option>
-                        <option value="tecapán">Tecapán</option>
-                        <option value="usulutan">Usulután</option>
+                        <!-- Opciones -->
+                        <option value="Alegría">Alegría</option>
+                        <option value="Berlín">Berlín</option>
+                        <option value="California">California</option>
+                        <option value="Concepción Batres">Concepción Batres</option>
+                        <option value="El Triunfo">El Triunfo</option>
+                        <option value="Ereguayquín">Ereguayquín</option>
+                        <option value="Estanzuelas">Estanzuelas</option>
+                        <option value="Jiquilisco">Jiquilisco</option>
+                        <option value="Jucuapa">Jucuapa</option>
+                        <option value="Jucuarán">Jucuarán</option>
+                        <option value="Mercedes Umaña">Mercedes Umaña</option>
+                        <option value="Nueva Granada">Nueva Granada</option>
+                        <option value="Ozatlán">Ozatlán</option>
+                        <option value="Puerto El Triunfo">Puerto El Triunfo</option>
+                        <option value="San Agustín">San Agustín</option>
+                        <option value="San Buenaventura">San Buenaventura</option>
+                        <option value="San Dionisio">San Dionisio</option>
+                        <option value="San Francisco Javier">San Francisco Javier</option>
+                        <option value="Santa Elena">Santa Elena</option>
+                        <option value="Santa María">Santa María</option>
+                        <option value="Santiago de María">Santiago de María</option>
+                        <option value="Tecapán">Tecapán</option>
+                        <option value="Usulután">Usulután</option>
                     </select>
                 </div>
                 <p class="note">Podés personalizar más tus recomendaciones después</p>
@@ -115,29 +133,37 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
     function toggleForms() {
-        const container = document.getElementById('container');
-        container.classList.toggle('show-register');
+        document.getElementById('container').classList.toggle('show-register');
     }
 
-    // Mostrar toast si hay mensaje de sesión (Laravel)
-    window.addEventListener('DOMContentLoaded', () => {
+ function togglePassword(id, button) {
+    const input = document.getElementById(id);
+    if (input.type === "password") {
+        input.type = "text";
+        button.textContent = "🔓"; // candado abierto
+    } else {
+        input.type = "password";
+        button.textContent = "🔒"; // candado cerrado
+    }
+}
+
+   window.addEventListener('DOMContentLoaded', () => {
         const toastElement = document.getElementById('liveToast');
         const toastBody = document.getElementById('toast-body');
 
-        <?php if (session('error')): ?>
+        if (toastData.type === 'error') {
             toastElement.classList.remove('bg-success');
             toastElement.classList.add('bg-danger');
-            toastBody.textContent = "{{ session('error') }}";
+            toastBody.textContent = toastData.message;
             new bootstrap.Toast(toastElement).show();
-        <?php elseif (session('success')): ?>
+        } else if (toastData.type === 'success') {
             toastElement.classList.remove('bg-danger');
             toastElement.classList.add('bg-success');
-            toastBody.textContent = "{{ session('success') }}";
+            toastBody.textContent = toastData.message;
             new bootstrap.Toast(toastElement).show();
-        <?php endif; ?>
+        }
     });
 </script>
 

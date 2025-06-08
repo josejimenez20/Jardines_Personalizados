@@ -11,24 +11,17 @@
   --color-light-gray: #A0A7B0;
 }
 
-@font-face {
-  font-family: 'Geova';
-  src: url('../geova/GeovaTrial-SemiBold.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Geova', sans-serif;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
 }
 
 body {
   background-color: var(--color-pale-ivory);
   color: var(--color-brown);
-  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -41,7 +34,7 @@ body {
 header {
   background-color: var(--color-cream);
   border-bottom: 2px solid var(--color-light-green);
-  padding: 14px 0;
+  padding: 18px 0; /* más padding para que respire */
   width: 100%;
   position: sticky;
   top: 0;
@@ -52,7 +45,7 @@ header {
 .container.header-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px; /* más separación horizontal */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,30 +54,31 @@ header {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px; /* más separación entre icono y texto */
 }
 
 .logo img {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 
 .titulo-app {
-  font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-brown);
+  font-size: 20px;
 }
 
 nav ul {
   display: flex;
   list-style: none;
-  gap: 10px;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
 }
 
 nav li button {
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 10px 18px;
   font-weight: 600;
   background-color: var(--color-cream);
   color: var(--color-brown);
@@ -92,16 +86,13 @@ nav li button {
   border-radius: 999px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 nav li button:hover {
   background-color: var(--color-mint);
   color: var(--color-brown);
-}
-
-nav li button.active {
-  background-color: var(--color-light-green);
-  color: var(--color-white);
 }
 
 .account-icon {
@@ -148,7 +139,6 @@ nav li button.active {
   border: 2px solid var(--color-light-green);
   border-radius: 999px;
   padding: 8px 18px;
-  font-size: 14px;
   color: var(--color-brown);
   cursor: pointer;
   transition: 0.3s ease-in-out;
@@ -204,7 +194,6 @@ nav li button.active {
 
 .plant-name {
   font-weight: bold;
-  font-size: 20px;
   color: var(--color-brown);
   margin-bottom: 4px;
 }
@@ -213,7 +202,7 @@ nav li button.active {
   font-style: italic;
   color: var(--color-gray);
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .plant-tags {
@@ -227,7 +216,7 @@ nav li button.active {
   color: var(--color-brown);
   padding: 4px 10px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 /* Paginación */

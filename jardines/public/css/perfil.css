@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Arial', sans-serif;
+  font-size: 19px;
   background: linear-gradient(135deg, #f6eec9, #e0eec6);
   min-height: 100vh;
   display: flex;
@@ -43,7 +44,6 @@ body {
 }
 
 .email {
-  font-size: 15px;
   color: #7f5539;
   margin-bottom: 24px;
 }
@@ -61,7 +61,7 @@ input[type="password"] {
   padding: 12px 14px;
   border: 2px solid #d4e2c3;
   border-radius: 12px;
-  font-size: 15px;
+  font-size: 19px;
   background-color: #fcfcfc;
   transition: all 0.25s ease;
 }
@@ -78,7 +78,7 @@ button {
   border-radius: 12px;
   background-color: #a3b18a;
   color: #fff;
-  font-size: 15px;
+  font-size: 19px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -104,7 +104,7 @@ button:hover {
   font-weight: 600;
   padding: 12px;
   border-radius: 12px;
-  font-size: 15px;
+  font-size: 19px;
   margin-top: 18px;
   transition: all 0.3s ease;
 }
@@ -118,7 +118,7 @@ button:hover {
   padding: 14px;
   border-radius: 10px;
   margin: 15px 0;
-  font-size: 15px;
+  font-size: 19px;
   text-align: left;
   border-left: 5px solid;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -155,11 +155,24 @@ hr {
   }
 
   .formulario h3 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   button {
-    font-size: 14px;
+    font-size: 18px;
+  }
+
+  .btn-danger {
+    font-size: 18px;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    font-size: 18px;
+  }
+
+  .alert {
+    font-size: 18px;
   }
 }
 

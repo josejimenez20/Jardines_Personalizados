@@ -11,26 +11,20 @@
   --color-light-gray: #A0A7B0;
 }
 
-/*=======================
-=       FUENTE          =
-========================*/
-@font-face {
-  font-family: 'Geova';
-  src: url('../geova/GeovaTrial-semibold.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+html, body {
+  height: 100%;
+  width: 100%;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Geova', sans-serif;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
 }
 
-/*=======================
-=       BODY           =
-========================*/
+/*Body*/
 body {
   background-color: var(--color-pale-ivory);
   color: var(--color-brown);
@@ -40,7 +34,7 @@ body {
 header {
   background-color: var(--color-cream);
   border-bottom: 2px solid var(--color-light-green);
-  padding: 14px 0;
+  padding: 18px 0; /* más padding para que respire */
   width: 100%;
   position: sticky;
   top: 0;
@@ -51,7 +45,7 @@ header {
 .container.header-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px; /* más separación horizontal */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,30 +54,31 @@ header {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px; /* más separación entre icono y texto */
 }
 
 .logo img {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 
 .titulo-app {
-  font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-brown);
+  font-size: 20px;
 }
 
 nav ul {
   display: flex;
   list-style: none;
-  gap: 10px;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
 }
 
 nav li button {
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 10px 18px;
   font-weight: 600;
   background-color: var(--color-cream);
   color: var(--color-brown);
@@ -91,6 +86,8 @@ nav li button {
   border-radius: 999px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 nav li button:hover {
@@ -98,9 +95,8 @@ nav li button:hover {
   color: var(--color-brown);
 }
 
-/*=======================
-=       MAIN           =
-========================*/
+
+/*main*/
 main {
   max-width: 700px;
   margin: 40px auto;
@@ -119,15 +115,12 @@ h1 {
 }
 
 .info-text {
-  font-size: 16px;
   text-align: center;
   margin-bottom: 28px;
   color: var(--color-light-brown);
 }
 
-/*=============================
-=       TOGGLE BUTTONS       =
-==============================*/
+/* Progress Text */
 .toggle-buttons {
   display: flex;
   gap: 10px;
@@ -168,9 +161,7 @@ h1 {
   transform: scale(1.05);
 }
 
-/*=======================
-=        FORM          =
-========================*/
+/*Form Styles*/
 form {
   display: flex;
   flex-direction: column;
@@ -185,7 +176,6 @@ label {
 input[type="text"],
 select {
   padding: 10px;
-  font-size: 14px;
   background-color: var(--color-white);
   border: 2px solid var(--color-mint);
   border-radius: 10px;
@@ -205,9 +195,7 @@ select:disabled {
   color: #777;
 }
 
-/*=======================
-=     GENERIC BUTTONS  =
-========================*/
+/* Buttons */
 button {
   padding: 10px 18px;
   font-weight: 600;
@@ -236,9 +224,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/*=======================
-=     RESPONSIVE       =
-========================*/
+/* Responsive Styles */
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
