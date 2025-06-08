@@ -148,22 +148,22 @@
         button.textContent = "🔒"; // candado cerrado
     }
 }
-
-   window.addEventListener('DOMContentLoaded', () => {
+// Mostrar toast si hay mensaje de sesión (Laravel)Add commentMore actions
+    window.addEventListener('DOMContentLoaded', () => {
         const toastElement = document.getElementById('liveToast');
         const toastBody = document.getElementById('toast-body');
 
-        if (toastData.type === 'error') {
+        <?php if (session('error')): ?>
             toastElement.classList.remove('bg-success');
             toastElement.classList.add('bg-danger');
-            toastBody.textContent = toastData.message;
+            toastBody.textContent = "{{ session('error') }}";
             new bootstrap.Toast(toastElement).show();
-        } else if (toastData.type === 'success') {
+        <?php elseif (session('success')): ?>
             toastElement.classList.remove('bg-danger');
             toastElement.classList.add('bg-success');
-            toastBody.textContent = toastData.message;
+            toastBody.textContent = "{{ session('success') }}";
             new bootstrap.Toast(toastElement).show();
-        }
+        <?php endif; ?>
     });
 </script>
 
