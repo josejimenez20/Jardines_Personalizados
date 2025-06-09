@@ -21,6 +21,7 @@ class Planta extends Model
         'proposito',
         'descripcion',
         'imagen',
+        'tamano_espacio',
         'municipio_id',
     ];
 

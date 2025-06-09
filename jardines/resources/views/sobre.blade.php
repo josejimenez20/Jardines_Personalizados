@@ -30,54 +30,58 @@
 
   <div id="progressText">0 de 4 preguntas completadas</div>
 
-  <div class="question" data-question="riego">
-    <p>¿Con qué frecuencia riegas tu jardín?</p>
-    <div class="options">
-      <button class="option">Mucho</button>
-      <button class="option">Regular</button>
-      <button class="option">Poco</button>
-      <button class="option">Nunca</button>
-    </div>
+  <!-- Frecuencia de riego -->
+<div class="question" data-question="riego">
+  <p>¿Con qué frecuencia riegas tu jardín?</p>
+  <div class="options">
+    <button class="option" value="riego alto">Mucho</button>
+    <button class="option" value="riego moderado">Regular</button>
+    <button class="option" value="riego bajo">Poco</button>
+    <button class="option" value="riego nulo">Nunca</button>
   </div>
+</div>
 
-  <div class="question" data-question="suelo">
-    <p>¿Qué tipo de suelo tiene?</p>
-    <div class="options">
-      <button class="option">Arenoso</button>
-      <button class="option">Arcilloso</button>
-      <button class="option">Fértil</button>
-      <button class="option">Ácido</button>
-    </div>
+<!-- Tipo de suelo -->
+<div class="question" data-question="suelo">
+  <p>¿Qué tipo de suelo tiene?</p>
+  <div class="options">
+    <button class="option" value="suelo arenoso">Arenoso</button>
+    <button class="option" value="suelo arcilloso">Arcilloso</button>
+    <button class="option" value="suelo fértil">Fértil</button>
+    <button class="option" value="suelo ácido">Ácido</button>
   </div>
+</div>
 
-  <div class="question" data-question="tamano">
-    <p>¿Tamaño de espacio?</p>
-    <div class="options">
-      <button class="option">Pequeño 10m²</button>
-      <button class="option">Mediano 20m² - 50m²</button>
-      <button class="option">Grande 50m² - 100m²</button>
-    </div>
+<!-- Luz solar -->
+<div class="question" data-question="luz">
+  <p>¿Cuánta luz solar recibe tu jardín?</p>
+  <div class="options">
+    <button class="option" value="sombra">Sombra</button>
+    <button class="option" value="sombra parcial">Semi sombra</button>
+    <button class="option" value="sol pleno">Sol pleno</button>
   </div>
+</div>
 
-  <div class="question" data-question="luz">
-    <p>¿Cuánta luz solar recibe tu jardín?</p>
-    <div class="options">
-      <button class="option">Sombra</button>
-      <button class="option">Semi sombra</button>
-      <button class="option">Sol pleno</button>
-    </div>
+<!-- Tamaño -->
+<div class="question" data-question="tamano">
+  <p>¿Tamaño de espacio?</p>
+  <div class="options">
+    <button class="option" value="espacio pequeño">Pequeño 10m²</button>
+    <button class="option" value="espacio mediano">Mediano 20-50m²</button>
+    <button class="option" value="espacio grande">Grande 50-100m²</button>
   </div>
+</div>
 
   <button id="continueBtn" class="submit-button" disabled onclick="redirectToRegister()">Continuar</button>
 
   <!-- Formulario oculto que se envía con las respuestas -->
   <form id="filtroForm" action="{{ route('resultados.filtro') }}" method="POST" style="display: none;">
-    @csrf
-    <input type="hidden" name="frecuencia_agua" id="frecuencia_agua">
-    <input type="hidden" name="tipo_suelo" id="tipo_suelo">
-    <input type="hidden" name="tamano_espacio" id="tamano_espacio">
-    <input type="hidden" name="exposicion_luz" id="exposicion_luz">
-  </form>
+  @csrf
+  <input type="hidden" name="frecuencia_agua" id="frecuencia_agua">
+  <input type="hidden" name="tipo_suelo" id="tipo_suelo">
+  <input type="hidden" name="tamano_espacio" id="tamano_espacio">
+  <input type="hidden" name="exposicion_luz" id="exposicion_luz">
+</form>
 </main>
 
 <script>
@@ -99,7 +103,6 @@
 
   questions.forEach(question => {
     const options = question.querySelectorAll('.option');
-
     options.forEach(option => {
       option.addEventListener('click', () => {
         options.forEach(o => o.classList.remove('selected'));
@@ -121,15 +124,10 @@
   }
 
   function redirectToRegister() {
-    document.getElementById('frecuencia_agua').value =
-      document.querySelector('[data-question="riego"] .selected')?.innerText || '';
-    document.getElementById('tipo_suelo').value =
-      document.querySelector('[data-question="suelo"] .selected')?.innerText || '';
-    document.getElementById('tamano_espacio').value =
-      document.querySelector('[data-question="tamano"] .selected')?.innerText || '';
-    document.getElementById('exposicion_luz').value =
-      document.querySelector('[data-question="luz"] .selected')?.innerText || '';
-
+    document.getElementById('frecuencia_agua').value = document.querySelector('[data-question="riego"] .selected')?.value || '';
+    document.getElementById('tipo_suelo').value = document.querySelector('[data-question="suelo"] .selected')?.value || '';
+    document.getElementById('tamano_espacio').value = document.querySelector('[data-question="tamano"] .selected')?.value || '';
+    document.getElementById('exposicion_luz').value = document.querySelector('[data-question="luz"] .selected')?.value || '';
     document.getElementById('filtroForm').submit();
   }
 </script>

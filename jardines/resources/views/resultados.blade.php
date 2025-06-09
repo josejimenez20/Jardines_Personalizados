@@ -10,7 +10,7 @@
   <header>
     <div class="container header-content">
       <div class="logo">
-        <img src="{{ asset('img/logo_jardinespersonalizados.png') }}" alt="Logo de FLORGAERFRA" />
+        <img src="{{ asset('img/logo_jardinespersonalizados.png') }}" alt="Logo" />
         <span class="titulo-app">Resultados de Plantas</span>
       </div>
       <nav>
@@ -26,15 +26,9 @@
   <div class="container">
     <div class="filter-section">
       <div class="filter-criteria">
-        <p>{{ $mensaje ?? 'Basado en: Clima tropical cálido, suelo arenoso, sol pleno, riego moderado' }}</p>
-      </div>
       <div class="filter-count">{{ count($plantas) }} plantas encontradas</div>
+      </div>
       <div class="filter-buttons">
-        <button class="filter-btn active" data-category="todas">Todas</button>
-        <button class="filter-btn" data-category="ornamentales">Ornamentales</button>
-        <button class="filter-btn" data-category="medicinales">Medicinales</button>
-        <button class="filter-btn" data-category="frutales">Frutales</button>
-        <button class="filter-btn" data-category="otras">Otras</button>
       </div>
     </div>
 

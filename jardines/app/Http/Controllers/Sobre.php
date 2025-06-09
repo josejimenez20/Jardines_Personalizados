@@ -19,40 +19,34 @@ class Sobre extends Controller
 
     public function buscarPorFiltros(Request $request)
 {
-    // Normaliza las respuestas del usuario
-    $mapFrecuencia = [
-        'Mucho' => 'alto',
-        'Regular' => 'moderado',
-        'Poco' => 'bajo',
-        'Nunca' => 'nulo'
-    ];
+    $frecuencia = $request->frecuencia_agua;
+    $suelo = $request->tipo_suelo;
+    $luz = $request->exposicion_luz;
+    $espacio = $request->tamano_espacio;
 
-    $mapSuelo = [
-        'Arenoso' => 'arenoso',
-        'Arcilloso' => 'arcilloso',
-        'Fértil' => 'fértil',
-        'Ácido' => 'ácido'
-    ];
+    // Verifica si al menos uno de los filtros tiene valor
+    if (!$frecuencia && !$suelo && !$luz && !$espacio) {
+        return redirect()->back()->with('error', 'Debes seleccionar al menos un filtro.');
+    }
 
-    $mapLuz = [
-        'Sombra' => 'sombra',
-        'Semi sombra' => 'sombra parcial',
-        'Sol pleno' => 'sol pleno'
-    ];
-
-    // Obtener valores mapeados
-    $frecuencia = $mapFrecuencia[$request->frecuencia_agua] ?? null;
-    $suelo = $mapSuelo[$request->tipo_suelo] ?? null;
-    $luz = $mapLuz[$request->exposicion_luz] ?? null;
-
-    $plantas = \App\Models\Planta::query()
-        ->when($frecuencia, fn($q) => $q->where('frecuencia_agua', $frecuencia))
-        ->when($suelo, fn($q) => $q->where('tipo_suelo', $suelo))
-        ->when($luz, fn($q) => $q->where('exposicion_luz', $luz))
+    // Construye la consulta condicionalmente según los filtros presentes
+    $plantas = Planta::query()
+        ->when($frecuencia, fn($q) => $q->orWhere('frecuencia_agua', $frecuencia))
+        ->when($suelo, fn($q) => $q->orWhere('tipo_suelo', $suelo))
+        ->when($luz, fn($q) => $q->orWhere('exposicion_luz', $luz))
+        ->when($espacio, fn($q) => $q->orWhere('tamano_espacio', $espacio))
         ->get();
 
-    $mensaje = "Basado en: Suelo {$suelo}, {$luz}, riego {$frecuencia}";
+    // Crear mensaje con los filtros usados
+    $partes = [];
+    if ($suelo) $partes[] = "suelo " . strtolower($suelo);
+    if ($luz) $partes[] = strtolower($luz);
+    if ($frecuencia) $partes[] = "riego " . strtolower($frecuencia);
+    if ($espacio) $partes[] = "espacio " . strtolower($espacio);
+
+    $mensaje = 'Basado en: ' . implode(', ', $partes);
 
     return view('resultados', compact('plantas', 'mensaje'));
-    }
+}
+
 }
