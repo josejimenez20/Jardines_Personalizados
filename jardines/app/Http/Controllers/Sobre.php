@@ -18,35 +18,50 @@ class Sobre extends Controller
     }
 
     public function buscarPorFiltros(Request $request)
-{
-    $frecuencia = $request->frecuencia_agua;
-    $suelo = $request->tipo_suelo;
-    $luz = $request->exposicion_luz;
-    $espacio = $request->tamano_espacio;
+    {
+        $frecuencia = $request->frecuencia_agua;
+        $suelo = $request->tipo_suelo;
+        $luz = $request->exposicion_luz;
+        $espacio = $request->tamano_espacio;
 
-    // Verifica si al menos uno de los filtros tiene valor
-    if (!$frecuencia && !$suelo && !$luz && !$espacio) {
-        return redirect()->back()->with('error', 'Debes seleccionar al menos un filtro.');
+        if (!$frecuencia && !$suelo && !$luz && !$espacio) {
+            return redirect()->back()->with('error', 'Debes seleccionar al menos un filtro.');
+        }
+
+        $query = Planta::query();
+
+        if ($frecuencia) {
+            $query->where('frecuencia_agua', $frecuencia);
+        }
+
+        if ($suelo) {
+            $query->where('tipo_suelo', $suelo);
+        }
+
+        if ($luz) {
+            $query->where('exposicion_luz', $luz);
+        }
+
+        if ($espacio) {
+            $query->where('tamano_espacio', $espacio);
+        }
+
+        $plantas = $query->get();
+
+        $partes = [];
+        if ($suelo) $partes[] = strtolower($suelo);
+        if ($luz) $partes[] = strtolower($luz);
+        if ($frecuencia) $partes[] = strtolower($frecuencia);
+        if ($espacio) $partes[] = strtolower($espacio);
+
+        $mensaje = 'Filtros seleccionados: ' . implode(', ', $partes);
+
+        if ($plantas->isEmpty()) {
+            return view('resultados', compact('plantas', 'mensaje'));
+        }
+
+        session()->flash('alerta_filtros', 'Estas plantas se han seleccionado según tus preferencias.');
+
+        return view('resultados', compact('plantas', 'mensaje'));
     }
-
-    // Construye la consulta condicionalmente según los filtros presentes
-    $plantas = Planta::query()
-        ->when($frecuencia, fn($q) => $q->orWhere('frecuencia_agua', $frecuencia))
-        ->when($suelo, fn($q) => $q->orWhere('tipo_suelo', $suelo))
-        ->when($luz, fn($q) => $q->orWhere('exposicion_luz', $luz))
-        ->when($espacio, fn($q) => $q->orWhere('tamano_espacio', $espacio))
-        ->get();
-
-    // Crear mensaje con los filtros usados
-    $partes = [];
-    if ($suelo) $partes[] = "suelo " . strtolower($suelo);
-    if ($luz) $partes[] = strtolower($luz);
-    if ($frecuencia) $partes[] = "riego " . strtolower($frecuencia);
-    if ($espacio) $partes[] = "espacio " . strtolower($espacio);
-
-    $mensaje = 'Basado en: ' . implode(', ', $partes);
-
-    return view('resultados', compact('plantas', 'mensaje'));
-}
-
 }

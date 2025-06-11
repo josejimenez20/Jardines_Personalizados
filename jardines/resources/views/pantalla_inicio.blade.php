@@ -6,6 +6,8 @@
   <title>Florgaerfra</title>
   <link rel="shortcut icon" href="{{ asset('Img/logo_imagen.png') }}" type="image/png" />
   <link rel="stylesheet" href="{{ asset('css/pantalla_inicio.css') }}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
 </head>
 <body>
   <header>
@@ -16,11 +18,15 @@
       </div>
       <nav>
         <ul>
-          <li><button id="btn-inicio">Inicio</button></li>
-          <li><button id="btn-recomendaciones">Recomendaciones</button></li>
-          <li><button id="btn-cuenta">Mi cuenta</button></li>
+          <li><button id="btn-cuenta">Mi perfil</button></li>
+          <li><button id="btn-cerrar">Cerrar sesión</button></li>
         </ul>
       </nav>
+
+      <!-- Formulario oculto para cerrar sesión -->
+      <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+      </form>
     </div>
   </header>
 
@@ -49,13 +55,8 @@
         <label for="luz">Exposición a la luz</label>
         <input type="text" id="luz" value="{{ $municipio->exposicion_luz }}" readonly />
 
-        <label for="espacio">Tamaño del espacio</label>
-        <select id="espacio" disabled>
-          <option value="mediano">Mediano (5-20m²)</option>
-        </select>
-
-        <label for="proposito">Propósito (opcional)</label>
-        <input type="text" id="proposito" value="{{ $municipio->proposito }}" readonly />
+        <label for="espacio">Tamaño de jardín ideal para ti</label>
+        <input type="text" id="espacio" value="{{ $plantaReferencia->tamano_espacio ?? 'No disponible' }}" readonly />
       </form>
     @else
       <p class="info-text">
@@ -64,17 +65,25 @@
     @endif
   </main>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
   <script>
-    document.getElementById('btn-inicio').addEventListener('click', () => {
-      window.location.href = "{{ route('pantalla_inicio') }}";
-    });
-
-    document.getElementById('btn-recomendaciones').addEventListener('click', () => {
-      window.location.href = "{{ route('recomen') }}";
-    });
-
     document.getElementById('btn-cuenta').addEventListener('click', () => {
       window.location.href = "{{ route('mi_perfil') }}";
+    });
+
+    document.getElementById('btn-cerrar').addEventListener('click', (e) => {
+      e.preventDefault();
+      alertify.confirm(
+        'Cerrar sesión',
+        '¿Estás seguro de que deseas cerrar sesión?',
+        function() {
+          document.getElementById('logoutForm').submit();
+        },
+        function() {
+          alertify.error('Cancelado');
+        }
+      );
     });
 
     function redirectToHome() {
