@@ -29,6 +29,10 @@ class Planta extends Model
     {
         return $this->belongsTo(Municipio::class);
     }
+
+    // ✅ Relación: muchos usuarios que marcaron esta planta como favorita
+    public function usuariosFavoritos()
+    {
+        return $this->belongsToMany(User::class, 'planta_usuario')->withTimestamps();
+    }
 }
-
-

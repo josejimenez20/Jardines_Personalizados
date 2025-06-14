@@ -14,14 +14,14 @@
 html, body {
   height: 100%;
   width: 100%;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-  font-size: 18px;
 }
 
 /*Body*/
@@ -29,12 +29,13 @@ body {
   background-color: var(--color-pale-ivory);
   color: var(--color-brown);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 header {
   background-color: var(--color-cream);
   border-bottom: 2px solid var(--color-light-green);
-  padding: 18px 0; /* más padding para que respire */
+  padding: 18px 0;
   width: 100%;
   position: sticky;
   top: 0;
@@ -45,7 +46,7 @@ header {
 .container.header-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px; /* más separación horizontal */
+  padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,7 +55,7 @@ header {
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px; /* más separación entre icono y texto */
+  gap: 12px;
 }
 
 .logo img {
@@ -95,16 +96,17 @@ nav li button:hover {
   color: var(--color-brown);
 }
 
-
 /*main*/
 main {
-  max-width: 700px;
+  max-width: 900px;
+  width: 100%;
   margin: 40px auto;
   padding: 30px 25px;
   background-color: var(--color-off-white);
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
+  min-height: calc(100vh - 140px); /* Ajuste visual */
 }
 
 h1 {
@@ -112,6 +114,7 @@ h1 {
   text-align: center;
   margin-bottom: 24px;
   color: var(--color-brown);
+  font-weight: bold;
 }
 
 .info-text {
@@ -120,12 +123,13 @@ h1 {
   color: var(--color-light-brown);
 }
 
-/* Progress Text */
+/* Toggle Buttons */
 .toggle-buttons {
   display: flex;
   gap: 10px;
   justify-content: center;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .btn-primary {

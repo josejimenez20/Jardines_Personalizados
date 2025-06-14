@@ -9,6 +9,7 @@ use App\Http\Controllers\Recomen;
 use App\Http\Controllers\Resultados;
 use App\Http\Controllers\Sobre;
 use App\Http\Controllers\PlantaController;
+use App\Http\Controllers\PlantasfavoritasController;
 
 // RUTA INICIAL
 // Redirige a la página de inicio de sesión
@@ -29,7 +30,9 @@ Route::get('/detalles_plantas', [Sobre::class, 'detalles'])->name('detalles_plan
 Route::get('/resultados', [PlantaController::class, 'mostrarPorMunicipio'])->name('resultados');
 Route::post('/sobre', [Sobre::class, 'buscarPorFiltros'])->name('resultados.filtro');
 Route::get('/planta/{id}', [PlantaController::class, 'verDetalle'])->name('detalle.planta');
-
+Route::get('/plantasfavoritas', [PlantasfavoritasController::class, 'plantasfavoritas'])->name('plantasfavoritas');
+Route::post('/favoritos/{id}', [PlantasfavoritasController::class, 'agregar'])->name('favoritos.agregar');
+Route::delete('/favoritos/{id}', [PlantasfavoritasController::class, 'eliminar'])->name('favoritos.eliminar');
 
 
 
