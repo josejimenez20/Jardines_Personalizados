@@ -18,36 +18,21 @@
   --shadow-focus: 0 0 8px var(--color-accent);
   --radius-base: 8px;
 }
-
-@font-face {
-  font-family: 'Arial';
-  src: local('Arial'), local('Arial-Regular');
-}
-
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
-*,
-*::before,
-*::after {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font-primary);
+  font-family: Arial, sans-serif;
+  font-size: 18px;
 }
 
 body {
-  background-color: var(--color-pale-ivory);
-  min-height: 100vh;
+  background-color: var(--color-off-white);
+  color: var(--color-brown);
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   overflow-x: hidden;
-  color: var(--color-brown);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  user-select: none;
 }
 
 .page {

@@ -1,13 +1,18 @@
-body {
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
-  font-size: 19px;
-  background: linear-gradient(135deg, #f6eec9, #e0eec6);
-  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+body {
+  background-color: var(--color-off-white);
+  color: var(--color-brown);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .perfil-wrapper {
