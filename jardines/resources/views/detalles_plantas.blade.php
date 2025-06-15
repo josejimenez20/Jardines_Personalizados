@@ -68,9 +68,6 @@
     <a href="{{ route('plantasfavoritas') }}" class="btn btn-outline-success">
       <i class="bi bi-heart-fill me-2"></i> Ver Mis Plantas Favoritas
     </a>
-    <a href="{{ route('resultados') }}" class="btn btn-outline-secondary">
-      <i class="bi bi-arrow-left-circle me-2"></i> Volver a Resultados
-    </a>
   </div>
 </div>
 

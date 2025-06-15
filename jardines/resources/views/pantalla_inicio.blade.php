@@ -35,8 +35,7 @@
 
     @if(isset($municipio))
       <p class="info-text">
-        Basado en tu ubicación ({{ $municipio->nombre }}),<br />
-        te recomendamos especies para clima {{ strtolower($municipio->clima) }}.<br />
+        Basado en tu ubicación {{ $municipio->nombre }}<br />
         ¿Deseas ajustar los filtros manualmente?
       </p>
 
@@ -64,8 +63,6 @@
       </p>
     @endif
   </main>
-
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
   <script>
     document.getElementById('btn-cuenta').addEventListener('click', () => {

@@ -36,9 +36,6 @@
       <img src="{{ asset('img/logo_jardinespersonalizados.png') }}" alt="Logo" width="40">
       <span class="titulo-app">FLORGAERFRA</span>
     </div>
-    <a href="{{ route('resultados') }}" class="btn-volver">
-      <i class="bi bi-arrow-left-circle me-1"></i> Volver a Resultados
-    </a>
   </div>
 </header>
 

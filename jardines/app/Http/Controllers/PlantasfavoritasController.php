@@ -23,12 +23,15 @@ class PlantasfavoritasController extends Controller
 {
     $usuario = Auth::user();
 
-    // Verificar si ya la tiene en favoritos
-    if (!$usuario->plantasFavoritas()->where('planta_id', $id)->exists()) {
-        $usuario->plantasFavoritas()->attach($id);
+    // Si ya está en favoritos, responder con JSON personalizado
+    if ($usuario->plantasFavoritas()->where('planta_id', $id)->exists()) {
+        return response()->json(['estado' => 'existe']);
     }
 
-    return redirect()->back()->with('success', Planta::find($id)->nombre . ' ha sido agregada a tus plantas!');
+    $usuario->plantasFavoritas()->attach($id);
+
+    // Devuelve confirmación en JSON
+    return response()->json(['estado' => 'agregado']);
 }
 
 public function eliminar($id)

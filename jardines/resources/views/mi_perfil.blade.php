@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="{{ asset('css/perfil.css') }}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Alertify -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
 </head>
 <body>
   <div class="perfil-wrapper">
@@ -33,7 +37,7 @@
 
       @if ($errors->any())
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <strong>⚠️ Por favor corrige lo siguiente:</strong>
+          <strong></strong>
           <ul class="mb-0">
             @foreach ($errors->all() as $error)
               <li>{{ $error }}</li>
@@ -73,34 +77,43 @@
 
       <hr>
 
-      <!-- Eliminar cuenta -->
+      <!-- Eliminar cuenta con Alertify -->
       <section class="perfil-section">
         <h3>Eliminar cuenta</h3>
-        <form action="{{ route('perfil.deleteAccount') }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.');">
+        <form id="form-delete" action="{{ route('perfil.deleteAccount') }}" method="POST">
           @csrf
-          <button type="submit" class="btn-danger">Eliminar cuenta permanentemente</button>
+          <button type="button" class="btn-danger" onclick="confirmDelete()">Eliminar cuenta</button>
         </form>
       </section>
-
-      <!-- Cerrar sesión -->
-      <form method="POST" action="{{ route('logout') }}" class="logout-form mt-3">
-        @csrf
-        <button type="submit" class="btn-secondary">Cerrar sesión</button>
-      </form>
-
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
   <script>
+    // Validación contraseñas coincidan
     document.getElementById('form-password').addEventListener('submit', function(e) {
       const newPass = this.querySelector('input[name="new_password"]').value;
       const confirmPass = this.querySelector('input[name="confirm_password"]').value;
       if (newPass !== confirmPass) {
         e.preventDefault();
-        alert("Las contraseñas no coinciden.");
+        alertify.error("Las contraseñas no coinciden.");
       }
     });
+
+    // Confirmación eliminar cuenta
+    function confirmDelete() {
+      alertify.confirm('Eliminar cuenta',
+        '¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.',
+        function() {
+          document.getElementById('form-delete').submit();
+        },
+        function() {
+          alertify.error('Cancelado');
+        }
+      ).set('labels', {ok:'Sí, eliminar', cancel:'Cancelar'}).set('closable', false);
+    }
   </script>
 </body>
 </html>

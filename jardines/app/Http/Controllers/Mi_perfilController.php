@@ -25,13 +25,13 @@ class Mi_perfilController extends Controller
 
         $user = \App\Models\User::find(Auth::id());
         if (!$user || !Hash::check($request->current_password, $user->password)) {
-            return back()->withErrors(['current_password' => 'La contraseña actual no es correcta.']);
+            return back()->withErrors(['current_password' => 'La contraseña actual no es valida']);
         }
 
         $user->password = Hash::make($request->new_password);
         $user->save();
 
-        return back()->with('success', '¡Contraseña actualizada con éxito!');
+        return back()->with('success', 'Tu contraseña ha sido actualizada con exito');
     }
 
     // Cambiar correo electrónico
@@ -45,14 +45,14 @@ class Mi_perfilController extends Controller
                 Rule::unique('users')->ignore(Auth::id()),
             ],
         ], [
-            'email.regex' => 'El formato del correo no es válido.'
+            'email.regex' => 'El correo ingeresado no es valido',
         ]);
 
         $user = \App\Models\User::find(Auth::id());
         $user->email = $request->email;
         $user->save();
 
-        return back()->with('success', 'Correo actualizado correctamente.');
+        return back()->with('success', 'Tu correo ha sido actualizado correctamente');
     }
 
     // Eliminar cuenta
