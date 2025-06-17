@@ -1,14 +1,15 @@
 {
     "private": true,
     "type": "module",
-    "scripts": {
-        "build": "vite build",
-        "build:ssr": "vite build && vite build --ssr",
-        "dev": "vite",
-        "format": "prettier --write resources/",
-        "format:check": "prettier --check resources/",
-        "lint": "eslint . --fix"
-    },
+"scripts": {
+    "start-server": "node server.cjs",
+    "build": "vite build",
+    "build:ssr": "vite build && vite build --ssr",
+    "dev": "vite",
+    "format": "prettier --write resources/",
+    "format:check": "prettier --check resources/",
+    "lint": "eslint . --fix"
+   },
     "devDependencies": {
         "@eslint/js": "^9.19.0",
         "@types/node": "^22.13.5",
@@ -30,6 +31,8 @@
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "concurrently": "^9.0.1",
+        "cors": "^2.8.5",
+        "express": "^5.1.0",
         "laravel-vite-plugin": "^1.0",
         "lucide-vue-next": "^0.468.0",
         "reka-ui": "^2.2.0",

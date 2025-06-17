@@ -22,8 +22,6 @@
           <li><button id="btn-cerrar">Cerrar sesión</button></li>
         </ul>
       </nav>
-
-      <!-- Formulario oculto para cerrar sesión -->
       <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
       </form>
@@ -63,6 +61,7 @@
       </p>
     @endif
   </main>
+
   <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
   <script>
     document.getElementById('btn-cuenta').addEventListener('click', () => {
@@ -90,6 +89,49 @@
     function redirectToRegister() {
       window.location.href = "{{ route('sobre') }}";
     }
+
+    //Gráfica animada con colores según nivel
+    document.addEventListener('DOMContentLoaded', async () => {
+      const suelo = document.getElementById('suelo')?.value;
+      const agua = document.getElementById('agua')?.value;
+      const luz = document.getElementById('luz')?.value;
+      const espacio = document.getElementById('espacio')?.value;
+
+      if (!suelo || !agua || !luz || !espacio) return;
+
+      try {
+        const response = await fetch('http://localhost:3000/analisis', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ suelo, agua, luz, espacio })
+        });
+
+        const { porcentaje } = await response.json();
+
+        let color = '#dc3545'; // rojo
+        if (porcentaje >= 75) color = '#28a745'; // verde
+        else if (porcentaje >= 50) color = '#ffc107'; // amarillo
+
+        const barra = document.createElement('div');
+        barra.innerHTML = `
+          <p style="margin-top: 30px; font-weight: bold;">Nivel de compatibilidad con tu jardín:</p>
+          <div style="background: #ccc; border-radius: 10px; overflow: hidden; width: 100%; height: 30px;">
+            <div style="width: 0%; height: 100%; background: ${color}; text-align: center; color: white; line-height: 30px; transition: width 1.5s;" id="barraCompatibilidad">
+              0%
+            </div>
+          </div>
+        `;
+        document.querySelector('.main-content').appendChild(barra);
+
+        setTimeout(() => {
+          const barraInterna = document.getElementById('barraCompatibilidad');
+          barraInterna.style.width = porcentaje + '%';
+          barraInterna.innerText = porcentaje + '%';
+        }, 400);
+      } catch (error) {
+        console.error('Error al obtener análisis:', error);
+      }
+    });
   </script>
 </body>
 </html>

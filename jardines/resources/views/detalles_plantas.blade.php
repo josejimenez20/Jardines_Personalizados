@@ -57,17 +57,17 @@
     </section>
 
     <div class="boton-agregar">
-  <form method="POST" action="{{ route('favoritos.agregar', $planta->id) }}">
-    @csrf
-  </form>
+      <form method="POST" action="{{ route('favoritos.agregar', $planta->id) }}">
+        @csrf
+      </form>
 
-  <div class="botones-extra">
-    <a href="{{ route('plantasfavoritas') }}" class="btn btn-outline-success">
-      <i class="bi bi-heart-fill me-2"></i> Ver Mis Plantas Favoritas
-    </a>
+      <div class="botones-extra">
+        <a href="{{ route('plantasfavoritas') }}" class="btn btn-outline-success">
+          <i class="bi bi-heart-fill me-2"></i> Ver Mis Plantas Favoritas
+        </a>
+      </div>
+    </div>
   </div>
-</div>
-
 </main>
 
 <script>
@@ -79,6 +79,39 @@
       confirmButtonColor: '#A3B18A'
     });
   @endif
+
+  // Notificación de escritorio al ver una planta
+  document.addEventListener("DOMContentLoaded", () => {
+    if ("Notification" in window) {
+      if (Notification.permission !== "granted") {
+        Notification.requestPermission();
+      }
+      if (Notification.permission === "granted") {
+        new Notification("Detalle de planta 👨🏻‍🌾", {
+          body: "Esta planta podría ser ideal para tu jardín.",
+          icon: "{{ asset('img/notificacion.png') }}"
+        });
+      }
+    }
+
+    // Simulación de envío de notificación al servidor NodeJS
+    fetch('http://localhost:3000/notificar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        evento: 'vista_detalle',
+        planta: "{{ $planta->nombre }}",
+        usuario: "{{ Auth::user()->name }}"
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log('✅ Notificación simulada enviada al servidor:', data);
+    })
+    .catch(err => {
+      console.error('❌ Error al contactar al servidor NodeJS:', err);
+    });
+  });
 </script>
 </body>
 </html>
