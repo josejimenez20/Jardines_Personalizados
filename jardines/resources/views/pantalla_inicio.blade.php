@@ -90,20 +90,14 @@
       window.location.href = "{{ route('sobre') }}";
     }
 
-    //Gráfica animada con colores según nivel
     document.addEventListener('DOMContentLoaded', async () => {
-      const suelo = document.getElementById('suelo')?.value;
-      const agua = document.getElementById('agua')?.value;
-      const luz = document.getElementById('luz')?.value;
-      const espacio = document.getElementById('espacio')?.value;
-
-      if (!suelo || !agua || !luz || !espacio) return;
+      const userId = @json(Auth::user()->id);
 
       try {
         const response = await fetch('http://localhost:3000/analisis', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ suelo, agua, luz, espacio })
+          body: JSON.stringify({ user_id: userId })
         });
 
         const { porcentaje } = await response.json();
