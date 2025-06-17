@@ -67,13 +67,15 @@
           </div>
         </a>
 
-        <form method="POST" action="{{ route('favoritos.eliminar', $planta->id) }}" class="form-eliminar text-center my-2">
-          @csrf
-          @method('DELETE')
-          <button type="submit" class="btn btn-danger btn-sm w-100">
-            <i class="bi bi-trash"></i> Eliminar
-          </button>
-        </form>
+        {{-- 
+<form method="POST" action="{{ route('favoritos.eliminar', $planta->id) }}" class="form-eliminar text-center my-2">
+  @csrf
+  @method('DELETE')
+  <button type="submit" class="btn btn-danger btn-sm w-100">
+    <i class="bi bi-trash"></i> Eliminar
+  </button>
+</form>
+--}}
       </div>
     @endforeach
   </div>

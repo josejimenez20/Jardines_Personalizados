@@ -251,3 +251,78 @@ button:disabled {
     padding: 20px;
   }
 }
+.ajs-dialog {
+  background: var(--color-off-white);
+  border-radius: 20px;
+  border: 2px solid var(--color-light-green);
+  box-shadow: 0 10px 24px rgba(123, 147, 103, 0.25);
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  padding-top: 10px;
+}
+
+/* Título del cuadro */
+.ajs-header {
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+  font-size: 22px;
+  font-weight: bold;
+  padding: 18px 24px 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-light-green);
+}
+
+/* Cuerpo */
+.plant-alert-text {
+  background-color: var(--color-pale-ivory);
+  color: var(--color-light-brown);
+  text-align: center;
+  font-size: 18px;
+  padding: 20px 30px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Área de botones */
+.ajs-footer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--color-light-green);
+}
+
+/* Botón OK (Sí, cerrar) */
+.ajs-footer .ajs-buttons .ajs-ok {
+  background-color: var(--color-light-green);
+  color: #7F5539 !important;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.ajs-footer .ajs-buttons .ajs-ok:hover {
+  background-color: var(--color-mint);
+  color: var(--color-brown) !important;
+  transform: scale(1.05);
+}
+
+/* Botón Cancelar (No, volver) */
+.ajs-footer .ajs-buttons .ajs-cancel {
+  background-color: white;
+  color: var(--color-brown) !important;
+  border: 2px solid var(--color-light-brown);
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.ajs-footer .ajs-buttons .ajs-cancel:hover {
+  background-color: var(--color-pale-ivory);
+  transform: scale(1.05);
+}
+

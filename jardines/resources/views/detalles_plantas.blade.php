@@ -59,9 +59,6 @@
     <div class="boton-agregar">
   <form method="POST" action="{{ route('favoritos.agregar', $planta->id) }}">
     @csrf
-    <button type="submit">
-      <i class="bi bi-plus-circle me-2"></i> Agregar a mis plantas
-    </button>
   </form>
 
   <div class="botones-extra">

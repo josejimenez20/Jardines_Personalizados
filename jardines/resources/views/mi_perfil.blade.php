@@ -16,18 +16,17 @@
   <div class="perfil-wrapper">
     <div class="perfil-card">
 
-      <!-- Ícono de regreso al inicio -->
+
       <a href="{{ route('pantalla_inicio') }}" class="back-home" title="Volver al inicio">
         <i class="bi bi-door-open-fill"></i>
       </a>
 
-      <!-- Cabecera -->
       <header class="perfil-header">
-        <h2>🌼 Hola, <span>{{ Auth::user()->name }}</span></h2>
+        <h2> Hola, <span>{{ Auth::user()->name }}</span></h2>
         <p class="email">📧 {{ Auth::user()->email }}</p>
       </header>
 
-      <!-- Mensajes -->
+
       @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ session('success') }}
