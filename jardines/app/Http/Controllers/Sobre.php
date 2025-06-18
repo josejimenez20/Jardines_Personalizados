@@ -17,51 +17,60 @@ class Sobre extends Controller
         return view('detalles_plantas');
     }
 
-    public function buscarPorFiltros(Request $request)
-    {
-        $frecuencia = $request->frecuencia_agua;
-        $suelo = $request->tipo_suelo;
-        $luz = $request->exposicion_luz;
-        $espacio = $request->tamano_espacio;
+   public function buscarPorFiltros(Request $request)
+{
+    $filtros = [
+        'frecuencia_agua' => $request->frecuencia_agua,
+        'tipo_suelo' => $request->tipo_suelo,
+        'exposicion_luz' => $request->exposicion_luz,
+        'tamano_espacio' => $request->tamano_espacio
+    ];
 
-        if (!$frecuencia && !$suelo && !$luz && !$espacio) {
-            return redirect()->back()->with('error', 'Debes seleccionar al menos un filtro.');
-        }
+    $filtrosSeleccionados = array_filter($filtros);
 
-        $query = Planta::query();
-
-        if ($frecuencia) {
-            $query->where('frecuencia_agua', $frecuencia);
-        }
-
-        if ($suelo) {
-            $query->where('tipo_suelo', $suelo);
-        }
-
-        if ($luz) {
-            $query->where('exposicion_luz', $luz);
-        }
-
-        if ($espacio) {
-            $query->where('tamano_espacio', $espacio);
-        }
-
-        $plantas = $query->get();
-
-        $partes = [];
-        if ($suelo) $partes[] = strtolower($suelo);
-        if ($luz) $partes[] = strtolower($luz);
-        if ($frecuencia) $partes[] = strtolower($frecuencia);
-        if ($espacio) $partes[] = strtolower($espacio);
-
-        $mensaje = 'Filtros seleccionados: ' . implode(', ', $partes);
-
-        if ($plantas->isEmpty()) {
-            return view('resultados', compact('plantas', 'mensaje'));
-        }
-
-        session()->flash('alerta_filtros', 'Estas plantas se han seleccionado según tus preferencias.');
-
-        return view('resultados', compact('plantas', 'mensaje'));
+    if (empty($filtrosSeleccionados)) {
+        return redirect()->back()->with('error', 'Debes seleccionar al menos un filtro.');
     }
+
+    $cantidadFiltros = count($filtrosSeleccionados);
+    $minCoincidencias = match ($cantidadFiltros) {
+        1 => 1,
+        2 => 2,
+        3 => 2,
+        4 => 3,
+        default => 1,
+    };
+
+    $plantas = Planta::all()->map(function ($planta) use ($filtrosSeleccionados) {
+        $coincidencias = 0;
+        foreach ($filtrosSeleccionados as $campo => $valor) {
+            if (strtolower($planta->$campo) === strtolower($valor)) {
+                $coincidencias++;
+            }
+        }
+        $planta->coincidencias = $coincidencias;
+        return $planta;
+    });
+
+    $plantasFiltradas = $plantas->filter(fn($p) => $p->coincidencias >= $minCoincidencias)
+                                ->sortByDesc('coincidencias')
+                                ->values();
+
+    $mensaje = 'Filtros seleccionados: ' . implode(', ', array_map('strtolower', array_values($filtrosSeleccionados)));
+
+    if ($plantasFiltradas->isEmpty()) {
+        session()->flash('alerta_filtros', '');
+        return view('resultados', [
+            'plantas' => $plantasFiltradas,
+            'mensaje' => $mensaje
+        ]);
+    }
+
+    session()->flash('alerta_filtros', 'Estas plantas se han seleccionado según tus preferencias.');
+    return view('resultados', [
+        'plantas' => $plantasFiltradas,
+        'mensaje' => $mensaje
+    ]);
+}
+
 }

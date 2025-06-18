@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Detalle de Planta</title>
+  <title>Detalles de la Planta</title>
+  <link rel="shortcut icon" href="{{ asset('Img/logo_imagen.png') }}" type="image/png" />
   <link rel="stylesheet" href="{{ asset('css/detalles.css') }}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

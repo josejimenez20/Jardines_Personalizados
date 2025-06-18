@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Florgaerfra</title>
+  <title>Pantalla de Inicio</title>
   <link rel="shortcut icon" href="{{ asset('Img/logo_imagen.png') }}" type="image/png" />
   <link rel="stylesheet" href="{{ asset('css/pantalla_inicio.css') }}" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
@@ -91,7 +91,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
-      const userId = @json(Auth::user()->id);
+      const userId = {{ Auth::user()->id ?? 'null' }};
+
+      if (!userId || isNaN(userId)) {
+        console.warn("⚠️ Usuario no autenticado o ID inválido, omitiendo análisis.");
+        return;
+      }
 
       try {
         const response = await fetch('http://localhost:3000/analisis', {
@@ -100,7 +105,14 @@
           body: JSON.stringify({ user_id: userId })
         });
 
-        const { porcentaje } = await response.json();
+        const data = await response.json();
+
+        if (!data.porcentaje && data.porcentaje !== 0) {
+          console.warn("❗ Respuesta inesperada del servidor:", data);
+          return;
+        }
+
+        const porcentaje = data.porcentaje;
 
         let color = '#dc3545'; // rojo
         if (porcentaje >= 75) color = '#28a745'; // verde
@@ -123,7 +135,7 @@
           barraInterna.innerText = porcentaje + '%';
         }, 400);
       } catch (error) {
-        console.error('Error al obtener análisis:', error);
+        console.error('❌ Error al obtener análisis desde NodeJS:', error);
       }
     });
   </script>

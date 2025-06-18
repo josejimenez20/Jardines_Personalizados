@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Florgaerfra</title>
-  <link rel="shortcut icon" href="/Img/logo_imagen.png" type="image/png">
+  <title>Filtros de personalización</title>
+  <link rel="shortcut icon" href="{{ asset('Img/logo_imagen.png') }}" type="image/png" />
   <link rel="stylesheet" href="{{ asset('css/sobre.css') }}" />
 </head>
 <body>
